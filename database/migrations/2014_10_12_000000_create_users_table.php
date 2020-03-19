@@ -6,33 +6,36 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->integer('phone')->unique();
-            $table->string('url_image')->nullable();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
-    }
+  /**
+  * Run the migrations.
+  *
+  * @return void
+  */
+  public function up()
+  {
+    Schema::create('users', function (Blueprint $table) {
+      $table->bigIncrements('id');
+      $table->bigInteger('dpi')->unique()->nullable();
+      $table->string('name');
+      $table->string('lastname', 100)->nullable();
+      $table->string('email')->unique();
+      $table->integer('phone')->unique();
+      $table->string('url_image')->nullable();
+      $table->timestamp('email_verified_at')->nullable();
+      $table->boolean('check_terms');
+      $table->string('password');
+      $table->rememberToken();
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('users');
-    }
+  /**
+  * Reverse the migrations.
+  *
+  * @return void
+  */
+  public function down()
+  {
+    Schema::dropIfExists('users');
+  }
 }
