@@ -15,9 +15,20 @@ class CreateUsersTable extends Migration
     {
         Schema::create('status', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 100);
-            $table->string('description', 100);
+            $table->string('name', 50);
+            $table->string('description', 250);
             $table->timestamps();
+        });
+
+        Schema::create('wallets', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('tokens');
+            $table->integer('used_tkns');
+            $table->unsignedBigInteger('status_id');
+            $table->foreign('status_id')
+                ->references('id')->on('status');
+            $table->timestamps();
+            $table->bigInteger('tx_usr_id')->nullable();
         });
 
         Schema::create('users', function (Blueprint $table) {
@@ -34,6 +45,9 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->unsignedInteger('role_id');
+            $table->unsignedBigInteger('wallet_id');
+            $table->foreign('wallet_id')
+                ->references('id')->on('wallets');
             $table->unsignedBigInteger('status_id');
             $table->foreign('status_id')
                 ->references('id')->on('status');
@@ -49,6 +63,7 @@ class CreateUsersTable extends Migration
     {
 
       Schema::dropIfExists('users');
+      Schema::dropIfExists('wallets');
       Schema::dropIfExists('status');        
     }
 }

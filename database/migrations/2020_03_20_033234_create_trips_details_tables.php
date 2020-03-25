@@ -51,29 +51,48 @@ class CreateTripsDetailsTables extends Migration
             $table->bigIncrements('id');
             $table->integer('current_location')->nullable();
             $table->integer('spaces');
+            $table->integer('wait_minutes');
+            $table->float('driver_price');
+            $table->float('user_price');
+            $table->float('tax');
+            $table->float('promo_code');
+            $table->float('final_price');
+            $table->boolean('package');
+            $table->boolean('pets');
+            $table->boolean('childrens');
             $table->timestamps();
             $table->softDeletes();
-            $table->unsignedBigInteger('p_depart_id');
-            $table->foreign('p_depart_id')
+            $table->unsignedBigInteger('depart_id');
+            $table->foreign('depart_id')
                 ->references('id')->on('trips_departs');
-            $table->unsignedBigInteger('p_arrive_id');
-            $table->foreign('p_arrive_id')
+            $table->unsignedBigInteger('arrive_id');
+            $table->foreign('arrive_id')
                 ->references('id')->on('trips_arrives');
             $table->unsignedBigInteger('driver_id');
             $table->foreign('driver_id')
                 ->references('id')->on('users');
         });
+
         Schema::create('past_trips', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('current_location')->nullable();
+            $table->integer('wait_minutes');
             $table->integer('spaces');
+            $table->float('driver_price');
+            $table->float('user_price');
+            $table->float('tax');
+            $table->float('promo_code');
+            $table->float('final_price');
+            $table->boolean('package');
+            $table->boolean('pets');
+            $table->boolean('childrens');
             $table->timestamps();
             $table->softDeletes();
-            $table->unsignedBigInteger('p_depart_id');
-            $table->foreign('p_depart_id')
+            $table->unsignedBigInteger('depart_id');
+            $table->foreign('depart_id')
                 ->references('id')->on('trips_departs');
-            $table->unsignedBigInteger('p_arrive_id');
-            $table->foreign('p_arrive_id')
+            $table->unsignedBigInteger('arrive_id');
+            $table->foreign('arrive_id')
                 ->references('id')->on('trips_arrives');
             $table->unsignedBigInteger('driver_id');
             $table->foreign('driver_id')
@@ -86,6 +105,7 @@ class CreateTripsDetailsTables extends Migration
             $table->integer('maps_text')->nullable();
             $table->boolean('bookmark');
             $table->timestamp('date', 0);
+            $table->integer('wait_minutes');
             $table->timestamps();
             $table->softDeletes();
             $table->unsignedBigInteger('city_id');

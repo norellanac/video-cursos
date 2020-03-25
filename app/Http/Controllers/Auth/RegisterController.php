@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
+use App\Wallet;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,12 +65,22 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    {   
+        $wallet = new Wallet;
+    $wallet->tokens = 0;
+    $wallet->used_tkns = 0;
+    $wallet->status_id = 1; //id "1" corresponde a status active
+    $wallet->save();
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'phone' => $data['phone'],
+            'check_terms' => true,
+            'url_image' => 'users/default_profile.png',
+            'role_id' => 1, //aca se asigana el id de la tabla roles numero "id=6 name=User"
+            'status_id' => 1,
+            'wallet_id' => $wallet->id,
         ]);
     }
 }

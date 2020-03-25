@@ -84,7 +84,7 @@ class CreateInfoUsersDetailsTables extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('car_id');
-            $table->string('message', 250);
+            $table->string('comments', 250);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')->on('users');
