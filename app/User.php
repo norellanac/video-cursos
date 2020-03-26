@@ -40,7 +40,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    public function wallet(){
+		return $this->belongsTo("App\Wallet", 'wallet_id');
+    }
+    
     public function findForPassport($username) {
         return User::orWhere('email', $username)->orWhere('phone', $username)->first();
     }

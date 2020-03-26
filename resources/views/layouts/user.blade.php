@@ -26,74 +26,104 @@
     .nav-app-icon {
         font-size: 18px;
     }
+
+    .badge-notify {
+        position: absolute;
+        top: 1em;
+        margin-right: 1em;
+    }
 </style>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-primary bg-primary text-light">
+        <!-- example 1 - using absolute position for center -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href="{{ url()->previous() }}">
                     <span class="nav-app-icon text-light"><i class="fas fa-arrow-left"></i></span>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                    <i class="fas fa-bars text-light"></i>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                <div class="navbar-collapse collapse" id="collapsingNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link">Link</a>
+                        </li>
                     </ul>
-                    <!-- Right Side Of Navbar -->
+                    @guest
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
                         <li class="nav-item">
                             <a class="nav-link text-light" href="{{ route('login') }}"> <span
-                                    class="nav-app-icon text-light"><i class="fas fa-user"> </i> </span>
+                                    class="nav-app-icon text-light"><i class="fas fa-sign-in-alt"> </i> </span>
                                 {{ __('Login') }}</a>
                         </li>
-                        @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link text-light" href="{{ route('register') }}"> <span
-                                    class="nav-app-icon text-light"><i class="fas fa-user"> </i> </span>
+                                    class="nav-app-icon text-light"><i class="fas fa-user-plus"> </i> </span>
                                 {{ __('Register') }}</a>
                         </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="text-light nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right bg-primary" aria-labelledby="navbarDropdown">
-                                <a class="text-light" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
                     </ul>
+                    @else
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('#')}}" data-target="#myModal" data-toggle="modal"><span
+                                    class="nav-app-icon text-light"><i class="fas fa-user"></i></span>
+                                <span class="text-light" style="margin-top: -5px;"> {{ Auth::user()->name }} </span></a>
+                        </li>
+                        <li class="nav-item" style="margin-right: 1em;">
+                            <a class="nav-link" href="{{url('#')}}" data-target="#myModal" data-toggle="modal">
+                                <span class="nav-app-icon text-light" style="margin-top: -4em;"><i class="fas fa-wallet"></i></span>
+                                <span class="text-light" style="margin-top: -5px;">
+                                    Tokens
+                                </span>
+                                <span class="badge  badge-warning text-dark">{{ Auth::user()->wallet->tokens }} </span>                                
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();  document.getElementById('logout-form').submit();"><span
+                                    class="nav-app-icon text-light"><i class="fas fa-sign-out-alt"></i></span>
+                                <span class="text-light" style="margin-top: -5px;"> Salir </span></a>
+                        </li>
+                    </ul>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    @endguest
                 </div>
             </div>
         </nav>
 
-
         <main class="py-4">
             @yield('content')
         </main>
+
     </div>
-    <nav class="fixed-bottom bg-primary">
-        <ul class="nav justify-content-around">
+    <nav class="fixed-bottom bg-primary" style="padding-bottom: 0;">
+        @guest
+        <ul class="nav justify-content-around" style="margin-bottom: -1em;">
+            <li class="nav-item text-center">
+                <a class="nav-link" href="{{url('/home')}}">
+                    <span class="nav-app-icon text-light"><i class="fas fa-home"></i></span>
+                    <p class="text-light" style="margin-top: -5px;"> Home</p>
+                </a>
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link" href="{{url('/login')}}">
+                    <span class="nav-app-icon text-light"><i class="fas fa-sign-in-alt"></i></span>
+                    <p class="text-light" style="margin-top: -5px;"> Ingresar</p>
+                </a>
+            </li>
+            <li class="align-self-end nav-item text-center">
+                <a class="nav-link" href="{{url('/register')}}">
+                    <span class="nav-app-icon text-light"><i class="fas fa-user-plus"></i></span>
+                    <p class="text-light" style="margin-top: -5px;"> Registrarse</p>
+                </a>
+            </li>
+        </ul>
+        @else
+        <ul class="nav justify-content-around" style="margin-bottom: -1em;">
             <li class="nav-item text-center">
                 <a class="nav-link" href="{{url('/home')}}">
                     <span class="nav-app-icon text-light"><i class="fas fa-home"></i></span>
@@ -109,10 +139,11 @@
             <li class="align-self-end nav-item text-center">
                 <a class="nav-link" href="{{url('/register')}}">
                     <span class="nav-app-icon text-light"><i class="fas fa-user"></i></span>
-                    <p class="text-light" style="margin-top: -5px;"> User</p>
+                    <p class="text-light" style="margin-top: -5px;"> {{ Auth::user()->name }}</p>
                 </a>
             </li>
         </ul>
+        @endguest
     </nav>
 </body>
 
