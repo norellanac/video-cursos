@@ -50,8 +50,11 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        //dd($data);
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
+            'dpi' => ['required', 'integer', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'integer', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -73,6 +76,8 @@ class RegisterController extends Controller
     $wallet->save();
         return User::create([
             'name' => $data['name'],
+            'lastname' => $data['lastname'],
+            'dpi' => $data['dpi'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'phone' => $data['phone'],
