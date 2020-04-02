@@ -2,12 +2,12 @@
 @section('content')
 <div class="container ">
     <div class="row justify-content-around" style="margin-top: 4em;">
-        <img src="https://image.flaticon.com/icons/svg/1828/1828503.svg" class="img-fluid" width="25%"
+        <img src="https://image.flaticon.com/icons/svg/1828/1828503.svg" class="img-fluid" width="20%"
             alt="Responsive image">
     </div>
 
     <div class="row justify-content-around">
-        <h1 class="text-light">Bienvenido</h1>
+        <h1 class="text-light">Bienvenidos</h1>
     </div>
     <div class="row justify-content-around mt-4">
         <form method="POST" action="{{ route('login') }}">

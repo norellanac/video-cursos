@@ -32,12 +32,48 @@
         top: 1em;
         margin-right: 1em;
     }
+
+    .bg-theme-1 {
+        background-color: #f7921c;
+    }
+
+    .bg-theme-2 {
+        background-color: #519e93;
+    }
+
+    .bg-theme-3 {
+        background-color: #015e88;
+    }
+
+    .bg-theme-4 {
+        background-color: #01d4d9;
+    }
+
+    .bg-theme-5 {
+        background-color: #bcbcbc;
+    }
+
+    .bg-theme-6 {
+        background-color: #ffffff;
+    }
+
+    .bg-theme-7 {
+        background-color: #55c684;
+    }
+
+    .bg-theme-8 {
+        background-color: #87ab10;
+    }
+
+    .bg-theme-9 {
+        background-color: #bf2833;
+    }
 </style>
 
 <body>
     <div id="app">
         <!-- example 1 - using absolute position for center -->
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-md navbar-dark bg-theme-1">
             <div class="container">
                 <a class="navbar-brand" href="{{ url()->previous() }}">
                     <span class="nav-app-icon text-light"><i class="fas fa-arrow-left"></i></span>
@@ -77,7 +113,7 @@
                                 <span class="text-light" style="margin-top: -5px;">
                                     Tokens
                                 </span>
-                                <span class="badge  badge-warning text-dark">{{ Auth::user()->wallet->tokens }} </span>                                
+                                <span class="badge  badge-warning text-dark">{{ Auth::user()->id }} </span>                                
                             </a>
                         </li>
                         <li class="nav-item">
@@ -100,7 +136,7 @@
         </main>
 
     </div>
-    <nav class="fixed-bottom bg-primary" style="padding-bottom: 0;">
+    <nav class="fixed-bottom bg-theme-1" style="padding-bottom: 0;">
         @guest
         <ul class="nav justify-content-around" style="margin-bottom: -1em;">
             <li class="nav-item text-center">

@@ -12,11 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.prantokon');
+    return view('layouts.appson');
 });
 
 Auth::routes();
 Route::get('login/facebook', 'SocialServicesController@redirectToProvider');
 Route::get('login/facebook/callback', 'SocialServicesController@handleProviderCallback');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

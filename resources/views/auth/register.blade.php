@@ -3,7 +3,7 @@
 
 <div class="container ">
     <div class="row justify-content-around" style="margin-top: 4em;">
-        <img src="https://image.flaticon.com/icons/svg/2633/2633848.svg" class="img-fluid" width="25%"
+        <img src="https://image.flaticon.com/icons/svg/2633/2633848.svg" class="img-fluid" width="20%"
             alt="Responsive image">
     </div>
 

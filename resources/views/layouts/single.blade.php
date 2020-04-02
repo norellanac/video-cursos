@@ -22,8 +22,8 @@
 </head>
 <style>
     body {
-        background: #007bff;
-        background: linear-gradient(to right, #0062E6, #33AEFF);
+        background: #f7921c;
+        background: linear-gradient(to right, #f0602a, #de9432);
     }
 
     .transparent {
