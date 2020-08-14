@@ -28,6 +28,14 @@ class HomeController extends Controller
         if (!$user->hasAnyRole(Role::all())) {
             auth()->user()->syncRoles('User');
         }
+
+        if ($user->hasRole('Admin')) {
+            return redirect()->action(
+                'UserController@index');
+        }
+        if ($user->hasRole('User')) {
+            return view('courses.index');
+        }
         return view('home');
     }
 }

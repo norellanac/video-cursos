@@ -7,6 +7,17 @@
             alt="Responsive image">
     </div>
 
+    <div class="row mb-3 justify-content-center">
+        @if (Route::has('password.request'))
+        <a class="m-t-5 btn btn-link text-light" href="{{ route('password.request') }}">
+            {{ __('¿Olvidé la contraseña?') }}
+        </a>
+        <a class="btn btn-link text-light" href="{{ route('login') }}">
+            {{ __('Ya tengo una cuenta') }}
+        </a>
+        @endif
+    </div>
+
     <div class="row justify-content-around">
         <h1 class="text-light">Crear cuenta</h1>
     </div>
@@ -171,16 +182,6 @@
                 </div>
             </div>
         </form>
-    </div>
-    <div class="row mt-5 justify-content-center">
-        @if (Route::has('password.request'))
-        <a class="m-t-5 btn btn-link text-light" href="{{ route('password.request') }}">
-            {{ __('¿Olvidé la contraseña?') }}
-        </a>
-        <a class="btn btn-link text-light" href="{{ route('login') }}">
-            {{ __('Ya tengo una cuenta') }}
-        </a>
-        @endif
     </div>
 </div>
 

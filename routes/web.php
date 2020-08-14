@@ -27,9 +27,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('learn', 'CourseController')->middleware('role:root|Super|Admin|User');
+
 
 
 //*******admin routes****** */
-Route::resource('users', 'UserController');
-//Route::resource('users', 'UserController')->middleware('role:root|Super|Admin');
+//Route::resource('users', 'UserController');
+Route::resource('users', 'UserController')->middleware('role:root|Super|Admin');
 //*******admin routes****** */

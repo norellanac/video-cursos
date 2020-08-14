@@ -21,6 +21,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+
+    <!-- Videojs -->
+    <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 </head>
 <style>
     .nav-app-icon {
@@ -109,11 +115,12 @@
                         </li>
                         <li class="nav-item" style="margin-right: 1em;">
                             <a class="nav-link" href="{{url('#')}}" data-target="#myModal" data-toggle="modal">
-                                <span class="nav-app-icon text-light" style="margin-top: -4em;"><i class="fas fa-wallet"></i></span>
+                                <span class="nav-app-icon text-light" style="margin-top: -4em;"><i
+                                        class="fas fa-wallet"></i></span>
                                 <span class="text-light" style="margin-top: -5px;">
                                     Tokens
                                 </span>
-                                <span class="badge  badge-warning text-dark">{{ Auth::user()->id }} </span>                                
+                                <span class="badge  badge-warning text-dark">{{ Auth::user()->id }} </span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -181,6 +188,8 @@
         </ul>
         @endguest
     </nav>
+
+    <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
 </body>
 
 </html>
