@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +28,7 @@
     }
 
     .transparent {
-        background-color: transparent;
+        background-color: transparent !important;
         border-right-style: none;
     }
 
@@ -36,12 +37,12 @@
     }
 
     .form-control {
-        background-color: transparent;
+        background-color: transparent !important;
         border-left-style: none;
     }
 
     .form-control::-webkit-input-placeholder {
-        background-color: transparent;
+        background-color: transparent !important;
         color: white;
     }
 
@@ -49,8 +50,56 @@
     .form-control:valid {
         background-color: transparent !important;
     }
+
+    .show-password {
+        background-color: transparent !important;
+        border-top-right-radius: 25px;
+    }
 </style>
-<body>      
-      <div>@yield('content')</div>
+
+<body>
+    <div>
+        @yield('content')
+    </div>
+    <script>
+        //Bloquear doble envio de formulario******
+        enviando = false; //Obligaremos a entrar el if en el primer submit
+        function checkSubmit() {
+          if (!enviando) {
+            enviando= true;
+            return true;
+          } else {
+            //Si llega hasta aca significa que pulsaron 2 veces el boton submit
+            alert("El formulario ya se esta enviando");
+            return false;
+          }
+        }
+    </script>
+
+    <script>
+        //Mostrar contraseña
+        enviando = false; //Obligaremos a entrar el if en el primer submit
+        function showPassword() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+
+            var y = document.getElementById("password-confirm");
+            if (y.type === "password") {
+                y.type = "teyx";
+            } else {
+                y.type = "password";
+            }
+        }
+    </script>
+    <script>
+        $('.select2').select2();
+    </script>
+    {{--se agregó esta seccion para evitar conflictos entre select con busqueda y select depeneidntes en departamentos y municipios, --}}
+    @yield('sectionJS')
 </body>
+
 </html>

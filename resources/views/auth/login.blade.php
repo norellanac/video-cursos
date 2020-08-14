@@ -39,6 +39,13 @@
                     aria-describedby="inputGroup-sizing-sm"
                     class="text-light form-control @error('password') is-invalid @enderror" name="password" required
                     autocomplete="current-password">
+                <div class="input-group-prepend " style="background-color: transparent !important;">
+                    <span class="input-group-text show-password" id="inputGroup-sizing-sm">
+                        <a onclick="return showPassword();">
+                            <i class="text-light fas fa-eye"></i>
+                        </a>
+                    </span>
+                </div>
 
                 @error('password')
                 <span class="invalid-feedback" role="alert">

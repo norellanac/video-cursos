@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.appson');
+    return view('layouts.landingpage');
+});
+Route::get('/about', function () {
+    return view('layouts.about');
 });
 
 Auth::routes();
@@ -24,3 +27,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//*******admin routes****** */
+Route::resource('users', 'UserController');
+//Route::resource('users', 'UserController')->middleware('role:root|Super|Admin');
+//*******admin routes****** */

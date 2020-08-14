@@ -16,7 +16,8 @@ class CreateUsersTable extends Migration
         Schema::create('status', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 50);
-            $table->string('description', 250);
+            $table->string('icon', 250);
+            $table->string('color', 250);
             $table->timestamps();
         });
 
