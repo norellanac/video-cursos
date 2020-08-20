@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.landingpage');
+    return view('layouts.landing');
 });
 Route::get('/about', function () {
     return view('layouts.about');
