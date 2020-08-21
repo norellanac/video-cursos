@@ -12,10 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.landing');
+    return view('website.index');
 });
 Route::get('/about', function () {
     return view('layouts.about');
+});
+
+Route::get('/services', function () {
+    return view('website.services');
 });
 
 Auth::routes();
