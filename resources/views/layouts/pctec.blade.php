@@ -136,6 +136,23 @@
         </div>
     </main>
 
+    <nav class="fixed-bottom bg-dark d-block d-sm-none" style="padding-bottom: 0;">
+        <ul class="nav justify-content-around" style="margin-bottom: -1em;">
+            <li class="nav-item text-center">
+                <a class="nav-link" href="{{url('/services')}}">
+                    <span class="nav-app-icon text-light"><i class="fas fa-home"></i></span>
+                    <p class="text-light" style="margin-top: -5px;"> Productos</p>
+                </a>
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link" href="{{url('/services')}}">
+                    <span class="nav-app-icon text-light"><i class="fas fa-sign-in-alt"></i></span>
+                    <p class="text-light" style="margin-top: -5px;"> Servicios</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
     <!--buttons-->
     <div class="btn-float">
         <a class="btn btn-light btn-circle btn-xl text-light" data-toggle="modal" data-target="#exampleModalCenter">

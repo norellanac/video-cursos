@@ -10,10 +10,10 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col text-center">
-                                    <button type="submit" class="btn btn-dark">
+                                    <a href="{{url('company')}}" class="btn btn-dark">
                                         <i class="fas fa-"></i>
                                         {{ __('CEO/CTO') }}
-                                    </button> </div>
+                                    </a> </div>
                             </div>
                         </div>
                     </div>
@@ -27,10 +27,10 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col text-center">
-                                    <button type="submit" class="btn btn-dark">
+                                    <a href="{{url('company')}}" class="btn btn-dark">
                                         <i class="fas fa-"></i>
                                         {{ __('Gerencias') }}
-                                    </button> </div>
+                                    </a> </div>
                             </div>
                         </div>
                     </div>
@@ -44,10 +44,10 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col text-center">
-                                    <button type="submit" class="btn btn-dark">
+                                    <a href="{{url('company')}}" class="btn btn-dark">
                                         <i class="fas fa-"></i>
                                         {{ __('Tecnicos') }}
-                                    </button> </div>
+                                    </a> </div>
                             </div>
                         </div>
                     </div>

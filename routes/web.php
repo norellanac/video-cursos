@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('layouts.about');
 });
+Route::get('/company', function () {
+    return view('website.company');
+});
 
 Route::get('/services', function () {
     return view('website.services');
