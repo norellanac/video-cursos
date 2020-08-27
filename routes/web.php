@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('website.index');
+    return view('layouts.pctecbus');
 });
 Route::get('/about', function () {
     return view('layouts.about');
@@ -40,5 +40,5 @@ Route::resource('learn', 'CourseController')->middleware('role:root|Super|Admin|
 
 //*******admin routes****** */
 //Route::resource('users', 'UserController');
-Route::resource('users', 'UserController')->middleware('role:root|Super|Admin');
+Route::resource('users', 'UserController')->middleware('role:root|Super|Admin|User');
 //*******admin routes****** */

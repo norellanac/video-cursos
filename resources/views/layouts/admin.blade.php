@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="{{asset('img/tecun/logo.png')}}">
+    <link rel="shortcut icon" type="image/png" href="{{asset('img/pctec_logo.png')}}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -154,18 +154,18 @@
             <!-- Sidebar -->
             <div class="bg-theme-1 text-light border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading">
-                    <img class="d-inline-block align-top ml-1" src="{{asset('img/tecun/logo.png')}}"
-                        style="max-width: 30px" />
-                    <span class="h3 text-light"> {{ config('app.name', 'Pakal') }} </span>
+                    <img class="d-inline-block align-top ml-1" src="{{asset('img/pctec_logo.png')}}"
+                        style="max-width: 200px" />
+                    <span class="h3 text-light d-none"> {{ config('app.name', 'App Name') }} </span>
                 </div>
                 <div class="list-group list-group-flush">
                     <a href="{{url('#')}}" class="list-group-item list-group-item-action bg-theme-1 text-light"> <span
                             class=""><i class="fas fa-chart-bar"></i></span> Administracion</a>
                     <a href="{{url('adminPost')}}" class="list-group-item list-group-item-action bg-theme-1 text-light">
-                        <span class=""><i class="fas fa-newspaper"></i></span> Noticias</a>
+                        <span class=""><i class="fas fa-video"></i></span> Cargar Video</a>
                     <a href="{{url('categories')}}"
                         class="list-group-item list-group-item-action bg-theme-1 text-light"> <span class=""><i
-                                class="fas fa-tags"></i></span> Categorías</a>
+                                class="fas fa-tags"></i></span> Cursos</a>
                     <a href="{{url('jobsAdmin')}}" class="list-group-item list-group-item-action bg-theme-1 text-light">
                         <span class=""><i class="fas fa-hard-hat"></i></span> Empleos</a>
                     <a href="{{url('storesAdmin')}}"
