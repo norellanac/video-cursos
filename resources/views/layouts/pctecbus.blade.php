@@ -32,7 +32,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-8 col-xl-8">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="{{ url('/') }}"> <img src="{{ asset('pctecbus/img/logo.png') }}"
+                        <a class="navbar-brand" href="{{ url('/') }}"> <img src="{{ asset('pctecbus/img/pctec.gif') }}"
                                 alt="logo" height="50px"> </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -43,20 +43,13 @@
                         <div class="collapse navbar-collapse main-menu-item justify-content-end"
                             id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Blog
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="blog.html">Blog</a>
-                                        <a class="dropdown-item" href="single-blog.html">Single blog</a>
-                                    </div>
+                                <li class="nav-item active">
+                                    <a class="d-none nav-link" href="contact.html">Contacto</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Page
+                                        SAP ADD-ONS
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="project.html">Project</a>
@@ -65,8 +58,12 @@
                                         <a class="dropdown-item" href="elements.html">Elements</a>
                                     </div>
                                 </li>
+
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="btn btn-warning nav-link text-light" href="contact.html">Ingresar</a>
+                                </li>
+                                <li class="d-none nav-item active">
+                                    <a class="btn btn-warning nav-link text-light" href="contact.html">Ingresar</a>
                                 </li>
                             </ul>
                         </div>
@@ -88,7 +85,8 @@
                             <p>Male bring land dominion over can yielding his moveth under of depend brought him is.
                                 Multiply which firmament deep make.</p>
                             <a href="#" class="btn_1">learn more </a>
-                            <a href="https://www.youtube.com/watch?v=pBFQdxA-apI" class="popup-youtube video_popup">
+                            <a href="http://pctecbus.co/wp-content/uploads/2019/03/sap-business-one-in-60-seconds.mp4"
+                                class="popup-youtube video_popup">
                                 <span><img src="{{ asset('pctecbus/img/icon/play.svg') }}" alt=""></span> Intro
                                 Video</a>
                         </div>
@@ -161,8 +159,8 @@
                         </span>
                         <h4>Microsoft Partner</h4>
                         Herramientas para trabajo remoto y
-                            colaboración, como Microsoft Teams, el almacenamiento en la nube seguro, el correo
-                            empresarial y aplicaciones Premium de Office en tus dispositivos. </p>
+                        colaboración, como Microsoft Teams, el almacenamiento en la nube seguro, el correo
+                        empresarial y aplicaciones Premium de Office en tus dispositivos. </p>
                         <a href="#" class="btn_3">Learn More <i class="ti-arrow-right"></i></a>
                     </div>
                 </div>
@@ -199,16 +197,20 @@
                     <!-- THUMBNAILS -->
                     <div class="slider-nav-thumbnails">
                         <div class="slider-thumbnails">
-                            <img src="{{ asset('pctecbus/img/client/client_1.png') }}" alt="slideimg" class="image">
+                            <img src="{{ asset('pctecbus/img/client/bryan2.png') }}" alt="slideimg" class="image"
+                                height="150px">
                         </div>
                         <div class="slider-thumbnails">
-                            <img src="{{ asset('pctecbus/img/client/client_2.png') }}" alt="slideimg" class="image">
+                            <img src="{{ asset('pctecbus/img/client/bryan1.png') }}" alt="slideimg" class="image"
+                                height="150px">
                         </div>
                         <div class="slider-thumbnails">
-                            <img src="{{ asset('pctecbus/img/client/client_1.png') }}" alt="slideimg" class="image">
+                            <img src="{{ asset('pctecbus/img/client/bryan2.png') }}" alt="slideimg" class="image"
+                                height="150px">
                         </div>
                         <div class="slider-thumbnails">
-                            <img src="{{ asset('pctecbus/img/client/client_1.png') }}" alt="slideimg" class="image">
+                            <img src="{{ asset('pctecbus/img/client/bryan1.png') }}" alt="slideimg" class="image"
+                                height="150px">
                         </div>
                     </div>
                 </div>
@@ -276,8 +278,8 @@
                     <div class="card-columns">
                         <div class="card">
                             <blockquote class="blockquote mb-0">
-                                <h2>Explore Our Best
-                                    Practice Area</h2>
+                                <h2>Soluciones para
+                                    las diferentes Areas</h2>
                                 <p>Male bring land. Dominion over can yielding his moveth under him is.
                                     Multiply which firmament</p>
                             </blockquote>
@@ -287,29 +289,45 @@
                                 alt="...">
                             <div class="card-body">
                                 <a href="project_details.html">
-                                    <h5 class="card-title">Startup Project</h5>
+                                    <h5 class="card-title">Contabilidad e Inventarios</h5>
                                 </a>
-                                <p class="card-text">All days lights grass midst from unto</p>
+                                <p class="card-text">
+                                <ul>
+                                    <li>Asesorias</li>
+                                    <li>Auditorias</li>
+                                </ul>
+
+                                </p>
                             </div>
                         </div>
                         <div class="card">
                             <img src="{{ asset('pctecbus/img/gallery/gallery_item_1.png') }}" class="card-img-top"
                                 alt="...">
                             <div class="card-body">
-                                <a href="project_details.html">
-                                    <h5 class="card-title">Startup Project</h5>
+                                <a href="{{ url('#') }}">
+                                    <h5 class="card-title">Asesoria y automatizacion <br> de procesos</h5>
                                 </a>
-                                <p class="card-text">All days lights grass midst from unto</p>
+                                <p class="card-text">
+                                    <img src="https://logos-download.com/wp-content/uploads/2016/02/Microsoft_box.png"
+                                        height="70px">
+                                    <img src="https://1000marcas.net/wp-content/uploads/2020/03/Sap-logo.png" alt=""
+                                        height="70px">
+                                </p>
                             </div>
                         </div>
                         <div class="card">
                             <img src="{{ asset('pctecbus/img/gallery/gallery_item_2.png') }}" class="card-img-top"
                                 alt="...">
                             <div class="card-body">
-                                <a href="project_details.html">
-                                    <h5 class="card-title">Startup Project</h5>
+                                <a href="{{ url('#') }}">
+                                    <h5 class="card-title">Capacitaciónes</h5>
                                 </a>
-                                <p class="card-text">All days lights grass midst from unto</p>
+                                <p class="card-text">
+                                    <img src="https://logos-download.com/wp-content/uploads/2016/02/Microsoft_box.png"
+                                        height="70px">
+                                    <img src="https://1000marcas.net/wp-content/uploads/2020/03/Sap-logo.png" alt=""
+                                        height="70px">
+                                </p>
                             </div>
                         </div>
                         <div class="card">
@@ -317,9 +335,12 @@
                                 alt="...">
                             <div class="card-body">
                                 <a href="project_details.html">
-                                    <h5 class="card-title">Startup Project</h5>
+                                    <h5 class="card-title">Business Intelligence</h5>
                                 </a>
-                                <p class="card-text">All days lights grass midst from unto</p>
+                                <p class="card-text">
+                                    <img src="https://talentoop.com/wp-content/uploads/2020/04/powerbi_icon-300x300.jpg"
+                                        width="100px" alt="">
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -335,18 +356,17 @@
             <div class="row align-items-center justify-content-end">
                 <div class="col-md-6 col-xl-5">
                     <div class="about_img">
-                        <img src="{{ asset('pctecbus/img/about_img_2.png') }}" alt="">
+                        <img src="{{ asset('pctecbus/img/undraw_business_deal_cpi9.svg') }}" alt="">
                     </div>
                 </div>
                 <div class="col-md-6 offset-xl-1 col-xl-6">
                     <div class="about_text">
-                        <h2>We Providing high quality
-                            adviser service</h2>
-                        <h4>First Abundantly night you are sea great fifth year</h4>
-                        <p>Lights fly above bearing brought abundantly whose. Without one may i seed void wels great
-                            face god were deep be first. Unto for third be in moveth. Bring land bearing un abundantly
-                            firmament appear whales them years. Lights fly above bearing brought bold abundantly whose
-                            without one may i seed. </p>
+                        <h2>Calidad y excelencia en servicios</h2>
+                        <h4>Compromiso y calidad garantizan nuestros servicios</h4>
+                        <p>Entregar a nuestros clientes una combinación innovadora de soluciones propias y de terceros a
+                            través de servicios profesionales de excelencia, logrando una relación de largo plazo con
+                            nuestros socios de negocio y colaboradores con el objetivo que superen sus desafíos
+                            empresariales.</p>
                         <a href="#" class="btn_2">read more</a>
                     </div>
                 </div>
@@ -360,92 +380,6 @@
         </div>
     </section>
     <!--::blog_part start::-->
-
-
-    <!--::blog_part start::-->
-    <section class="blog_part section_padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6">
-                    <div class="section_tittle text-center">
-                        <h2>Update From Blog</h2>
-                        <p>Winged hath had face creepeth abundantly so shall fire apperar </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-lg-4 col-xl-4 d-none d-sm-block d-lg-none">
-                    <div class="single-home-blog">
-                        <div class="card">
-                            <img src="{{ asset('pctecbus/img/blog/blog_3.png') }}" class="card-img-top" alt="blog">
-                            <div class="card-body">
-                                <a href="blog.html">Technology</a> | <span> March 30, 2019</span>
-                                <a href="blog.html">
-                                    <h5 class="card-title">Be there bring void give good from stars</h5>
-                                </a>
-                                <ul>
-                                    <li> <span class="ti-comments"></span>2 Comments</li>
-                                    <li> <span class="ti-heart"></span>0 Like</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 col-xl-4">
-                    <div class="single-home-blog">
-                        <div class="card">
-                            <img src="{{ asset('pctecbus/img/blog/blog_1.png') }}" class="card-img-top" alt="blog">
-                            <div class="card-body">
-                                <a href="blog.html">Technology</a> | <span> March 30, 2019</span>
-                                <a href="blog.html">
-                                    <h5 class="card-title">He waters likeness their land set female for </h5>
-                                </a>
-                                <ul>
-                                    <li> <span class="ti-comments"></span>2 Comments</li>
-                                    <li> <span class="ti-heart"></span>0 Like</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 col-xl-4">
-                    <div class="single-home-blog">
-                        <div class="card">
-                            <img src="{{ asset('pctecbus/img/blog/blog_2.png') }}" class="card-img-top" alt="blog">
-                            <div class="card-body">
-                                <a href="blog.html">Technology</a> | <span> March 30, 2019</span>
-                                <a href="blog.html">
-                                    <h5 class="card-title">Be there bring void give good from stars</h5>
-                                </a>
-                                <ul>
-                                    <li> <span class="ti-comments"></span>2 Comments</li>
-                                    <li> <span class="ti-heart"></span>0 Like</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 col-xl-4">
-                    <div class="single-home-blog">
-                        <div class="card">
-                            <img src="{{ asset('pctecbus/img/blog/blog_3.png') }}" class="card-img-top" alt="blog">
-                            <div class="card-body">
-                                <a href="blog.html">Technology</a> | <span> March 30, 2019</span>
-                                <a href="blog.html">
-                                    <h5 class="card-title">Third lights they're over moved days above</h5>
-                                </a>
-                                <ul>
-                                    <li> <span class="ti-comments"></span>2 Comments</li>
-                                    <li> <span class="ti-heart"></span>0 Like</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--::blog_part end::-->
 
     <!-- footer part start-->
     <section class="footer-area section_padding">
