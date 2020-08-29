@@ -60,10 +60,10 @@
                                 </li>
 
                                 <li class="nav-item active">
-                                    <a class="btn btn-warning nav-link text-light" href="contact.html">Ingresar</a>
+                                    <a class="btn btn-warning nav-link text-light" href="{{url('register')}}">Ingresar</a>
                                 </li>
                                 <li class="d-none nav-item active">
-                                    <a class="btn btn-warning nav-link text-light" href="contact.html">Ingresar</a>
+                                    <a class="btn btn-warning nav-link text-light" href="{{url('register')}}">Ingresar</a>
                                 </li>
                             </ul>
                         </div>
@@ -187,7 +187,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-6">
                     <div class="section_tittle text-center">
-                        <h2>Customer Are Saying</h2>
+                        <h2>Pc Technology</h2>
                         <p>Winged hath had face creepeth abundantly so shall </p>
                     </div>
                 </div>
@@ -197,19 +197,35 @@
                     <!-- THUMBNAILS -->
                     <div class="slider-nav-thumbnails">
                         <div class="slider-thumbnails">
-                            <img src="{{ asset('pctecbus/img/client/bryan2.png') }}" alt="slideimg" class="image"
+                            <img src="{{ asset('pctecbus/img/team/Jose-Cantoral.png') }}" alt="slideimg" class="image"
                                 height="150px">
                         </div>
                         <div class="slider-thumbnails">
-                            <img src="{{ asset('pctecbus/img/client/bryan1.png') }}" alt="slideimg" class="image"
+                            <img src="{{ asset('pctecbus/img/team/rodrigo.png') }}" alt="slideimg" class="image"
                                 height="150px">
                         </div>
                         <div class="slider-thumbnails">
-                            <img src="{{ asset('pctecbus/img/client/bryan2.png') }}" alt="slideimg" class="image"
+                            <img src="{{ asset('pctecbus/img/team/omar.png') }}" alt="slideimg" class="image"
                                 height="150px">
                         </div>
                         <div class="slider-thumbnails">
-                            <img src="{{ asset('pctecbus/img/client/bryan1.png') }}" alt="slideimg" class="image"
+                            <img src="{{ asset('pctecbus/img/team/juan-pablo.png') }}" alt="slideimg" class="image"
+                                height="150px">
+                        </div>
+                        <div class="slider-thumbnails">
+                            <img src="{{ asset('pctecbus/img/team/marvin.png') }}" alt="slideimg" class="image"
+                                height="150px">
+                        </div>
+                        <div class="slider-thumbnails">
+                            <img src="{{ asset('pctecbus/img/team/nery-Orellana.png') }}" alt="slideimg" class="image"
+                                height="150px">
+                        </div>
+                        <div class="slider-thumbnails">
+                            <img src="{{ asset('pctecbus/img/team/dani.png') }}" alt="slideimg" class="image"
+                                height="150px">
+                        </div>
+                        <div class="slider-thumbnails">
+                            <img src="{{ asset('pctecbus/img/team/bryan.png') }}" alt="slideimg" class="image"
                                 height="150px">
                         </div>
                     </div>
@@ -223,8 +239,8 @@
                                 <p>Own midst. Behold sea created male he together of That Said fourth deep abundantly
                                     have light night beginning rule darkness seed darkness which land saying moveth.
                                     Fifth shall wont signs, can seasons green days gathered great</p>
-                                <h3>Daniel E Gilcritst</h3>
-                                <h5>Manager, Vision</h5>
+                                <h3>José Cantoral</h3>
+                                <h5>CEO & Founder at PC Technology </h5>
                             </div>
                         </div>
                         <div data-index="2">
@@ -233,8 +249,8 @@
                                 <p>Own midst. Behold sea created male he together of That Said fourth deep abundantly
                                     have light night beginning rule darkness seed darkness which land saying moveth.
                                     Fifth shall wont signs, can seasons green days gathered great</p>
-                                <h3>Daniel E Gilcritst</h3>
-                                <h5>Manager, Vision</h5>
+                                <h3>Rodrigo E Gilcritst</h3>
+                                <h5>Business Consultant IT</h5>
                             </div>
                         </div>
                         <div data-index="3">
@@ -243,11 +259,51 @@
                                 <p>Own midst. Behold sea created male he together of That Said fourth deep abundantly
                                     have light night beginning rule darkness seed darkness which land saying moveth.
                                     Fifth shall wont signs, can seasons green days gathered great</p>
-                                <h3>Daniel E Gilcritst</h3>
-                                <h5>Manager, Vision</h5>
+                                <h3>Merlin Omar Perez Capriel</h3>
+                                <h5>Administrador de Empresas</h5>
                             </div>
                         </div>
                         <div data-index="4">
+                            <div class="client_review_text text-center">
+                                <img src="{{ asset('pctecbus/img/icon/quate.svg') }}" class="quate_icon" alt="quate">
+                                <p>Own midst. Behold sea created male he together of That Said fourth deep abundantly
+                                    have light night beginning rule darkness seed darkness which land saying moveth.
+                                    Fifth shall wont signs, can seasons green days gathered great</p>
+                                <h3>Juan Pablo</h3>
+                                <h5>Implementer SAP</h5>
+                            </div>
+                        </div>
+                        <div data-index="5">
+                            <div class="client_review_text text-center">
+                                <img src="{{ asset('pctecbus/img/icon/quate.svg') }}" class="quate_icon" alt="quate">
+                                <p>Own midst. Behold sea created male he together of That Said fourth deep abundantly
+                                    have light night beginning rule darkness seed darkness which land saying moveth.
+                                    Fifth shall wont signs, can seasons green days gathered great</p>
+                                <h3>Marvin Arauz</h3>
+                                <h5>Business Consultant IT</h5>
+                            </div>
+                        </div>
+                        <div data-index="6">
+                            <div class="client_review_text text-center">
+                                <img src="{{ asset('pctecbus/img/icon/quate.svg') }}" class="quate_icon" alt="quate">
+                                <p>Own midst. Behold sea created male he together of That Said fourth deep abundantly
+                                    have light night beginning rule darkness seed darkness which land saying moveth.
+                                    Fifth shall wont signs, can seasons green days gathered great</p>
+                                <h3>Nery Alexis Orellana</h3>
+                                <h5>Full Stack Developer</h5>
+                            </div>
+                        </div>
+                        <div data-index="7">
+                            <div class="client_review_text text-center">
+                                <img src="{{ asset('pctecbus/img/icon/quate.svg') }}" class="quate_icon" alt="quate">
+                                <p>Own midst. Behold sea created male he together of That Said fourth deep abundantly
+                                    have light night beginning rule darkness seed darkness which land saying moveth.
+                                    Fifth shall wont signs, can seasons green days gathered great</p>
+                                <h3>Daniel De León</h3>
+                                <h5>Implementer SAP en PC Technology</h5>
+                            </div>
+                        </div>
+                        <div data-index="8">
                             <div class="client_review_text text-center">
                                 <img src="{{ asset('pctecbus/img/icon/quate.svg') }}" class="quate_icon" alt="quate">
                                 <p>Own midst. Behold sea created male he together of That Said fourth deep abundantly
