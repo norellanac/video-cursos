@@ -11,19 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.pctecbus');
-});
-Route::get('/about', function () {
-    return view('layouts.about');
-});
-Route::get('/company', function () {
-    return view('website.company');
-});
+Route::get('/', 'WebsiteController@index');
+Route::get('about', 'WebsiteController@about');
+Route::get('company', 'WebsiteController@index');
+Route::get('solutions', 'WebsiteController@solutions');
+Route::get('OurServices', 'WebsiteController@ourServices');
+Route::get('services', 'WebsiteController@services');
+Route::get('OurProducts', 'WebsiteController@ourProducts');
 
-Route::get('/services', function () {
-    return view('website.services');
-});
 
 Auth::routes();
 Route::get('login/facebook', 'SocialServicesController@redirectToProvider');

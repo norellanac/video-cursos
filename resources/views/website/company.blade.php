@@ -1,4 +1,4 @@
-@extends('layouts.pctec')
+@extends('layouts.pctecbus')
 @section('content')
     <div class="container-fluid pb-6 justify-content-center" style="margin-top: 100px">
         <div class="row mt-6">
