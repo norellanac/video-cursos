@@ -40,7 +40,7 @@
             <div class="row align-items-center justify-content-end">
                 <div class="col-md-6 col-lg-6 col-xl-5">
                     <div class="about_img">
-                        <img src="{{ asset('pctecbus/img/pc-tec-experiencia.png') }}" alt="">
+                        <img src="{{ asset('pctecbus/img/compromiso-calidad-pctec.png') }}" alt="">
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 offset-xl-1 col-xl-6">
@@ -339,7 +339,7 @@
             <div class="row align-items-center justify-content-end">
                 <div class="col-md-6 col-xl-5">
                     <div class="about_img">
-                        <img src="{{ asset('pctecbus/img/undraw_business_deal_cpi9.svg') }}" alt="">
+                        <img src="{{ asset('pctecbus/img/compromiso-calidad-pctec.png') }}" alt="">
                     </div>
                 </div>
                 <div class="col-md-6 offset-xl-1 col-xl-6">

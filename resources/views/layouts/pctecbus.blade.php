@@ -58,7 +58,7 @@
 
     .btn-float {
         position: fixed !important;
-        right: -37px !important;
+        right: -100px !important;
         bottom: 40px !important;
         z-index: 100 !important;
     }
@@ -213,7 +213,7 @@
     <!--buttons-->
     <div class="btn-float">
         <a data-toggle="modal" data-target="#exampleModalCenter">
-            <img src="https://i.pinimg.com/originals/67/6d/24/676d24c0a26ed3503ff777d4ebb3ef79.gif" height="180px">
+            <img src="{{ asset('pctecbus/img/pctecbus-mascota.gif') }}" width="50%">
         </a>
 
     </div>

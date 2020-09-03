@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} | {{ substr(request()->getRequestUri(),1 )}}</title>
+    <title>{{ config('app.name', 'Laravel') }} | {{ substr(request()->getRequestUri(), 1) }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="{{asset('img/pctec_logo.png')}}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('img/pctec_logo.png') }}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -68,6 +68,7 @@
         right: 37px;
         bottom: 100px;
     }
+
 </style>
 <style>
     .nav-app-icon {
@@ -125,9 +126,9 @@
     .list-group-item-action:hover,
     .list-group-item-action:focus {
         z-index: 1;
-        color: #495057;
+        color: #343A40;
         text-decoration: none;
-        background-color: #FFf7921c;
+        background-color: #9e5b03;
     }
 
     .list-group-item-action:active {
@@ -145,6 +146,7 @@
         border: 1px solid #ccc !important;
         border-radius: 0px !important;
     }
+
 </style>
 
 <body>
@@ -154,31 +156,39 @@
             <!-- Sidebar -->
             <div class="bg-theme-1 text-light border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading">
-                    <img class="d-inline-block align-top ml-1" src="{{asset('img/pctec_logo.png')}}"
+                    <img class="d-inline-block align-top ml-1" src="{{ asset('pctecbus/img/pc-technology.png') }}"
                         style="max-width: 200px" />
                     <span class="h3 text-light d-none"> {{ config('app.name', 'App Name') }} </span>
                 </div>
                 <div class="list-group list-group-flush">
-                    <a href="{{url('#')}}" class="list-group-item list-group-item-action bg-theme-1 text-light"> <span
+                    <a href="{{ url('#') }}" class="list-group-item list-group-item-action bg-theme-1 text-light"> <span
                             class=""><i class="fas fa-chart-bar"></i></span> Administracion</a>
-                    <a href="{{url('adminPost')}}" class="list-group-item list-group-item-action bg-theme-1 text-light">
-                        <span class=""><i class="fas fa-video"></i></span> Cargar Video</a>
-                    <a href="{{url('categories')}}"
+                    <a href="{{ url('categories') }}"
                         class="list-group-item list-group-item-action bg-theme-1 text-light"> <span class=""><i
-                                class="fas fa-tags"></i></span> Cursos</a>
-                    <a href="{{url('jobsAdmin')}}" class="list-group-item list-group-item-action bg-theme-1 text-light">
-                        <span class=""><i class="fas fa-hard-hat"></i></span> Empleos</a>
-                    <a href="{{url('storesAdmin')}}"
+                                class="fas fa-tags"></i></span> Categorías</a>
+                    <a href="{{ url('subcategories') }}"
+                        class="list-group-item list-group-item-action bg-theme-1 text-light">
+                        <span class=""><i class="fas fa-tags"></i></span> SubCategorías</a>
+                    <a href="{{ url('categories') }}"
+                        class="list-group-item list-group-item-action bg-theme-1 text-light"> <span class=""><i
+                                class="fas fa-book"></i></span> Cursos</a>
+                    <a href="{{ url('adminPost') }}"
+                        class="list-group-item list-group-item-action bg-theme-1 text-light">
+                        <span class=""><i class="fas fa-video"></i></span> Cargar Video</a>
+                    <a href="{{ url('products') }}"
+                        class="list-group-item list-group-item-action bg-theme-1 text-light">
+                        <span class=""><i class="fas fa-desktop"></i></span> Productos</a>
+                    <a href="{{ url('storesAdmin') }}"
                         class="list-group-item list-group-item-action bg-theme-1 text-light"> <span class=""><i
                                 class="fas fa-building"></i></span> Agencias</a>
-                    <a href="{{url('awardsAdmin')}}"
+                    <a href="{{ url('awardsAdmin') }}"
                         class="list-group-item list-group-item-action bg-theme-1 text-light"> <span class=""><i
                                 class="fas fa-medal"></i></span> Reconocimientos</a>
-                    <a href="{{url('users')}}" class="list-group-item list-group-item-action bg-theme-1 text-light">
+                    <a href="{{ url('users') }}" class="list-group-item list-group-item-action bg-theme-1 text-light">
                         <span class=""><i class="fas fa-user"></i></span> Usuarios</a>
-                    <a href="{{url('#')}}" class="list-group-item list-group-item-action bg-theme-1 text-light">
+                    <a href="{{ url('#') }}" class="list-group-item list-group-item-action bg-theme-1 text-light">
                         <span class=""><i class="fas fa-gamepad"></i></span> Juego</a>
-                    <a href="{{url('#')}}" class="list-group-item list-group-item-action bg-theme-1 text-light">
+                    <a href="{{ url('#') }}" class="list-group-item list-group-item-action bg-theme-1 text-light">
                         <span class=""><i class="fas fa-cog"></i></span> Ajustes</a>
                 </div>
             </div>
@@ -202,7 +212,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{url('adminPost')}}"> <span><i
+                                <a class="nav-link" href="{{ url('adminPost') }}"> <span><i
                                             class="fas fa-newspaper"></i></span> Publicaciones</a>
                             </li>
                             <li class="nav-item">
@@ -214,9 +224,9 @@
                                     Dropdown
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{url('adminPost')}}"> <span><i
+                                    <a class="dropdown-item" href="{{ url('adminPost') }}"> <span><i
                                                 class="fas fa-newspaper"></i></span> Publicaciones</a>
-                                    <a class="dropdown-item" href="{{url('users')}}"> <span><i
+                                    <a class="dropdown-item" href="{{ url('users') }}"> <span><i
                                                 class="fas fa-users"></i></span> Usuarios</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -247,6 +257,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
         $('.select2').select2();
+
     </script>
 
 
@@ -270,24 +281,26 @@
     <!-- Menu Toggle Script -->
     <script>
         $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-      
-    });
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+
+        });
+
     </script>
     <script>
         //Bloquear doble envio de formulario******
         enviando = false; //Obligaremos a entrar el if en el primer submit
         function checkSubmit() {
-          if (!enviando) {
-            enviando= true;
-            return true;
-          } else {
-            //Si llega hasta aca significa que pulsaron 2 veces el boton submit
-            alert("El formulario ya se esta enviando");
-            return false;
-          }
+            if (!enviando) {
+                enviando = true;
+                return true;
+            } else {
+                //Si llega hasta aca significa que pulsaron 2 veces el boton submit
+                alert("El formulario ya se esta enviando");
+                return false;
+            }
         }
+
     </script>
     @yield('js')
 </body>

@@ -19,16 +19,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
     <!-- Favicon Icon -->
-    <link rel="icon" type="image/png"
-        href="{{asset('img/logo.png')}}" />
+    <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}" />
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <style>
     body {
-        background: #f3933b;
-        background: linear-gradient(to right, #f0923c, #FE4E00);
+        background-color: #ffffff);
     }
 
     .transparent {
@@ -54,26 +52,27 @@
     .form-control:valid {
         background-color: transparent !important;
     }
+
 </style>
 
 <body>
     <div class="container">
         <div class="row justify-content-around mt-5" style="margin-top:15em">
-            <img src="{{asset('img/not-found.png')}}" class="img-fluid" width="50%"
-                alt="Responsive image" style="max-height: 300px;">
+            <img src="{{ asset('pctecbus/img/elements/message1.png') }}" class="img-fluid" width="50%"
+                alt="Responsive image" style="max-width: 500px;">
         </div>
 
         <div class="row justify-content-around mt-5">
-            <p class="h1 text-light">@yield('code')</p>
+            <p class="h1 text-dark">@yield('code')</p>
         </div>
         <div class="row justify-content-around mt-1">
-            <p class="h5 text-light">@yield('message')</p>
+            <p class="h5 text-dark">@yield('message')</p>
         </div>
         <div class="row justify-content-center mt-1">
-            <span class="text-light"> {{ substr($exception->getMessage(), 0,100) }} ...</span>
+            <span class="text-dark"> {{ substr($exception->getMessage(), 0, 100) }} ...</span>
         </div>
     </div>
-    <nav class="fixed-bottom bg-theme-3 mt-3" style="padding-bottom: 0;">
+    <nav class="fixed-bottom  mt-3" style="padding-bottom: 0; background-color: #f7921c">
         <ul class="nav justify-content-around" style="margin-bottom: -1em;">
             <li class="nav-item text-center">
                 <a class="nav-link" href="{{ url()->previous() }}">
@@ -82,13 +81,14 @@
                 </a>
             </li>
             <li class="nav-item text-center">
-                <a class="nav-link" href="{{url('/')}}">
+                <a class="nav-link" href="{{ url('/') }}">
                     <span class="nav-app-icon text-light"><i class="fas fa-home"></i></span>
                     <p class="text-light" style="margin-top: -5px;"> {{ 'Inicio' }}</p>
                 </a>
             </li>
             <li class="align-self-end nav-item text-center">
-                <a class="nav-link" href="{{url('https://api.whatsapp.com/send?phone=50233120413&text='. $exception->getMessage() )}}">
+                <a class="nav-link"
+                    href="{{ url('https://api.whatsapp.com/send?phone=50233120413&text=' . $exception->getMessage()) }}">
                     <span class="nav-app-icon text-light"><i class="fab fa-whatsapp"></i></span>
                     <p class="text-light" style="margin-top: -5px;"> {{ 'Ayuda' }}</p>
                 </a>
@@ -99,20 +99,23 @@
         //Bloquear doble envio de formulario******
         enviando = false; //Obligaremos a entrar el if en el primer submit
         function checkSubmit() {
-          if (!enviando) {
-            enviando= true;
-            return true;
-          } else {
-            //Si llega hasta aca significa que pulsaron 2 veces el boton submit
-            alert("El formulario ya se esta enviando");
-            return false;
-          }
+            if (!enviando) {
+                enviando = true;
+                return true;
+            } else {
+                //Si llega hasta aca significa que pulsaron 2 veces el boton submit
+                alert("El formulario ya se esta enviando");
+                return false;
+            }
         }
+
     </script>
     <script>
         $('.select2').select2();
+
     </script>
-    {{--se agregó esta seccion para evitar conflictos entre select con busqueda y select depeneidntes en departamentos y municipios, --}}
+    {{--se agregó esta seccion para evitar conflictos entre select con busqueda y select
+    depeneidntes en departamentos y municipios, --}}
     @yield('sectionJS')
 </body>
 

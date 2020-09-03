@@ -36,4 +36,7 @@ Route::resource('learn', 'CourseController')->middleware('role:root|Super|Admin|
 //*******admin routes****** */
 //Route::resource('users', 'UserController');
 Route::resource('users', 'UserController')->middleware('role:root|Super|Admin|User');
+Route::resource('categories', 'CategoryController')->middleware('role:root|Super|Admin|User');
+Route::resource('products', 'ProductController')->middleware('role:root|Super|Admin|User');
+Route::resource('subcategories', 'SubcategoryController')->middleware('role:root|Super|Admin|User');
 //*******admin routes****** */

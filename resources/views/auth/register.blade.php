@@ -3,7 +3,7 @@
 
 <div class="container ">
     <div class="row justify-content-around" style="margin-top: 4em;">
-        <img src="https://image.flaticon.com/icons/svg/2633/2633848.svg" class="img-fluid" width="20%"
+        <img src="{{ asset('pctecbus/img/elements/ingresar-pctecbus.svg') }}" class="img-fluid" style="max-width: 400px"
             alt="Responsive image">
     </div>
 
