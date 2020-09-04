@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class WebsiteController extends Controller
 {
@@ -14,7 +15,8 @@ class WebsiteController extends Controller
 
     public function ourProducts()
     {
-        return view('website.products');
+        $records = Product::with('status')->with('status')->get();
+        return view('website.products', ['records'=>$records]);
     }
 
     public function ourServices()

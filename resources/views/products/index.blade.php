@@ -42,8 +42,14 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">id</th>
-                        <th scope="col">Categoria</th>
+                        <th scope="col">Nombre</th>
                         <th scope="col">Descripcion</th>
+                        <th scope="col">Información</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Link</th>
                         <th scope="col">Opciones</th>
                     </tr>
                 </thead>
@@ -51,8 +57,14 @@
                     @foreach ($records as $item)
                         <tr>
                             <th scope="row">{{ $item->id }}</th>
-                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->title }}</td>
                             <td>{{ $item->description }}</td>
+                            <td>{{ $item->information }}</td>
+                            <td><img src="{{asset('/storage/products/' . $item->featured_image)}}" height="30px"></td>
+                            <td>{{ $item->category->name }}</td>
+                            <td>{{ $item->status->name }}</td>
+                            <td>{{ $item->price }}</td>
+                            <td><a href="{{ $item->reference_link }}">{{ $item->reference_link }}</a></td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <a class="btn btn-sm btn-secondary" href="{{ url('records/' . $item->id) }}"

@@ -146,6 +146,53 @@
                     <img src="{{ asset('img/microsoft-logo.png') }}" class="mx-auto d-inline" height="150px">
                 </h5>
                 <div class="row">
+                    @foreach ($records as $item)
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="image-flip">
+                                <div class="mainflip flip-0">
+                                    <div class="frontside">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <p><img class=" img-fluid"
+                                                        src="{{ asset('/storage/products/' . $item->featured_image) }}"
+                                                        alt="card image"></p>
+                                                <h4 class="card-title">{{ $item->title }}</h4>
+                                                <p class="card-text">{{ $item->description }}</p>
+                                                <a href="https://www.facebook.com/" class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="backside">
+                                        <div class="card">
+                                            <div class="card-body text-center mt-4">
+                                                <h4 class="card-title">{{ $item->title }}</h4>
+                                                <p class="card-text">{{ $item->information }}
+                                                </p>
+                                                <a href="{{ url('#') }}" class="btn btn-primary"> <i class="fa fa-plus text-light">
+                                                    </i> </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+        </section>
+        <!-- Team -->
+    </div>
+
+    <div>
+        <!-- Team -->
+        <section id="team" class="pb-5">
+            <div class="container">
+                <h5 class="section-title h1">
+                    <img src="{{ asset('img/microsoft-logo.png') }}" class="mx-auto d-inline" height="150px">
+                </h5>
+                <div class="row">
                     <!-- Team member -->
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="image-flip">

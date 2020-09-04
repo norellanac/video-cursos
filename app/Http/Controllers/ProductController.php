@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $records = Product::all();
+        $records = Product::with('status')->with('status')->get();
         return view("products.index", ["records" => $records]);
    
     }
