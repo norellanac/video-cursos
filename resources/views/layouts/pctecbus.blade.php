@@ -219,7 +219,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+    <div class="modal fade pl-6 pr-6 pt-6 pb-6" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -234,7 +234,7 @@
                 <div class="modal-body">
 
                     <div class="row">
-                        <div class="col-sm-6 justify-content-center d-flex pl-3 pr-3 pt-3 pb-3">
+                        <div class="col-sm-6 justify-content-center d-flex pl-6 pr-6 pt-6 pb-6">
                             <div>
                                 <div>
                                     <img src="{{ asset('img/icons/undraw_secure_server_s9u8.svg') }}" width="100%"
@@ -244,24 +244,26 @@
                                             <div class="col text-center">
                                                 <a href="{{ url('OurProducts') }}" class="btn btn-dark">
                                                     <i class="fas fa-"></i>
-                                                    {{ __('Productos') }}
+                                                    <span class="text-light">{{ __('Productos') }}
+                                                    </span>
                                                 </a> </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 justify-content-center d-flex pl-3 pr-3 pt-3 pb-3">
+                        <div class="col-sm-6 justify-content-center d-flex pl-6 pr-6 pt-6 pb-6">
                             <div>
                                 <div>
-                                    <img src="{{ asset('img/icons/undraw_programming_2svr.svg') }}" width="100%"
-                                        height="150px">
+                                    <a href="{{ url('OurServices') }}">
+                                        <img src="{{ asset('pctecbus/img/elements/servicios-pctecbus.svg') }}"
+                                            width="100%" height="150px">
+                                    </a>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col text-center">
-                                                <a href="{{ url('OurServices') }}" class="btn btn-dark">
-                                                    <i class="fas fa-"></i>
-                                                    {{ __('Servicios') }}
+                                                <a href="{{ url('OurServices') }}" class="btn btn-dark btn-small ">
+                                                    <span class="text-light">{{ __('Servicios') }}</span>
                                                 </a> </div>
                                         </div>
                                     </div>

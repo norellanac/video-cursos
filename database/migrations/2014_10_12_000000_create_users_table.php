@@ -35,7 +35,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->unsignedInteger('role_id');
-            $table->unsignedBigInteger('status_id');
+            $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('status_id')
                 ->references('id')->on('status');
         });

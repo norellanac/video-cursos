@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
+use App\Status;
+use DB;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -29,7 +32,8 @@ class ProductController extends Controller
     {
         //
         $categories = Category::all();
-        return view("products.index", ["categories" => $categories]);
+        $status = Status::all();
+        return view("products.create", ["categories" => $categories, "status" => $status]);
     }
 
     /**
@@ -40,32 +44,39 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
-       //
+        //dd($request);
        request()->validate([
-        'image' => 'required|image',
-        'user_id' => 'required',
-        'type_id' => 'required',
+        'featured_image' => 'required|image',
+        'title' => 'required',
+        'description' => 'required',
+        'information' => 'required',
+        'reference_link' => 'required',
         'category_id' => 'required',
+        'status_id' => 'required',
+        'price' => 'required',
     ]);
 
     DB::beginTransaction();
     try {
-        $award = new Award;
-        $award->user_id = $request->user_id;
-        $award->type_id = $request->type_id;
-        $award->category_id = $request->category_id;
-        $award->save();
+        $record = new Product;
+        $record->status_id = $request->status_id;
+        $record->title = $request->title;
+        $record->description = $request->description;
+        $record->information = $request->information;
+        $record->reference_link = $request->reference_link;
+        $record->price = $request->price;
+        $record->category_id = $request->category_id;
+        $record->save();
         //******carga de imagen**********//
-        if ($request->hasFile('image')) {
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $imageNameToStore = $award->id . '.' . $extension;
+        if ($request->hasFile('featured_image')) {
+            $extension = $request->file('featured_image')->getClientOriginalExtension();
+            $imageNameToStore = $record->id . '.' . $extension;
             // Upload Image //********nombre de carpeta para almacenar*****
-            $path = $request->file('image')->storeAs('public/awards', $imageNameToStore);
+            $path = $request->file('featured_image')->storeAs('public/products', $imageNameToStore);
             //dd($path);
 
-            $award->url_image = $imageNameToStore;
-            $award->save();
+            $record->featured_image = $imageNameToStore;
+            $record->save();
         }
         //******carga de imagen**********//
 
@@ -78,7 +89,7 @@ class ProductController extends Controller
     }
     DB::commit();
     return redirect()->action( //regresa con el error
-        'AwardController@index')
+        'ProductController@index')
         ->with(['message' => 'Se agregó el registro correctamente', 'alert' => 'warning']);
 
     }

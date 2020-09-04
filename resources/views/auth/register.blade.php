@@ -1,189 +1,189 @@
 @extends('layouts.single')
 @section('content')
 
-<div class="container ">
-    <div class="row justify-content-around" style="margin-top: 4em;">
-        <img src="{{ asset('pctecbus/img/elements/ingresar-pctecbus.svg') }}" class="img-fluid" style="max-width: 400px"
-            alt="Responsive image">
-    </div>
+    <div class="container ">
+        <div class="row justify-content-around" style="margin-top: 4em;">
+            <img src="{{ asset('pctecbus/img/elements/crear_cuenta_pctecbus.svg') }}" class="img-fluid"
+                style="max-width: 400px" alt="Responsive image">
+        </div>
 
-    <div class="row mb-3 justify-content-center">
-        @if (Route::has('password.request'))
-        <a class="m-t-5 btn btn-link text-light" href="{{ route('password.request') }}">
-            {{ __('¿Olvidé la contraseña?') }}
-        </a>
-        <a class="btn btn-link text-light" href="{{ route('login') }}">
-            {{ __('Ya tengo una cuenta') }}
-        </a>
-        @endif
-    </div>
+        <div class="row mb-3 justify-content-center">
+            @if (Route::has('password.request'))
+                <a class="m-t-5 btn btn-link text-light" href="{{ route('password.request') }}">
+                    {{ __('¿Olvidé la contraseña?') }}
+                </a>
+                <a class="btn btn-link text-light" href="{{ route('login') }}">
+                    {{ __('Ya tengo una cuenta') }}
+                </a>
+            @endif
+        </div>
 
-    <div class="row justify-content-around">
-        <h1 class="text-light">Crear cuenta</h1>
-    </div>
-    <div class="row justify-content-around mt-4">
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-            <div class="input-group input-group-lg mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                        <i class="text-light fas fa-user-edit"></i>
+        <div class="row justify-content-around">
+            <h1 class="text-light">Crear cuenta</h1>
+        </div>
+        <div class="row justify-content-around mt-4">
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+                <div class="input-group input-group-lg mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                            <i class="text-light fas fa-user-edit"></i>
+                        </span>
+                    </div>
+                    <input id="name" placeholder="Nombres" type="text"
+                        class="text-light form-control @error('name') is-invalid @enderror" name="name"
+                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                    @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
                     </span>
-                </div>
-                <input id="name" placeholder="Nombres" type="text"
-                    class="text-light form-control @error('name') is-invalid @enderror" name="name"
-                    value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    @enderror
 
-                @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-
-                @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-            <div class="input-group input-group-lg mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                        <i class="text-light fas fa-user-edit"></i>
+                    @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
                     </span>
+                    @enderror
                 </div>
-                <input id="lastname" placeholder="Apellidos" type="text"
-                    class="text-light form-control @error('lastname') is-invalid @enderror" name="lastname"
-                    value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+                <div class="input-group input-group-lg mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                            <i class="text-light fas fa-user-edit"></i>
+                        </span>
+                    </div>
+                    <input id="lastname" placeholder="Apellidos" type="text"
+                        class="text-light form-control @error('lastname') is-invalid @enderror" name="lastname"
+                        value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
 
-                @error('lastname')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-
-                @error('lastname')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-            <div class="input-group input-group-lg mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                        <i class="text-light fas fa-at"></i>
+                    @error('lastname')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
                     </span>
-                </div>
-                <input id="email" placeholder="Correo " type="text"
-                    class="text-light form-control @error('email') is-invalid @enderror" name="email"
-                    value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @enderror
 
-                @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-
-                @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-            <div class="input-group input-group-lg mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                        <i class="text-light fas fa-mobile"></i>
+                    @error('lastname')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
                     </span>
+                    @enderror
                 </div>
-                <input id="phone" type="phone" placeholder="Número de móvil"
-                    class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}"
-                    required autocomplete="phone">
+                <div class="input-group input-group-lg mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                            <i class="text-light fas fa-at"></i>
+                        </span>
+                    </div>
+                    <input id="email" placeholder="Correo " type="text"
+                        class="text-light form-control @error('email') is-invalid @enderror" name="email"
+                        value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                @error('phone')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-            <div class="input-group input-group-lg mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                        <i class="text-light fas fa-id-card"></i>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
                     </span>
-                </div>
-                <input id="dpi" placeholder="DPI" type="text"
-                    class="text-light form-control @error('dpi') is-invalid @enderror" name="dpi"
-                    value="{{ old('dpi') }}" required autofocus>
+                    @enderror
 
-                @error('dpi')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-
-                @error('dpi')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-            <div class="input-group input-group-lg mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                        <i class="text-light fas fa-unlock-alt"></i>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
                     </span>
+                    @enderror
                 </div>
-                <input id="password" placeholder="Contraseña" type="password"
-                    class="text-light form-control @error('password') is-invalid @enderror" name="password" required
-                    autocomplete="new-password">
-                <div class="input-group-prepend " style="background-color: transparent !important;">
-                    <span class="input-group-text show-password" id="inputGroup-sizing-sm">
-                        <a onclick="return showPassword();">
-                            <i class="text-light fas fa-eye"></i>
-                        </a>
+                <div class="input-group input-group-lg mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                            <i class="text-light fas fa-mobile"></i>
+                        </span>
+                    </div>
+                    <input id="phone" type="phone" placeholder="Número de móvil"
+                        class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}"
+                        required autocomplete="phone">
+
+                    @error('phone')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
                     </span>
+                    @enderror
                 </div>
+                <div class="input-group input-group-lg mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                            <i class="text-light fas fa-id-card"></i>
+                        </span>
+                    </div>
+                    <input id="dpi" placeholder="DPI" type="text"
+                        class="text-light form-control @error('dpi') is-invalid @enderror" name="dpi"
+                        value="{{ old('dpi') }}" required autofocus>
 
-                @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-            <div class="input-group input-group-lg mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                        <i class="text-light fas fa-unlock-alt"></i>
+                    @error('dpi')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
                     </span>
+                    @enderror
+
+                    @error('dpi')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
-                <input id="password-confirm" placeholder="Confirmar contraseña" type="password"
-                    class="text-light form-control" name="password_confirmation" required autocomplete="new-password">
-            </div>
+                <div class="input-group input-group-lg mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                            <i class="text-light fas fa-unlock-alt"></i>
+                        </span>
+                    </div>
+                    <input id="password" placeholder="Contraseña" type="password"
+                        class="text-light form-control @error('password') is-invalid @enderror" name="password" required
+                        autocomplete="new-password">
+                    <div class="input-group-prepend " style="background-color: transparent !important;">
+                        <span class="input-group-text show-password" id="inputGroup-sizing-sm">
+                            <a onclick="return showPassword();">
+                                <i class="text-light fas fa-eye"></i>
+                            </a>
+                        </span>
+                    </div>
 
-            <div class="form-group row justify-content-around ">
-                <div class=" ">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                            {{ old('remember') ? 'checked' : '' }}>
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="input-group input-group-lg mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                            <i class="text-light fas fa-unlock-alt"></i>
+                        </span>
+                    </div>
+                    <input id="password-confirm" placeholder="Confirmar contraseña" type="password"
+                        class="text-light form-control" name="password_confirmation" required autocomplete="new-password">
+                </div>
 
-                        <label class="form-check-label text-light" for="remember">
-                            {{ __('Términos y condiciones') }}
-                        </label>
+                <div class="form-group row justify-content-around ">
+                    <div class=" ">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="remember" id="remember"
+                                {{ old('remember') ? 'checked' : '' }}>
+
+                            <label class="form-check-label text-light" for="remember">
+                                {{ __('Términos y condiciones') }}
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group row mt-3 justify-content-around ">
-                <div class="">
-                    <button type="submit" class="btn btn-lg btn-block btn-dark">
-                        {{ __('Registrarse') }}
-                    </button>
+                <div class="form-group row mt-3 justify-content-around ">
+                    <div class="">
+                        <button type="submit" class="btn btn-lg btn-block btn-dark">
+                            {{ __('Registrarse') }}
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 
 
 
