@@ -44,15 +44,26 @@ class CategoryController extends Controller
         request()->validate([
             'name' => 'required',
             'description' => 'max:255',
+            'url_image' => 'required|image',
         ]);
 
         DB::beginTransaction();
         try {
-            $category = new Category;
-            $category->name = $request->name;
-            $category->description = $request->description;
-            $category->save();
-        } catch (\Illuminate\Database\QueryException $e) {
+            $record = new Category;
+            $record->name = $request->name;
+            $record->description = $request->description;
+            $record->save();
+            //******carga de imagen**********//
+        if ($request->hasFile('url_image')) {
+            $extension = $request->file('url_image')->getClientOriginalExtension();
+            $imageNameToStore = $record->id . '.' . $extension;
+            // Upload Image //********nombre de carpeta para almacenar*****
+            $path = $request->file('url_image')->storeAs('public/categories', $imageNameToStore);
+            //dd($path);
+            $record->url_image = $imageNameToStore;
+            $record->save();
+        }
+    } catch (\Illuminate\Database\QueryException $e) {
             DB::rollback(); //si hay un error previo, desahe los cambios en DB y redirecciona a pagina de error
             //$response['message'] = $e->errorInfo;
             //dd($e->errorInfo[2]);

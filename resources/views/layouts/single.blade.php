@@ -20,6 +20,22 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111574681-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+
+
+        gtag('config', 'UA-111574681-1');
+
+    </script>
 </head>
 <style>
     body {
@@ -55,6 +71,7 @@
         background-color: transparent !important;
         border-top-right-radius: 25px;
     }
+
 </style>
 
 <body>
@@ -65,15 +82,16 @@
         //Bloquear doble envio de formulario******
         enviando = false; //Obligaremos a entrar el if en el primer submit
         function checkSubmit() {
-          if (!enviando) {
-            enviando= true;
-            return true;
-          } else {
-            //Si llega hasta aca significa que pulsaron 2 veces el boton submit
-            alert("El formulario ya se esta enviando");
-            return false;
-          }
+            if (!enviando) {
+                enviando = true;
+                return true;
+            } else {
+                //Si llega hasta aca significa que pulsaron 2 veces el boton submit
+                alert("El formulario ya se esta enviando");
+                return false;
+            }
         }
+
     </script>
 
     <script>
@@ -94,11 +112,14 @@
                 y.type = "password";
             }
         }
+
     </script>
     <script>
         $('.select2').select2();
+
     </script>
-    {{--se agregó esta seccion para evitar conflictos entre select con busqueda y select depeneidntes en departamentos y municipios, --}}
+    {{--se agregó esta seccion para evitar conflictos entre select con busqueda y select
+    depeneidntes en departamentos y municipios, --}}
     @yield('sectionJS')
 </body>
 

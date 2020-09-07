@@ -201,7 +201,7 @@
                                     <div class="card">
                                         <div class="card-body text-center">
                                             <p><img class=" img-fluid"
-                                                    src="https://image.flaticon.com/icons/svg/906/906309.svg"
+                                                    src="{{asset('pctecbus/img/elements/iconoproducto.svg')}}"
                                                     alt="card image"></p>
                                             <h4 class="card-title">Microsoft Teams</h4>
                                             <p class="card-text">This is basic card with image on top, title, description

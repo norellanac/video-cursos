@@ -40,6 +40,7 @@
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">Categoria</th>
+                    <th></th>
                     <th scope="col">Descripcion</th>
                     <th scope="col">Opciones</th>
                 </tr>
@@ -49,6 +50,7 @@
                 <tr>
                     <th scope="row">{{$item->id}}</th>
                     <td>{{$item->name}}</td>
+                    <td><img src="{{asset('/storage/categories/' . $item->url_image)}}" height="30px"></td>
                     <td>{{$item->description}}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">

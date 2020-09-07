@@ -3442,9 +3442,7 @@ ul {
   bottom: -10px;
   padding: 51px 30px;
   opacity: 0;
-  visibility: hidden;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  visibility: visible;
 }
 
 /* line 92, E:/167 Bizcon Business/Bizcon_html/sass/_portfolio.scss */

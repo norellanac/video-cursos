@@ -62,9 +62,9 @@
                                 <i class="text-primary fas fa-align-left"></i>
                             </span>
                         </div>
-                        <textarea id="information" placeholder="Descripcion (opcional)" type="text"
+                        <input id="information" placeholder="Información del producto" type="text"
                             class="text-primary form-control @error('information') is-invalid @enderror"
-                            name="information" value="{{ old('information') }}"> </textarea>
+                            name="information" value="{{ old('information') }}">
 
                         @error('information')
                         <span class="invalid-feedback" role="alert">

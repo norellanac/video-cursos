@@ -23,6 +23,22 @@
     <link rel="stylesheet" href="{{ asset('pctecbus/css/slick.css') }}">
     <!-- style CSS -->
     <link rel="stylesheet" href="{{ asset('pctecbus/css/style.css') }}">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111574681-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+
+
+        gtag('config', 'UA-111574681-1');
+
+    </script>
 </head>
 
 <style>
@@ -237,7 +253,7 @@
                         <div class="col-sm-6 justify-content-center d-flex pl-6 pr-6 pt-6 pb-6">
                             <div>
                                 <div>
-                                    <img src="{{ asset('img/icons/undraw_secure_server_s9u8.svg') }}" width="100%"
+                                    <img src="{{ asset('img/icons/pc-technology-productos.svg') }}" width="100%"
                                         height="150px">
                                     <div class="container">
                                         <div class="row">
@@ -298,7 +314,18 @@
     <!-- custom js -->
     <script src="{{ asset('pctecbus/js/custom.js') }}"></script>
 
+    <script>
+        $(function() {
 
+            $('[data-toggle="modal"]').hover(function() {
+                var modalId = $(this).data('target');
+                $(modalId).modal('show');
+
+            });
+
+        });
+
+    </script>
 
 </body>
 
