@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Supplier;
+use DB;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
@@ -15,6 +16,8 @@ class SupplierController extends Controller
     public function index()
     {
         //
+        $records = Supplier::all();
+        return view("suppliers.index", ["records" => $records]);
     }
 
     /**
@@ -25,6 +28,7 @@ class SupplierController extends Controller
     public function create()
     {
         //
+        return view("suppliers.create");
     }
 
     /**
@@ -36,6 +40,39 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
         //
+        request()->validate([
+            'name' => 'required',
+            'description' => 'max:255',
+            'url_image' => 'required|image',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $record = new Supplier;
+            $record->name = $request->name;
+            $record->description = $request->description;
+            $record->save();
+            //******carga de imagen**********//
+        if ($request->hasFile('url_image')) {
+            $extension = $request->file('url_image')->getClientOriginalExtension();
+            $imageNameToStore = $record->name . '.' . $extension;
+            // Upload Image //********nombre de carpeta para almacenar*****
+            $path = $request->file('url_image')->storeAs('public/suppliers', $imageNameToStore);
+            //dd($path);
+            $record->url_image = $imageNameToStore;
+            $record->save();
+        }
+        //******carga de imagen**********//
+        } catch (\Illuminate\Database\QueryException $e) {
+            DB::rollback(); //si hay un error previo, desahe los cambios en DB y redirecciona a pagina de error
+            //$response['message'] = $e->errorInfo;
+            //dd($e->errorInfo[2]);
+            abort(500, $e->errorInfo[2]); //en la poscision 2 del array está el mensaje
+            return response()->json($response, 500);
+        }
+        DB::commit();
+        return redirect()->action( //regresa con el error
+            'SupplierController@index')->with(['message' => 'Se agregó el registro correctamente', 'alert' => 'warning']);
     }
 
     /**

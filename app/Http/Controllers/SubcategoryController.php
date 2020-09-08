@@ -55,7 +55,7 @@ class SubcategoryController extends Controller
             //******carga de imagen**********//
         if ($request->hasFile('url_image')) {
             $extension = $request->file('url_image')->getClientOriginalExtension();
-            $imageNameToStore = $record->id . '.' . $extension;
+            $imageNameToStore = $record->name . '.' . $extension;
             // Upload Image //********nombre de carpeta para almacenar*****
             $path = $request->file('url_image')->storeAs('public/subcategories', $imageNameToStore);
             //dd($path);

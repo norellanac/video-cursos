@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('suppliers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('website')->nullable();
@@ -29,7 +29,8 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title', 250);
-            $table->string('description', 250);
+            $table->string('sku')->nullable();
+            $table->string('title', 250);
             $table->text('information');
             $table->text('objective');
             $table->text('details');

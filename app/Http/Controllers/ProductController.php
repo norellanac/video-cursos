@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\Supplier;
 use App\Status;
 use DB;
 use Illuminate\Http\Request;
@@ -32,8 +33,9 @@ class ProductController extends Controller
     {
         //
         $categories = Category::all();
+        $suppliers = Supplier::all();
         $status = Status::all();
-        return view("products.create", ["categories" => $categories, "status" => $status]);
+        return view("products.create", ["categories" => $categories, "status" => $status, 'suppliers'=>$suppliers]);
     }
 
     /**
@@ -54,6 +56,7 @@ class ProductController extends Controller
         'category_id' => 'required',
         'status_id' => 'required',
         'price' => 'required',
+        'type_id' => 'required',
     ]);
 
     DB::beginTransaction();
@@ -61,6 +64,7 @@ class ProductController extends Controller
         $record = new Product;
         $record->status_id = $request->status_id;
         $record->title = $request->title;
+        $record->sku=trim($request->title);
         $record->description = $request->description;
         $record->information = $request->information;
         $record->reference_link = $request->reference_link;
@@ -70,7 +74,7 @@ class ProductController extends Controller
         //******carga de imagen**********//
         if ($request->hasFile('featured_image')) {
             $extension = $request->file('featured_image')->getClientOriginalExtension();
-            $imageNameToStore = $record->id . '.' . $extension;
+            $imageNameToStore = $record->sku . '.' . $extension;
             // Upload Image //********nombre de carpeta para almacenar*****
             $path = $request->file('featured_image')->storeAs('public/products', $imageNameToStore);
             //dd($path);

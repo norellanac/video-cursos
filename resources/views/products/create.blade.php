@@ -63,8 +63,8 @@
                             </span>
                         </div>
                         <input id="information" placeholder="Información del producto" type="text"
-                            class="text-primary form-control @error('information') is-invalid @enderror"
-                            name="information" value="{{ old('information') }}">
+                            class="text-primary form-control @error('information') is-invalid @enderror" name="information"
+                            value="{{ old('information') }}">
 
                         @error('information')
                         <span class="invalid-feedback" role="alert">
@@ -85,8 +85,9 @@
                             </span>
                         </div>
                         <input id="reference_link" placeholder="Link o enlace de referencia" type="text"
-                            class="text-primary form-control @error('reference_link') is-invalid @enderror" name="reference_link"
-                            value="{{ old('reference_link') }}" autocomplete="reference_link" autofocus>
+                            class="text-primary form-control @error('reference_link') is-invalid @enderror"
+                            name="reference_link" value="{{ old('reference_link') }}" autocomplete="reference_link"
+                            autofocus>
 
                         @error('reference_link')
                         <span class="invalid-feedback" role="alert">
@@ -173,9 +174,9 @@
                                 <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
                             </span>
                         </div>
-                        <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror"
-                            required>
-                            <option value="1" selected>Tipo</option>
+                        <select name="category_id" id="category_id"
+                            class="form-control @error('category_id') is-invalid @enderror" required>
+                            <option value="1" selected>categoría Principal</option>
                             @foreach ($categories as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
@@ -187,6 +188,79 @@
                         @enderror
 
                         @error('category_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-12 col-md-6 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
+                            </span>
+                        </div>
+                        <select name="type_id" id="type_id" class="form-control @error('type_id') is-invalid @enderror"
+                            required>
+                            <option value="1" selected>Tipo</option>
+                            <option value="1">Producto</option>
+                            <option value="2">Servicio</option>
+                        </select>
+                        @error('type_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('type_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-12 col-md-6 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
+                            </span>
+                        </div>
+                        <select name="type_id" id="type_id" class="form-control @error('type_id') is-invalid @enderror"
+                            required>
+                            <option value="1" selected>Tipo</option>
+                            <option value="1">Producto</option>
+                            <option value="2">Servicio</option>
+                        </select>
+                        @error('type_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('type_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-12 col-md-6 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
+                            </span>
+                        </div>
+                        <select name="supplier_id" id="supplier_id"
+                            class="form-control @error('supplier_id') is-invalid @enderror" required>
+                            <option value="1" selected>Proveedor</option>
+                            @foreach ($suppliers as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('supplier_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('supplier_id')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -215,4 +289,23 @@
             @endif
         </div>
     </div>
+    <div class="mt-6 mb-6">
+        <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+            <option value="AL">Alabama</option>
+            <option value="WY">Wyoming</option>
+        </select>
+    </div>
+@endsection
+@section('js')
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
+
+    </script>
 @endsection
