@@ -26,11 +26,12 @@ class CreateProductsTable extends Migration
                 ->references('id')->on('status');
             $table->timestamps();
         });
+
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title', 250);
+            $table->string('description', 250);
             $table->string('sku')->nullable();
-            $table->string('title', 250);
             $table->text('information');
             $table->text('objective');
             $table->text('details');
@@ -51,6 +52,29 @@ class CreateProductsTable extends Migration
                 ->references('id')->on('status');
             $table->timestamps();
         });
+
+
+        Schema::create('category_product', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')
+                ->references('id')->on('categories');
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->foreign('product_id')
+                ->references('id')->on('products');
+            $table->timestamps();
+        });
+
+        Schema::create('product_subcategory', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('subcategory_id')->nullable();
+            $table->foreign('subcategory_id')
+                ->references('id')->on('subcategories');
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->foreign('product_id')
+                ->references('id')->on('products');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -60,6 +84,8 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('category_product');
+        Schema::dropIfExists('product_subcategory');
         Schema::dropIfExists('products');
         Schema::dropIfExists('suppliers');
     }

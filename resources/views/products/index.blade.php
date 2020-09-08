@@ -47,6 +47,7 @@
                         <th scope="col">Información</th>
                         <th scope="col">Imagen</th>
                         <th scope="col">Categoria</th>
+                        <th scope="col">Categoria</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Link</th>
@@ -61,7 +62,8 @@
                             <td>{{ $item->description }}</td>
                             <td>{{ $item->information }}</td>
                             <td><img src="{{asset('/storage/products/' . $item->featured_image)}}" height="30px"></td>
-                            <td>{{ $item->category->name }}</td>
+                            <td>{{ $item->category->first()->name }}</td>
+                            <td>{{ $item->subcategory->first()->name }}</td>
                             <td>{{ $item->status->name }}</td>
                             <td>{{ $item->price }}</td>
                             <td><a href="{{ $item->reference_link }}">{{ $item->reference_link }}</a></td>

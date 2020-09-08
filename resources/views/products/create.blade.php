@@ -174,9 +174,10 @@
                                 <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
                             </span>
                         </div>
-                        <select name="category_id" id="category_id"
-                            class="form-control @error('category_id') is-invalid @enderror" required>
-                            <option value="1" selected>categoría Principal</option>
+                        <select
+                            class="js-example-basic-multiple js-states form-control @error('subcategory_id') is-invalid @enderror"
+                            name="category_id[]" id="category_id" multiple="multiple">
+                            <option selected disabled>categoría Principal</option>
                             @foreach ($categories as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
@@ -199,13 +200,15 @@
                                 <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
                             </span>
                         </div>
-                        <select name="type_id" id="type_id" class="form-control @error('type_id') is-invalid @enderror"
-                            required>
-                            <option value="1" selected>Tipo</option>
-                            <option value="1">Producto</option>
-                            <option value="2">Servicio</option>
+                        <select
+                            class="js-example-basic-multiple js-states form-control @error('subcategory_id') is-invalid @enderror"
+                            name="subcategory_id[]" id="subcategory_id" multiple="multiple">
+                            <option disabled selected>Etiquetas</option>
+                            @foreach ($subcategories as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
                         </select>
-                        @error('type_id')
+                        @error('subcategory_id')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -289,23 +292,10 @@
             @endif
         </div>
     </div>
-    <div class="mt-6 mb-6">
-        <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
-            <option value="AL">Alabama</option>
-            <option value="WY">Wyoming</option>
-        </select>
-    </div>
 @endsection
 @section('js')
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-
     <script>
-        $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
-        });
+        $('.js-example-basic-multiple').select2();
 
     </script>
 @endsection

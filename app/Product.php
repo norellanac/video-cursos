@@ -14,6 +14,11 @@ class Product extends Model
 
     public function category()
     {
-        return $this->belongsTo("App\Category", 'category_id');
+        return $this->belongsToMany("App\Category")->withPivot('category_id');
+    }
+
+    public function subcategory()
+    {
+        return $this->belongsToMany("App\Subcategory")->withPivot('subcategory_id');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\Subcategory;
 use App\Supplier;
 use App\Status;
 use DB;
@@ -19,7 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $records = Product::with('status')->with('status')->get();
+        $records = Product::with('status')->with('category')->with('subcategory')->get();
         return view("products.index", ["records" => $records]);
    
     }
@@ -33,9 +34,10 @@ class ProductController extends Controller
     {
         //
         $categories = Category::all();
+        $subcategories = Subcategory::all();
         $suppliers = Supplier::all();
         $status = Status::all();
-        return view("products.create", ["categories" => $categories, "status" => $status, 'suppliers'=>$suppliers]);
+        return view("products.create", ["categories" => $categories, "status" => $status, 'suppliers'=>$suppliers, 'subcategories'=>$subcategories]);
     }
 
     /**
@@ -65,12 +67,31 @@ class ProductController extends Controller
         $record->status_id = $request->status_id;
         $record->title = $request->title;
         $record->sku=trim($request->title);
-        $record->description = $request->description;
+        //$record->description = $request->description;
         $record->information = $request->information;
         $record->reference_link = $request->reference_link;
         $record->price = $request->price;
-        $record->category_id = $request->category_id;
+        $record->type_id = $request->type_id;
+        $record->objective = $request->title;
+        $record->details = $request->title;
+        $record->audiencie = $request->title;
         $record->save();
+
+
+        for ($i=0; $i < sizeof($request->category_id); $i++) { 
+            $request->category_id[$i];
+            DB::table('category_product')->insert(
+                ['category_id' => $request->category_id[$i], 'product_id' => $record->id]
+            );
+        }
+
+        for ($i=0; $i < sizeof($request->subcategory_id); $i++) { 
+            //dd($request->category_id[$i]);
+            DB::table('product_subcategory')->insert(
+                ['subcategory_id' => $request->subcategory_id[$i], 'product_id' => $record->id]
+            );
+        }
+
         //******carga de imagen**********//
         if ($request->hasFile('featured_image')) {
             $extension = $request->file('featured_image')->getClientOriginalExtension();
