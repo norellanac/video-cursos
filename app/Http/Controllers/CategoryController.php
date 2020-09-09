@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
+use App\Supplier;
 use DB;
 use Illuminate\Http\Request;
 
@@ -84,6 +86,11 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         //
+        $products_id = DB::table('category_product')->select('product_id')
+        ->where('category_id', $category->id)->distinct()->get();
+        $records = Product::whereIn('id', $products_id->pluck("product_id"))->with('status')->with('status')->get();
+        $suppliers=Supplier::all();
+        return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers]);
     }
 
     /**

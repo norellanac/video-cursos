@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Subcategory;
+use App\Product;
+use App\Supplier;
 use DB;
 use Illuminate\Http\Request;
 
@@ -84,6 +86,11 @@ class SubcategoryController extends Controller
     public function show(Subcategory $subcategory)
     {
         //
+        $products_id = DB::table('product_subcategory')->select('product_id')
+        ->where('subcategory_id', $subcategory->id)->distinct()->get();
+        $records = Product::whereIn('id', $products_id->pluck("product_id"))->with('status')->with('status')->get();
+        $suppliers=Supplier::all();
+        return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers]);
     }
 
     /**

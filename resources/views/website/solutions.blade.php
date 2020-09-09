@@ -1,85 +1,40 @@
 @extends('layouts.pctecbus')
 @section('content')
-    <div>
+    <div class="container">
 
         <!-- portfolio_part start-->
-        <section class="portfolio_part section_padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card-columns">
-                            <div class="card">
-                                <blockquote class="blockquote mb-0">
-                                    <h2>Soluciones para
-                                        las diferentes Industrias</h2>
-                                    <p>Male bring land. Dominion over can yielding his moveth under him is.
-                                        Multiply which firmament</p>
-                                </blockquote>
-                            </div>
-                            <div class="card">
-                                <img src="{{ asset('pctecbus/img/gallery/gallery_item.png') }}" class="card-img-top"
-                                    alt="...">
-                                <div class="card-body">
-                                    <a href="project_details.html">
-                                        <h5 class="card-title">Contabilidad e Inventarios</h5>
-                                    </a>
-                                    <p class="card-text">
-                                    <ul>
-                                        <li>Asesorias</li>
-                                        <li>Auditorias</li>
-                                    </ul>
-
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="{{ asset('pctecbus/img/gallery/gallery_item_1.png') }}" class="card-img-top"
-                                    alt="...">
-                                <div class="card-body">
-                                    <a href="{{ url('services') }}">
-                                        <h5 class="card-title">Asesoria y automatizacion <br> de procesos</h5>
-                                    </a>
-                                    <p class="card-text">
-                                        <img src="https://logos-download.com/wp-content/uploads/2016/02/Microsoft_box.png"
-                                            height="70px">
-                                        <img src="https://1000marcas.net/wp-content/uploads/2020/03/Sap-logo.png" alt=""
-                                            height="70px">
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="{{ asset('pctecbus/img/gallery/gallery_item_2.png') }}" class="card-img-top"
-                                    alt="...">
-                                <div class="card-body">
-                                    <a href="{{ url('services') }}">
-                                        <h5 class="card-title">Capacitaciónes</h5>
-                                    </a>
-                                    <p class="card-text">
-                                        <img src="https://logos-download.com/wp-content/uploads/2016/02/Microsoft_box.png"
-                                            height="70px">
-                                        <img src="https://1000marcas.net/wp-content/uploads/2020/03/Sap-logo.png" alt=""
-                                            height="70px">
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="{{ asset('pctecbus/img/gallery/gallery_item_3.png') }}" class="card-img-top"
-                                    alt="...">
-                                <div class="card-body">
-                                    <a href="project_details.html">
-                                        <h5 class="card-title">Business Intelligence</h5>
-                                    </a>
-                                    <p class="card-text">
-                                        <img src="https://talentoop.com/wp-content/uploads/2020/04/powerbi_icon-300x300.jpg"
-                                            width="100px" alt="">
-                                    </p>
-                                </div>
+        <section class="section_padding">
+            <div class="row">
+                @foreach ($subcategories as $item)
+                    <div class="col-6 col-md-3">
+                        <div class="text-center">
+                            <div class="card-body">
+                                <a href="{{url('subcategories/'. $item->id)}}">
+                                    <img class="d-block mx-auto" src="{{ asset('/storage/subcategories/' . $item->url_image) }}"
+                                    height="150px">
+                                </a>
+                            <a href="{{url('subcategories/'. $item->id)}}" class="btn text-light btn-sm" style="background-color: orange">{{$item->name}}</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+
             </div>
         </section>
         <!-- portfolio_part part end-->
+    </div>
+
+    <div>
+        <div class="mt-2 col-12 col-md-6 offset-md-3" role="group" aria-label="Basic example">
+            @foreach ($subcategories as $item)
+                <a type="button" href="{{ url('learn') }}" class="btn btn-lg btn-block btn-light d-flex">
+                    <img class="justify-content-start mr-5" src="{{ asset('/storage/subcategories/' . $item->url_image) }}"
+                        height="40px">
+                    <span class="mr-3  justify-content-center">{{ $item->name }}</span>
+                    <span class="badge  badge-primary text-light  justify-content-end">{{ Auth::user()->id * 25 }}
+                    </span>
+                </a>
+            @endforeach
+        </div>
     </div>
 @endsection

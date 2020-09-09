@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Subcategory;
+use App\Supplier;
 
 class WebsiteController extends Controller
 {
@@ -17,8 +19,9 @@ class WebsiteController extends Controller
 
     public function ourProducts()
     {
+        $suppliers=Supplier::all();
         $records = Product::with('status')->with('status')->get();
-        return view('website.products', ['records'=>$records]);
+        return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers]);
     }
 
     public function ourServices()
@@ -34,7 +37,8 @@ class WebsiteController extends Controller
 
     public function solutions()
     {
-        return view('website.solutions');
+        $subcategories=Subcategory::all();
+        return view('website.solutions', ['subcategories'=>$subcategories]);
     }
 
     public function services()

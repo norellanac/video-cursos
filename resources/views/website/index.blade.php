@@ -130,7 +130,7 @@
                                         <img src="{{ asset('/storage/categories/' . $item->url_image) }}"
                                             class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <a href="project_details.html">
+                                        <a href="{{url('categories/'. $item->id)}}">
                                                 <h5 class="card-title">{{ $item->name }}</h5>
                                             </a>
                                             <p class="card-text">
