@@ -21,4 +21,15 @@ class Product extends Model
     {
         return $this->belongsToMany("App\Subcategory")->withPivot('subcategory_id');
     }
+
+    public function type()
+    {
+        if($this->type_id==1){
+            $type="Producto";
+        }
+        if($this->type_id==2){
+            $type="Servicio";
+        }
+        return $type;
+    }
 }

@@ -51,7 +51,7 @@ class ProductController extends Controller
         //dd($request);
        request()->validate([
         'featured_image' => 'required|image',
-        'title' => 'required',
+        'name' => 'required',
         'description' => 'required',
         'information' => 'required',
         'reference_link' => 'required',
@@ -65,16 +65,16 @@ class ProductController extends Controller
     try {
         $record = new Product;
         $record->status_id = $request->status_id;
-        $record->title = $request->title;
-        $record->sku=trim($request->title);
+        $record->name = $request->name;
+        $record->sku=trim($request->name);
         //$record->description = $request->description;
         $record->information = $request->information;
         $record->reference_link = $request->reference_link;
         $record->price = $request->price;
         $record->type_id = $request->type_id;
-        $record->objective = $request->title;
-        $record->details = $request->title;
-        $record->audiencie = $request->title;
+        $record->objective = $request->name;
+        $record->details = $request->name;
+        $record->audiencie = $request->name;
         $record->save();
 
 
@@ -128,7 +128,8 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
-        return view('products.show');
+        $record=Product::findOrFail($product->id);
+        return view('products.show', ['record'=>$record]);
     }
 
     /**

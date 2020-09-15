@@ -140,16 +140,16 @@
     </div>
 
     <div>
-        @foreach ($suppliers as $item)
+        @foreach ($suppliers as $supplier)
             <!-- Team -->
             <section id="team" class="pb-5">
                 <div class="container">
                     <h5 class="section-title h1">
-                        <img src="{{ asset('/storage/suppliers/' . $item->url_image) }}" class="mx-auto d-inline"
+                        <img src="{{ asset('/storage/suppliers/' . $supplier->url_image) }}" class="mx-auto d-inline"
                             height="150px">
                     </h5>
                     <div class="row">
-                        @foreach ($records as $item)
+                        @foreach ($records->where('supplier_id',$supplier->id) as $item)
                             <div class="col-xs-12 col-sm-6 col-md-4">
                                 <div class="image-flip">
                                     <div class="mainflip flip-0">

@@ -16,6 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 50);
+            $table->string('url')->unique();
             $table->string('description', 250)->nullable();
             $table->string('url_image')->nullable();
             $table->timestamps();
@@ -24,6 +25,20 @@ class CreateCategoriesTable extends Migration
         Schema::create('subcategories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 50);
+            $table->string('url')->unique();
+            $table->string('description', 250)->nullable();
+            $table->string('url_image')->nullable();
+            $table->timestamps();
+
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')
+                ->references('id')->on('categories');
+        });
+
+        Schema::create('ratings', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name', 50);
+            $table->string('url')->unique();
             $table->string('description', 250)->nullable();
             $table->string('url_image')->nullable();
             $table->timestamps();
@@ -41,6 +56,7 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('ratings');
         Schema::dropIfExists('subcategories');
         Schema::dropIfExists('categories');
     }
