@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Rating;
+use DB;
 use App\Product;
 use App\Supplier;
-use DB;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class RatingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +18,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories = Category::all();
-        return view("categories.index", ["categories" => $categories]);
+        $records = Rating::all();
+        return view("ratings.index", ["records" => $records]);
     }
 
     /**
@@ -30,8 +30,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        $categories=Category::all();
-        return view("categories.create", ['categories'=>$categories]);
+        return view("ratings.create");
     }
 
     /**
@@ -52,7 +51,7 @@ class CategoryController extends Controller
 
         DB::beginTransaction();
         try {
-            $record = new Category;
+            $record = new Rating;
             $record->name = $request->name;
             $record->url = $request->url;
             $record->description = $request->description;
@@ -62,12 +61,13 @@ class CategoryController extends Controller
             $extension = $request->file('url_image')->getClientOriginalExtension();
             $imageNameToStore = $record->url . '.' . $extension;
             // Upload Image //********nombre de carpeta para almacenar*****
-            $path = $request->file('url_image')->storeAs('public/categories', $imageNameToStore);
+            $path = $request->file('url_image')->storeAs('public/ratings', $imageNameToStore);
             //dd($path);
             $record->url_image = $imageNameToStore;
             $record->save();
         }
-    } catch (\Illuminate\Database\QueryException $e) {
+        //******carga de imagen**********//
+        } catch (\Illuminate\Database\QueryException $e) {
             DB::rollback(); //si hay un error previo, desahe los cambios en DB y redirecciona a pagina de error
             //$response['message'] = $e->errorInfo;
             //dd($e->errorInfo[2]);
@@ -76,32 +76,27 @@ class CategoryController extends Controller
         }
         DB::commit();
         return redirect()->action( //regresa con el error
-            'CategoryController@index')->with(['message' => 'Se agregó el registro correctamente', 'alert' => 'warning']);
+            'RatingController@index')->with(['message' => 'Se agregó el registro correctamente', 'alert' => 'warning']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Rating $rating)
     {
         //
-        $products_id = DB::table('category_product')->select('product_id')
-        ->where('category_id', $category->id)->distinct()->get();
-        $records = Product::whereIn('id', $products_id->pluck("product_id"))->with('status')->with('status')->get();
-        $suppliers=Supplier::all();
-        return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Rating $rating)
     {
         //
     }
@@ -110,10 +105,10 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
+     * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Rating $rating)
     {
         //
     }
@@ -121,23 +116,11 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Rating $rating)
     {
         //
-    }
-
-
-    public function category($url)
-    {
-        //
-        $category=Category::where('url',$url )->firstOrFail();
-        $products_id = DB::table('category_product')->select('product_id')
-        ->where('category_id', $category->id)->distinct()->get();
-        $records = Product::whereIn('id', $products_id->pluck("product_id"))->with('status')->with('status')->get();
-        $suppliers=Supplier::all();
-        return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers]);
     }
 }

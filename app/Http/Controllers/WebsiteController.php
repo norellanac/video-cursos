@@ -7,6 +7,7 @@ use App\Product;
 use App\Category;
 use App\Subcategory;
 use App\Supplier;
+use App\Rating;
 
 class WebsiteController extends Controller
 {
@@ -26,7 +27,8 @@ class WebsiteController extends Controller
 
     public function ourServices()
     {
-        return view('website.ourServices');
+        $records=Rating::all();
+        return view('website.ourServices', ['records'=>$records]);
     }
 
     public function about()

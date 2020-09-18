@@ -7,7 +7,7 @@
             <p class="text-primary h2">Agregar</p>
         </div>
         <div class="mt-4">
-            <form method="POST" action="{{ url('subcategories') }}" enctype="multipart/form-data"
+            <form method="POST" action="{{ url('ratings') }}" enctype="multipart/form-data"
                 onsubmit="return checkSubmit();">
                 @csrf
                 <div class="form-row">
@@ -17,7 +17,7 @@
                                 <i class="text-primary fas fa-tags"></i>
                             </span>
                         </div>
-                        <input id="name" placeholder="Subcategoria" type="text"
+                        <input id="name" placeholder="Clasificacion o nivel de producto" type="text"
                             class="text-primary form-control @error('name') is-invalid @enderror" name="name"
                             value="{{ old('name') }}" required autocomplete="name" autofocus>
 

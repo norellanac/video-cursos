@@ -46,18 +46,20 @@ class SubcategoryController extends Controller
             'name' => 'required',
             'description' => 'max:255',
             'url_image' => 'required|image',
+            'url' => 'required',
         ]);
 
         DB::beginTransaction();
         try {
             $record = new Subcategory;
             $record->name = $request->name;
+            $record->url = $request->url;
             $record->description = $request->description;
             $record->save();
             //******carga de imagen**********//
         if ($request->hasFile('url_image')) {
             $extension = $request->file('url_image')->getClientOriginalExtension();
-            $imageNameToStore = $record->name . '.' . $extension;
+            $imageNameToStore = $record->url . '.' . $extension;
             // Upload Image //********nombre de carpeta para almacenar*****
             $path = $request->file('url_image')->storeAs('public/subcategories', $imageNameToStore);
             //dd($path);
@@ -125,5 +127,16 @@ class SubcategoryController extends Controller
     public function destroy(Subcategory $subcategory)
     {
         //
+    }
+
+    public function subcategory($url)
+    {
+        //
+        $subcategory=Subcategory::where('url',$url )->firstOrFail();
+        $products_id = DB::table('category_product')->select('product_id')
+        ->where('category_id', $subcategory->id)->distinct()->get();
+        $records = Product::whereIn('id', $products_id->pluck("product_id"))->with('status')->with('status')->get();
+        $suppliers=Supplier::all();
+        return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers]);
     }
 }

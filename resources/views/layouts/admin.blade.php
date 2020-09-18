@@ -176,25 +176,43 @@
                 </div>
                 <div class="list-group list-group-flush">
                     <a href="{{ url('#') }}" class="list-group-item list-group-item-action bg-theme-1 text-light"> <span
-                            class=""><i class="fas fa-chart-bar"></i></span> Administracion</a>
+                            class=""><i class="fas fa-chart-bar"></i></span>
+                        Administracion</a>
+                    <div class="accordion" id="accordionExample">
+                        <div class="">
+                            <a class="list-group-item list-group-item-action bg-theme-1 text-light collapsed"
+                                data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
+                                aria-controls="collapseOne"> <span class="pr-3"><i class="fas fa-tags"></i></span>
+                                Categorias <span class="pl-3"><i class="fas fa-caret-down"></i></span></a>
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#accordionExample">
+                                <div class="">
+                                    <a href="{{ url('categories') }}"
+                                        class="pl-4 list-group-item list-group-item-action bg-theme-1 text-light"> <span
+                                            class=""><i class="fas fa-tags"></i></span> Industrias</a>
+                                    <a href="{{ url('subcategories') }}"
+                                        class="pl-4 list-group-item list-group-item-action bg-theme-1 text-light">
+                                        <span class=""><i class="fas fa-tags"></i></span> Solucion</a>
+                                    <a href="{{ url('ratings') }}"
+                                        class="pl-4 list-group-item list-group-item-action bg-theme-1 text-light">
+                                        <span class=""><i class="fas fa-tags"></i></span> Clasificación</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <a href="{{ url('suppliers') }}"
                         class="list-group-item list-group-item-action bg-theme-1 text-light"> <span class=""><i
                                 class="fas fa-users"></i></span> Proveedores</a>
-                    <a href="{{ url('categories') }}"
-                        class="list-group-item list-group-item-action bg-theme-1 text-light"> <span class=""><i
-                                class="fas fa-tags"></i></span> Categorías</a>
-                    <a href="{{ url('subcategories') }}"
+                    <a href="{{ url('products') }}"
                         class="list-group-item list-group-item-action bg-theme-1 text-light">
-                        <span class=""><i class="fas fa-tags"></i></span> SubCategorías</a>
+                        <span class=""><i class="fas fa-desktop"></i></span> Productos</a>
+
                     <a href="{{ url('categories') }}"
                         class="list-group-item list-group-item-action bg-theme-1 text-light"> <span class=""><i
                                 class="fas fa-book"></i></span> Cursos</a>
                     <a href="{{ url('adminPost') }}"
                         class="list-group-item list-group-item-action bg-theme-1 text-light">
                         <span class=""><i class="fas fa-video"></i></span> Cargar Video</a>
-                    <a href="{{ url('products') }}"
-                        class="list-group-item list-group-item-action bg-theme-1 text-light">
-                        <span class=""><i class="fas fa-desktop"></i></span> Productos</a>
                     <a href="{{ url('storesAdmin') }}"
                         class="list-group-item list-group-item-action bg-theme-1 text-light"> <span class=""><i
                                 class="fas fa-building"></i></span> Agencias</a>
@@ -276,6 +294,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script>
         $('.select2').select2();
+
     </script>
 
 
