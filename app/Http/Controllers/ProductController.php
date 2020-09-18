@@ -50,8 +50,9 @@ class ProductController extends Controller
     {
         //dd($request);
        request()->validate([
-        'featured_image' => 'required|image',
+        'url_image' => 'required|image',
         'name' => 'required',
+        'url' => 'required',
         'description' => 'required',
         'information' => 'required',
         'reference_link' => 'required',
@@ -66,15 +67,17 @@ class ProductController extends Controller
         $record = new Product;
         $record->status_id = $request->status_id;
         $record->name = $request->name;
+        $record->url = $request->url;
         $record->sku=trim($request->name);
-        //$record->description = $request->description;
+        $record->description = $request->description;
         $record->information = $request->information;
         $record->reference_link = $request->reference_link;
         $record->price = $request->price;
         $record->type_id = $request->type_id;
         $record->objective = $request->name;
         $record->details = $request->name;
-        $record->audiencie = $request->name;
+        $record->specs = $request->name;
+        $record->supplier_id = $request->supplier_id;
         $record->save();
 
 
@@ -93,14 +96,14 @@ class ProductController extends Controller
         }
 
         //******carga de imagen**********//
-        if ($request->hasFile('featured_image')) {
-            $extension = $request->file('featured_image')->getClientOriginalExtension();
+        if ($request->hasFile('url_image')) {
+            $extension = $request->file('url_image')->getClientOriginalExtension();
             $imageNameToStore = $record->sku . '.' . $extension;
             // Upload Image //********nombre de carpeta para almacenar*****
-            $path = $request->file('featured_image')->storeAs('public/products', $imageNameToStore);
+            $path = $request->file('url_image')->storeAs('public/products', $imageNameToStore);
             //dd($path);
 
-            $record->featured_image = $imageNameToStore;
+            $record->url_image = $imageNameToStore;
             $record->save();
         }
         //******carga de imagen**********//

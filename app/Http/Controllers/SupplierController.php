@@ -42,6 +42,7 @@ class SupplierController extends Controller
         //
         request()->validate([
             'name' => 'required',
+            'url' => 'required',
             'description' => 'max:255',
             'url_image' => 'required|image',
         ]);
@@ -50,6 +51,7 @@ class SupplierController extends Controller
         try {
             $record = new Supplier;
             $record->name = $request->name;
+            $record->url = $request->url;
             $record->description = $request->description;
             $record->save();
             //******carga de imagen**********//

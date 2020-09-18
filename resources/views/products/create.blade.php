@@ -17,17 +17,39 @@
                                 <i class="text-primary fas fa-tags"></i>
                             </span>
                         </div>
-                        <input id="title" placeholder="Titulo o nombre" type="text"
-                            class="text-primary form-control @error('title') is-invalid @enderror" name="title"
-                            value="{{ old('title') }}" required>
+                        <input id="name" placeholder="Titulo o nombre" type="text"
+                            class="text-primary form-control @error('name') is-invalid @enderror" name="name"
+                            value="{{ old('name') }}" required>
 
-                        @error('title')
+                        @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
 
-                        @error('title')
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-12 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-link"></i>
+                            </span>
+                        </div>
+                        <input id="url" placeholder="link o url (debe ser unica por cada categoria)" type="text"
+                            class="text-primary form-control @error('url') is-invalid @enderror" name="url"
+                            value="{{ old('url') }}" required>
+
+                        @error('url')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('url')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -41,7 +63,7 @@
                         </div>
                         <input id="description" placeholder="Descripción" type="text"
                             class="text-primary form-control @error('description') is-invalid @enderror" name="description"
-                            value="{{ old('description') }}" autocomplete="description">
+                            value="{{ old('description') }}" required>
 
                         @error('description')
                         <span class="invalid-feedback" role="alert">
@@ -64,7 +86,7 @@
                         </div>
                         <input id="information" placeholder="Información del producto" type="text"
                             class="text-primary form-control @error('information') is-invalid @enderror" name="information"
-                            value="{{ old('information') }}">
+                            value="{{ old('information') }}" required>
 
                         @error('information')
                         <span class="invalid-feedback" role="alert">
@@ -86,8 +108,7 @@
                         </div>
                         <input id="reference_link" placeholder="Link o enlace de referencia" type="text"
                             class="text-primary form-control @error('reference_link') is-invalid @enderror"
-                            name="reference_link" value="{{ old('reference_link') }}" autocomplete="reference_link"
-                            autofocus>
+                            name="reference_link" value="{{ old('reference_link') }}" required >
 
                         @error('reference_link')
                         <span class="invalid-feedback" role="alert">
@@ -108,11 +129,11 @@
                             </span>
                         </div>
                         <div class="custom-file">
-                            <input title="Selecionar" type="file" accept="image/*" name="featured_image"
+                            <input title="Selecionar" type="file" accept="image/*" name="url_image"
                                 id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
-                                class="custom-file-input form-control{{ $errors->has('featured_image') ? ' is-invalid' : '' }}"
-                                value="{{ old('featured_image') }}">
-                            @if ($errors->has('featured_image'))
+                                class="custom-file-input form-control{{ $errors->has('url_image') ? ' is-invalid' : '' }}"
+                                value="{{ old('url_image') }}" required>
+                            @if ($errors->has('url_image'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong><i
                                             class="fas fa-exclamation-triangle"></i>{{ $errors->first('image') }}</strong>
@@ -176,7 +197,7 @@
                         </div>
                         <select
                             class="js-example-basic-multiple js-states form-control @error('subcategory_id') is-invalid @enderror"
-                            name="category_id[]" id="category_id" multiple="multiple">
+                            name="category_id[]" id="category_id" multiple="multiple" required>
                             <option selected disabled>categoría Principal</option>
                             @foreach ($categories as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -202,7 +223,7 @@
                         </div>
                         <select
                             class="js-example-basic-multiple js-states form-control @error('subcategory_id') is-invalid @enderror"
-                            name="subcategory_id[]" id="subcategory_id" multiple="multiple">
+                            name="subcategory_id[]" id="subcategory_id" multiple="multiple" required>
                             <option disabled selected>Etiquetas</option>
                             @foreach ($subcategories as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>

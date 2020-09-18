@@ -149,7 +149,7 @@
                             height="150px">
                     </h5>
                     <div class="row">
-                        @foreach ($records->where('supplier_id',$supplier->id) as $item)
+                        @foreach ($records->where('supplier_id', $supplier->id) as $item)
                             <div class="col-xs-12 col-sm-6 col-md-4">
                                 <div class="image-flip">
                                     <div class="mainflip flip-0">
@@ -157,8 +157,8 @@
                                             <div class="card">
                                                 <div class="card-body text-center">
                                                     <p><img class=" img-fluid"
-                                                            src="{{ asset('/storage/products/' . $item->featured_image) }}"
-                                                            alt="card image"></p>
+                                                            src="{{ asset('/storage/products/' . $item->url_image) }}"
+                                                            alt="imagen del producto"></p>
                                                     <h4 class="card-title">{{ $item->title }}</h4>
                                                     <p class="card-text">{{ $item->title }}</p>
                                                     <a href="https://www.facebook.com/" class="btn btn-primary btn-sm"><i
@@ -172,7 +172,8 @@
                                                     <h4 class="card-title">{{ $item->title }}</h4>
                                                     <p class="card-text">{{ substr($item->information, 0, 255) }}
                                                     </p>
-                                                    <a href="{{ url('products/' . $item->id) }}" class="btn btn-primary btn-sm mt-3"> <i
+                                                    <a href="{{ url('products/' . $item->id) }}"
+                                                        class="btn btn-primary btn-sm mt-3"> <i
                                                             class="fa fa-info-circle text-light">
                                                         </i> <span class="text-light">Más información</span></a>
                                                 </div>

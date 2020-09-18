@@ -61,7 +61,7 @@
                             <td>{{ $item->title }}</td>
                             <td>{{ $item->description }}</td>
                             <td>{{ $item->information }}</td>
-                            <td><img src="{{asset('/storage/products/' . $item->featured_image)}}" height="30px"></td>
+                            <td><img src="{{asset('/storage/products/' . $item->url_image)}}" height="30px"></td>
                             <td>{{ $item->category->first()->name }}</td>
                             <td>{{ $item->subcategory->first()->name }}</td>
                             <td>{{ $item->status->name }}</td>
