@@ -159,8 +159,8 @@
                                                     <p><img class=" img-fluid"
                                                             src="{{ asset('/storage/products/' . $item->url_image) }}"
                                                             alt="imagen del producto"></p>
-                                                    <h4 class="card-title">{{ $item->title }}</h4>
-                                                    <p class="card-text">{{ $item->title }}</p>
+                                                    <h4 class="card-title">{{ $item->name }}</h4>
+                                                    <p class="card-text">{{ $item->name }}</p>
                                                     <a href="https://www.facebook.com/" class="btn btn-primary btn-sm"><i
                                                             class="fa fa-plus"></i></a>
                                                 </div>
@@ -169,10 +169,10 @@
                                         <div class="backside">
                                             <div class="card">
                                                 <div class="card-body text-center mt-4">
-                                                    <h4 class="card-title">{{ $item->title }}</h4>
+                                                    <h4 class="card-title">{{ $item->name }}</h4>
                                                     <p class="card-text">{{ substr($item->information, 0, 255) }}
                                                     </p>
-                                                    <a href="{{ url('products/' . $item->id) }}"
+                                                    <a href="{{ url('productos/' . $item->url . '/'. $type . '/' . $url) }}"
                                                         class="btn btn-primary btn-sm mt-3"> <i
                                                             class="fa fa-info-circle text-light">
                                                         </i> <span class="text-light">Más información</span></a>

@@ -11,7 +11,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col text-center">
-                                        <a href="{{ url('soluciones/'. $item->url) }}" class="btn btn-dark">
+                                        <a href="{{ url('solutions/clasificacion/'. $item->url) }}" class="btn btn-dark">
                                             <i class="fas fa-"></i>
                                             {{ $item->name }}
                                         </a> </div>

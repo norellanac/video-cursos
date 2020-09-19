@@ -14,12 +14,15 @@
 Route::get('/', 'WebsiteController@index');
 Route::get('about', 'WebsiteController@about');
 Route::get('company', 'WebsiteController@index');
-Route::get('solutions', 'WebsiteController@solutions');
 Route::get('OurServices', 'WebsiteController@ourServices');
 Route::get('services', 'WebsiteController@services');
 Route::get('OurProducts', 'WebsiteController@ourProducts');
 Route::get('industrias/{url}', 'CategoryController@category');
-Route::get('soluciones/{url}', 'SubcategoryController@subcategory');
+Route::get('productos/{products}/{type}/{url}', 'ProductController@products');
+
+//rutas iportantes para filtras los servicios o productos desde la navegacion
+Route::get('solutions/{type}/{url}', 'WebsiteController@solutions');
+Route::get('soluciones/{type}/{url}/{subcategory}', 'SubcategoryController@subcategory');
 
 
 Auth::routes();

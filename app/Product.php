@@ -22,6 +22,11 @@ class Product extends Model
         return $this->belongsToMany("App\Subcategory")->withPivot('subcategory_id');
     }
 
+    public function rating()
+    {
+        return $this->belongsToMany("App\Rating")->withPivot('rating_id');
+    }
+
     public function type()
     {
         if($this->type_id==1){

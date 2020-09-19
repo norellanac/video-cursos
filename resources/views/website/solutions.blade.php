@@ -9,11 +9,12 @@
                     <div class="col-6 col-md-3">
                         <div class="text-center">
                             <div class="card-body">
-                                <a href="{{url('subcategories/'. $item->id)}}">
-                                    <img class="d-block mx-auto" src="{{ asset('/storage/subcategories/' . $item->url_image) }}"
-                                    height="150px">
+                                <a href="{{ url('soluciones/' . $type . '/' . $url . '/' . $item->url) }}">
+                                    <img class="d-block mx-auto"
+                                        src="{{ asset('/storage/subcategories/' . $item->url_image) }}" height="150px">
                                 </a>
-                            <a href="{{url('subcategories/'. $item->id)}}" class="btn text-light btn-sm" style="background-color: orange">{{$item->name}}</a>
+                                <a href="{{ url('soluciones/' . $type . '/' . $url . '/' . $item->url) }}"
+                                    class="btn text-light btn-sm" style="background-color: orange">{{ $item->name }}</a>
                             </div>
                         </div>
                     </div>
@@ -31,7 +32,7 @@
                     <img class="justify-content-start mr-5" src="{{ asset('/storage/subcategories/' . $item->url_image) }}"
                         height="40px">
                     <span class="mr-6  justify-content-center">{{ $item->name }}</span>
-                    <span class="ml-3 badge  badge-primary text-light  justify-content-end"> 3                    </span>
+                    <span class="ml-3 badge  badge-primary text-light  justify-content-end"> 3 </span>
                 </a>
             @endforeach
         </div>

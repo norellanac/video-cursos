@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use App\Subcategory;
+use App\Rating;
 use App\Supplier;
 use App\Status;
 use DB;
@@ -34,10 +35,11 @@ class ProductController extends Controller
     {
         //
         $categories = Category::all();
+        $ratings = Rating::all();
         $subcategories = Subcategory::all();
         $suppliers = Supplier::all();
         $status = Status::all();
-        return view("products.create", ["categories" => $categories, "status" => $status, 'suppliers'=>$suppliers, 'subcategories'=>$subcategories]);
+        return view("products.create", ["ratings" => $ratings, "categories" => $categories, "status" => $status, 'suppliers'=>$suppliers, 'subcategories'=>$subcategories]);
     }
 
     /**
@@ -51,11 +53,14 @@ class ProductController extends Controller
         //dd($request);
        request()->validate([
         'url_image' => 'required|image',
-        'name' => 'required',
-        'url' => 'required',
-        'description' => 'required',
+        'name' => 'required|max:255',
+        'url' => 'required|max:255',
+        'sku' => 'required|max:255',
+        'description' => 'required|max:255',
         'information' => 'required',
-        'reference_link' => 'required',
+        'objective' => 'required',
+        'details' => 'required',
+        'url_video' => 'required',
         'category_id' => 'required',
         'status_id' => 'required',
         'price' => 'required',
@@ -67,15 +72,16 @@ class ProductController extends Controller
         $record = new Product;
         $record->status_id = $request->status_id;
         $record->name = $request->name;
-        $record->url = $request->url;
-        $record->sku=trim($request->name);
+        $record->url = trim( $request->url);
+        $record->url_video = $request->url_video;
+        $record->sku=trim($request->url);
         $record->description = $request->description;
         $record->information = $request->information;
         $record->reference_link = $request->reference_link;
         $record->price = $request->price;
         $record->type_id = $request->type_id;
-        $record->objective = $request->name;
-        $record->details = $request->name;
+        $record->objective = $request->objective;
+        $record->details = $request->details;
         $record->specs = $request->name;
         $record->supplier_id = $request->supplier_id;
         $record->save();
@@ -92,6 +98,13 @@ class ProductController extends Controller
             //dd($request->category_id[$i]);
             DB::table('product_subcategory')->insert(
                 ['subcategory_id' => $request->subcategory_id[$i], 'product_id' => $record->id]
+            );
+        }
+
+        for ($i=0; $i < sizeof($request->rating_id); $i++) { 
+            //dd($request->category_id[$i]);
+            DB::table('product_rating')->insert(
+                ['rating_id' => $request->rating_id[$i], 'product_id' => $record->id]
             );
         }
 
@@ -167,5 +180,12 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    public function products($products, $type, $url)
+    {
+        
+        $record=Product::where('url', '=', $products)->firstOrFail();
+        return view('products.show', ['record'=>$record, 'type'=>$type, 'url'=>$url]);
     }
 }

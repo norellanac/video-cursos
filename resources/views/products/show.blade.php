@@ -19,7 +19,7 @@
                                 <img class="img-fluid" src="img/blog/single_blog_1.png" alt="">
                             </div>
                             <div class="blog_details">
-                                <h2>{{ $record->title }}
+                                <h2>{{ $record->name }}
                                 </h2>
                                 <ul class="blog-info-link mt-3 mb-4">
                                     <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
@@ -84,15 +84,7 @@
                                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                             data-parent="#accordionExample">
                                             <div class="card-body">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                                richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                                                dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                                                tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                                                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                                                wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                                vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-                                                synth nesciunt you probably haven't heard of them accusamus labore
-                                                sustainable VHS.
+                                                {{$record->information}}
                                             </div>
                                         </div>
                                     </div>
@@ -109,15 +101,7 @@
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                             data-parent="#accordionExample">
                                             <div class="card-body">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                                richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                                                dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                                                tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                                                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                                                wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                                vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-                                                synth nesciunt you probably haven't heard of them accusamus labore
-                                                sustainable VHS.
+                                                {{$record->details}}
                                             </div>
                                         </div>
                                     </div>
@@ -134,15 +118,7 @@
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                             data-parent="#accordionExample">
                                             <div class="card-body">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                                richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                                                dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                                                tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                                                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                                                wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                                vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-                                                synth nesciunt you probably haven't heard of them accusamus labore
-                                                sustainable VHS.
+                                                {{$record->objective}}
                                             </div>
                                         </div>
                                     </div>
@@ -163,6 +139,11 @@
                                 <h4 class="widget_title">Etiquetas</h4>
                                 <ul class="list">
                                     @foreach ($record->category as $item)
+                                        <li>
+                                            <a href="{{ url('subcategories/' . $item->id) }}">{{ $item->name }}</a>
+                                        </li>
+                                    @endforeach
+                                    @foreach ($record->rating as $item)
                                         <li>
                                             <a href="{{ url('subcategories/' . $item->id) }}">{{ $item->name }}</a>
                                         </li>

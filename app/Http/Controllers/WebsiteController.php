@@ -37,10 +37,10 @@ class WebsiteController extends Controller
     }
 
 
-    public function solutions()
+    public function solutions($type, $url)
     {
         $subcategories=Subcategory::all();
-        return view('website.solutions', ['subcategories'=>$subcategories]);
+        return view('website.solutions', ['subcategories'=>$subcategories, 'type'=>$type, 'url'=>$url ]);
     }
 
     public function services()

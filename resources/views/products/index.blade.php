@@ -58,7 +58,7 @@
                     @foreach ($records as $item)
                         <tr>
                             <th scope="row">{{ $item->id }}</th>
-                            <td>{{ $item->title }}</td>
+                            <td>{{ $item->name }}</td>
                             <td>{{ $item->description }}</td>
                             <td>{{ $item->information }}</td>
                             <td><img src="{{asset('/storage/products/' . $item->url_image)}}" height="30px"></td>
