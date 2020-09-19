@@ -18,7 +18,7 @@ Route::get('OurServices', 'WebsiteController@ourServices');
 Route::get('services', 'WebsiteController@services');
 Route::get('OurProducts', 'WebsiteController@ourProducts');
 Route::get('industrias/{url}', 'CategoryController@category');
-Route::get('productos/{products}/{type}/{url}', 'ProductController@products');
+Route::get('productos/{products}/{type}/{url}/{subcategory}', 'ProductController@products');
 
 //rutas iportantes para filtras los servicios o productos desde la navegacion
 Route::get('solutions/{type}/{url}', 'WebsiteController@solutions');

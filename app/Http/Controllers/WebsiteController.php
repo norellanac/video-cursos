@@ -22,7 +22,7 @@ class WebsiteController extends Controller
     {
         $suppliers=Supplier::all();
         $records = Product::with('status')->with('status')->get();
-        return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers]);
+        return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers, 'type'=>null, 'url'=>null]);
     }
 
     public function ourServices()

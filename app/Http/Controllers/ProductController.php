@@ -182,7 +182,7 @@ class ProductController extends Controller
         //
     }
 
-    public function products($products, $type, $url)
+    public function products($products, $type, $url, $subcategory)
     {
         
         $record=Product::where('url', '=', $products)->firstOrFail();

@@ -133,10 +133,11 @@ class SubcategoryController extends Controller
     {
         //
         $subcategory=Subcategory::where('url',$subcategory )->firstOrFail();
-        $products_id = DB::table('category_product')->select('product_id')
-        ->where('category_id', $subcategory->id)->distinct()->get();
+        //dd($subcategory);
+        $products_id = DB::table('product_subcategory')->select('product_id')
+        ->where('subcategory_id', $subcategory->id)->distinct()->get();
         $records = Product::whereIn('id', $products_id->pluck("product_id"))->with('status')->with('status')->get();
         $suppliers=Supplier::all();
-        return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers, 'type'=>$type, 'url'=>$url]);
+        return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers, 'type'=>$type, 'url'=>$url, 'subcategory'=>$subcategory]);
     }
 }

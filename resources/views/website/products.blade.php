@@ -172,10 +172,17 @@
                                                     <h4 class="card-title">{{ $item->name }}</h4>
                                                     <p class="card-text">{{ substr($item->information, 0, 255) }}
                                                     </p>
-                                                    <a href="{{ url('productos/' . $item->url . '/'. $type . '/' . $url) }}"
-                                                        class="btn btn-primary btn-sm mt-3"> <i
-                                                            class="fa fa-info-circle text-light">
-                                                        </i> <span class="text-light">Más información</span></a>
+                                                    @if ($type && $url)
+                                                        <a href="{{ url('productos/' . $item->url . '/' . $type . '/' . $url. '/' . $subcategory->url) }}"
+                                                            class="btn btn-primary btn-sm mt-3"> <i
+                                                                class="fa fa-info-circle text-light">
+                                                            </i> <span class="text-light">Más información</span></a>
+                                                    @else
+                                                        <a href="{{ url('productos/' . $item->url . '/na/na/na') }}"
+                                                            class="btn btn-primary btn-sm mt-3"> <i
+                                                                class="fa fa-info-circle text-light">
+                                                            </i> <span class="text-light">Más información</span></a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
