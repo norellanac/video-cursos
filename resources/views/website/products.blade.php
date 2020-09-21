@@ -139,6 +139,7 @@
 
     </div>
 
+    @if ($records)
     <div>
         @foreach ($suppliers as $supplier)
             <!-- Team -->
@@ -198,6 +199,9 @@
         @endforeach
 
     </div>
+    @else
+        <p>nada por aqui</p>
+    @endif
 
     <div class="d-block d-sm-none" style="margin-bottom: 100px"></div>
     <div class="d-sm-none d-md-block" style="margin-top: 200px"></div>
