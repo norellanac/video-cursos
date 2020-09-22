@@ -43,14 +43,11 @@
                     <tr>
                         <th scope="col">id</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Descripcion</th>
-                        <th scope="col">Información</th>
                         <th scope="col">Imagen</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Precio</th>
-                        <th scope="col">Link</th>
                         <th scope="col">Opciones</th>
                     </tr>
                 </thead>
@@ -59,29 +56,26 @@
                         <tr>
                             <th scope="row">{{ $item->id }}</th>
                             <td>{{ $item->name }}</td>
-                            <td>{{ $item->description }}</td>
-                            <td>{{ $item->information }}</td>
-                            <td><img src="{{asset('/storage/products/' . $item->url_image)}}" height="30px"></td>
+                            <td><img src="{{ asset('/storage/products/' . $item->url_image) }}" height="30px"></td>
                             <td>{{ $item->category->first()->name }}</td>
                             <td>{{ $item->subcategory->first()->name }}</td>
                             <td>{{ $item->status->name }}</td>
                             <td>{{ $item->price }}</td>
-                            <td><a href="{{ $item->reference_link }}">{{ $item->reference_link }}</a></td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a class="btn btn-sm btn-secondary" href="{{ url('records/' . $item->id) }}"
+                                    <a class="btn btn-sm btn-secondary" href="{{ url('products/' . $item->id) }}"
                                         title="Ver Detalles">
                                         <span class=""><i class="fas fa-eye"></i></span>
                                     </a>
-                                    <a class="btn btn-sm btn-primary" href="{{ url('records/' . $item->id . '/edit') }}"
+                                    <a class="btn btn-sm btn-primary" href="{{ url('products/' . $item->id . '/edit') }}"
                                         title="Editar">
                                         <span class=""><i class="fas fa-edit"></i></span>
                                     </a>
                                     <a class="btn btn-sm btn-danger" title="eliminar" onclick="event.preventDefault();
-                                                         document.getElementById('formDel{{ $item->id }}').submit();">
+                                                             document.getElementById('formDel{{ $item->id }}').submit();">
                                         <span class="text-light"><i class="fas fa-trash"></i></span>
                                     </a>
-                                    <form id="formDel{{ $item->id }}" action="{{ url('records/' . $item->id) }}"
+                                    <form id="formDel{{ $item->id }}" action="{{ url('products/' . $item->id) }}"
                                         method="POST" style="display: none;">
                                         @csrf
                                         @method('DELETE')

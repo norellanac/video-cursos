@@ -138,26 +138,21 @@ class SubcategoryController extends Controller
         $subcategory=Subcategory::where('url',$subcategory )->firstOrFail();
         //dd($subcategory);
         if ($type=="industria") {
-        //*********busqueda por categoria principal****** */
-        $category=Category::where('url',$url )->firstOrFail();
-        //**********obtiene los id de lca categorias o industrias */
-        $products_category_ids = DB::table('category_product')->select('product_id')
-        ->where('category_id', $category->id)->distinct()->get();
-        //dd($products_category_ids);
-        //**********obtiene los id de las subcategorias o soluciones */
-        $products_ids = DB::table('product_subcategory')->select('product_id')
-        ->where('subcategory_id', $subcategory->id)->whereIn('product_id', $products_category_ids->pluck("product_id"))->distinct()->get();
-        //dd($products_ids);
-        //dd(array($products_subcat_ids->pluck("product_id")));
-        //$products_idsAAA=array_intersect(array($products_category_ids->pluck("product_id")), array($products_subcat_ids->pluck("product_id")));   
-         //********obtine los productos con filtros de industria y solucion**** */
-        //dd($products_ids[0]);
-        //dd(sizeof( $products_ids));
-        $records = Product::whereIn('id', $products_ids->pluck("product_id"))
-        ->with('status')->with('status')->get();
-        //dd($records);
-        return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers, 'type'=>$type, 'url'=>$url, 'subcategory'=>$subcategory]);
-        }
+            //*********busqueda por categoria principal****** */
+            $category=Category::where('url',$url )->firstOrFail();
+            //**********obtiene los id de lca categorias o industrias */
+            $products_category_ids = DB::table('category_product')->select('product_id')
+            ->where('category_id', $category->id)->distinct()->get();
+            //**********obtiene los id de las subcategorias o soluciones */
+            $products_ids = DB::table('product_subcategory')->select('product_id')
+            ->where('subcategory_id', $subcategory->id)
+            ->whereIn('product_id', $products_category_ids->pluck("product_id"))
+            ->distinct()->get();
+            $records = Product::whereIn('id', $products_ids->pluck("product_id"))
+            ->with('status')->with('status')->get();
+            //dd($records);
+            return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers, 'type'=>$type, 'url'=>$url, 'subcategory'=>$subcategory]);
+            }
         if ($type=="clasificacion") {
             //*********busqueda por categoria principal****** */
             $rating=Rating::where('url',$url )->firstOrFail();
@@ -165,22 +160,14 @@ class SubcategoryController extends Controller
             $products_ratings_ids = DB::table('product_rating')->select('product_id')
             ->where('rating_id', $rating->id)->distinct()->get();
             //**********obtiene los id de las subcategorias o soluciones */
-            $products_subcat_ids = DB::table('product_subcategory')->select('product_id')
-            ->where('subcategory_id', $subcategory->id)->distinct()->get();
-            //dd($products_subcat_ids->pluck("product_id"));
-            //dd($products_ratings_ids->pluck("product_id"));
-            $products_ids=array_intersect(array($products_subcat_ids->pluck("product_id")), array($products_ratings_ids->pluck("product_id")));   
-            //********obtine los productos con filtros de industria y solucion**** */
-            //dd($products_ids);
-            dd(sizeof( $products_ids));            
-            //+++++++++++++++++++++++++++++++++
-            if (sizeof( $products_ids) > 0) {
-                $records = Product::whereIn('id', $products_ids[0])
+            $products_ids = DB::table('product_subcategory')->select('product_id')
+            ->where('subcategory_id', $subcategory->id)
+            ->whereIn('product_id', $products_ratings_ids->pluck("product_id"))
+            ->distinct()->get();
+
+            $records = Product::whereIn('id', $products_ids->pluck("product_id"))
             ->with('status')->with('status')->get();
-            } 
-            else{
-                $records = null;
-            }
+           
             return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers, 'type'=>$type, 'url'=>$url, 'subcategory'=>$subcategory]);    
         }
     }

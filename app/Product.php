@@ -12,6 +12,11 @@ class Product extends Model
         return $this->belongsTo("App\Status", 'status_id');
     }
 
+    public function supplier()
+    {
+        return $this->belongsTo("App\Supplier", 'supplier_id');
+    }
+
     public function category()
     {
         return $this->belongsToMany("App\Category")->withPivot('category_id');

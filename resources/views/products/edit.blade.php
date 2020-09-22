@@ -7,9 +7,10 @@
             <p class="text-primary h2">Agregar</p>
         </div>
         <div class="mt-4">
-            <form method="POST" action="{{ url('products') }}" enctype="multipart/form-data"
+            <form method="POST" action="{{ url('products/'. $record->id) }}" enctype="multipart/form-data"
                 onsubmit="return checkSubmit();">
                 @csrf
+                @method('PUT')
                 <div class="form-row">
                     <div class="col-12 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
@@ -17,17 +18,61 @@
                                 <i class="text-primary fas fa-tags"></i>
                             </span>
                         </div>
-                        <input id="title" placeholder="Titulo o nombre" type="text"
-                            class="text-primary form-control @error('title') is-invalid @enderror" name="title"
-                            value="{{ $item->title }}" required>
+                        <input id="name" placeholder="Titulo o nombre" type="text"
+                            class="text-primary form-control @error('name') is-invalid @enderror" name="name"
+                            value="{{ $record->name }}" required>
 
-                        @error('title')
+                        @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
 
-                        @error('title')
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-12 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-link"></i>
+                            </span>
+                        </div>
+                        <input id="url" placeholder="link o url (debe ser unica por cada categoria)" type="text"
+                            class="text-primary form-control @error('url') is-invalid @enderror" name="url"
+                            value="{{ $record->url }}" required>
+
+                        @error('url')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('url')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-12 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-key"></i>
+                            </span>
+                        </div>
+                        <input id="sku" placeholder="sku (debe ser unico)" type="text"
+                            class="text-primary form-control @error('sku') is-invalid @enderror" name="sku"
+                            value="{{ $record->sku }}" required>
+
+                        @error('sku')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('sku')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -41,7 +86,7 @@
                         </div>
                         <input id="description" placeholder="Descripción" type="text"
                             class="text-primary form-control @error('description') is-invalid @enderror" name="description"
-                            value="{{ $item->description }}" autocomplete="description">
+                            value="{{ $record->description }}" required>
 
                         @error('description')
                         <span class="invalid-feedback" role="alert">
@@ -62,9 +107,9 @@
                                 <i class="text-primary fas fa-align-left"></i>
                             </span>
                         </div>
-                        <textarea id="information" placeholder="Descripcion (opcional)" type="text"
+                        <textarea id="information" placeholder="Información del producto" type="text"
                             class="text-primary form-control @error('information') is-invalid @enderror" name="information"
-                            value="{{ $item->information }}"> </textarea>
+                            required rows="2">{{ $record->information }}</textarea>
 
                         @error('information')
                         <span class="invalid-feedback" role="alert">
@@ -73,6 +118,92 @@
                         @enderror
 
                         @error('information')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-align-left"></i>
+                            </span>
+                        </div>
+                        <textarea id="objective" placeholder="Objetivo del producto" type="text"
+                            class="text-primary form-control @error('objective') is-invalid @enderror" name="objective"
+                            required rows="2"> {{ $record->objective }} </textarea>
+
+                        @error('objective')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('objective')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-12 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-align-left"></i>
+                            </span>
+                        </div>
+                        <textarea id="details" placeholder="Detalles del producto" type="text"
+                            class="text-primary form-control @error('details') is-invalid @enderror" name="details" required
+                            rows="2">{{ $record->details }}</textarea>
+
+                        @error('details')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('details')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-12 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-image"></i>
+                            </span>
+                        </div>
+                        <div class="custom-file">
+                            <input title="Selecionar" type="file" accept="image/*" name="url_image" id="inputGroupFile04"
+                                aria-describedby="inputGroupFileAddon04"
+                                class="custom-file-input form-control{{ $errors->has('url_image') ? ' is-invalid' : '' }}">
+                            @if ($errors->has('url_image'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong><i
+                                            class="fas fa-exclamation-triangle"></i>{{ $errors->first('image') }}</strong>
+                                </span>
+                            @endif
+                            <label class="custom-file-label" for="inputGroupFile04">Elegir imagen de producto</label>
+                        </div>
+                    </div>
+                    <div class="col-12 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text transparent" id="inputGroup-sizing-sm">
+                                <i class="text-primary fab fa-youtube"></i>
+                            </span>
+                        </div>
+                        <input id="url_video" placeholder="link o url_video" type="text"
+                            class="text-primary form-control @error('url_video') is-invalid @enderror" name="url_video"
+                            value="{{ $record->url_video }}" required>
+
+                        @error('url_video')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('url_video')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -86,8 +217,7 @@
                         </div>
                         <input id="reference_link" placeholder="Link o enlace de referencia" type="text"
                             class="text-primary form-control @error('reference_link') is-invalid @enderror"
-                            name="reference_link" value="{{ $item->reference_link }}" autocomplete="reference_link"
-                            autofocus>
+                            name="reference_link" value="{{ $record->reference_link }}">
 
                         @error('reference_link')
                         <span class="invalid-feedback" role="alert">
@@ -101,27 +231,7 @@
                         </span>
                         @enderror
                     </div>
-                    <div class="col-12 input-group input-group-lg mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-image"></i>
-                            </span>
-                        </div>
-                        <div class="custom-file">
-                            <input title="Selecionar" type="file" accept="image/*" name="featured_image"
-                                id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
-                                class="custom-file-input form-control{{ $errors->has('featured_image') ? ' is-invalid' : '' }}"
-                                value="{{ $item->featured_image }}">
-                            @if ($errors->has('featured_image'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong><i
-                                            class="fas fa-exclamation-triangle"></i>{{ $errors->first('image') }}</strong>
-                                </span>
-                            @endif
-                            <label class="custom-file-label" for="inputGroupFile04">Elegir imagen de producto</label>
-                        </div>
-                    </div>
-                    <div class="col-12 input-group input-group-lg mb-3">
+                    <div class="col-12 col-md-6 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text transparent" id="inputGroup-sizing-sm">
                                 <i class="text-primary fas fa-money-bill-wave"></i>
@@ -129,7 +239,7 @@
                         </div>
                         <input id="price" placeholder="Precio Q. " type="number"
                             class="text-primary form-control @error('price') is-invalid @enderror" name="price"
-                            value="{{ $item->price') }}" required>
+                            value="{{ $record->price }}" required>
 
                         @error('price')
                         <span class="invalid-feedback" role="alert">
@@ -145,13 +255,62 @@
                     </div>
                     <div class="col-12 col-md-6 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
+                            <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
+                            </span>
+                        </div>
+                        <select name="supplier_id" id="supplier_id"
+                            class="form-control @error('supplier_id') is-invalid @enderror" required>
+                            <option value="{{ $record->supplier_id }}" selected>{{ $record->supplier->name }}</option>
+                            @foreach ($suppliers as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('supplier_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('supplier_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-12 col-md-6 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
+                            </span>
+                        </div>
+                        <select name="type_id" id="type_id" class="form-control @error('type_id') is-invalid @enderror"
+                            required>
+                            <option value="1" selected>{{ $record->type() }}</option>
+                            <option value="1">Producto</option>
+                            <option value="2">Servicio</option>
+                        </select>
+                        @error('type_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('type_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-12 col-md-6 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
                             <span class="input-group-text transparent" id="inputGroup-sizing-sm">
                                 <i class="text-primary fas fa-question-circle"></i>
                             </span>
                         </div>
                         <select name="status_id" id="status_id"
-                            class="form-control @error('status_id') is-invalid @enderror" required>
-                            <option value="3" selected>Estado</option>
+                            class="form-control @error('status_id') is-invalid @enderror" >
+                            <option value="{{ $record->status_id }}" selected>{{ $record->status->name }}</option>
                             @foreach ($status as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
@@ -171,12 +330,13 @@
                     <div class="col-12 col-md-6 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
+                                <i class="text-primary fas fa-tag"></i>
                             </span>
                         </div>
-                        <select name="category_id" id="category_id"
-                            class="form-control @error('category_id') is-invalid @enderror" required>
-                            <option value="1" selected>Tipo</option>
+                        <select
+                            class="js-example-basic-multiple js-states form-control @error('subcategory_id') is-invalid @enderror"
+                            name="category_id[]" id="category_id" multiple="multiple">
+                            <option selected disabled>categoría Principal</option>
                             @foreach ($categories as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
@@ -193,27 +353,77 @@
                         </span>
                         @enderror
                     </div>
+                    <div class="col-12 col-md-6 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-tag"></i>
+                            </span>
+                        </div>
+                        <select
+                            class="js-example-basic-multiple js-states form-control @error('subcategory_id') is-invalid @enderror"
+                            name="subcategory_id[]" id="subcategory_id" multiple="multiple">
+                            <option disabled selected>Etiquetas</option>
+                            @foreach ($subcategories as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('subcategory_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('type_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-12 col-md-6 input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
+                                <i class="text-primary fas fa-tag"></i>
+                            </span>
+                        </div>
+                        <select
+                            class="js-example-basic-multiple js-states form-control @error('rating_id') is-invalid @enderror"
+                            name="rating_id[]" id="rating_id" multiple="multiple" required>
+                            <option disabled selected>Clasificacion</option>
+                            @foreach ($ratings as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('rating_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                        @error('type_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+
                     <div class="container">
                         <div class="row">
                             <div class="col text-center">
                                 <button type="submit" class="btn btn-lg btn-primary">
                                     <i class="fas fa-save"></i>
-                                    {{ __('Guardar') }}
+                                    {{ __('Actualizar producto') }}
                                 </button> </div>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="row mt-5 justify-content-center">
-            @if (Route::has('password.request'))
-                <a class="m-t-5 btn btn-link text-light" href="{{ route('password.request') }}">
-                    {{ __('¿Olvidé la contraseña?') }}
-                </a>
-                <a class="btn btn-link text-light" href="{{ route('register') }}">
-                    {{ __('Crear cuenta') }}
-                </a>
-            @endif
-        </div>
     </div>
+@endsection
+@section('js')
+    <script>
+        $('.js-example-basic-multiple').select2();
+
+    </script>
 @endsection

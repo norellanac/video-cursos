@@ -18,6 +18,10 @@
     <!-- flaticon CSS -->
     <link rel="stylesheet" href="{{ asset('pctecbus/css/flaticon.css') }}">
     <!-- font awesome CSS -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
     <link rel="stylesheet" href="{{ asset('pctecbus/css/magnific-popup.css') }}">
     <!-- swiper CSS -->
     <link rel="stylesheet" href="{{ asset('pctecbus/css/slick.css') }}">
@@ -120,11 +124,11 @@
 
                                 <li class="nav-item active">
                                     <a class="btn btn-warning nav-link text-light"
-                                        href="{{ url('register') }}">Ingresar</a>
+                                        href="{{ url('login') }}">Ingresar</a>
                                 </li>
                                 <li class="d-none nav-item active">
                                     <a class="btn btn-warning nav-link text-light"
-                                        href="{{ url('register') }}">Ingresar</a>
+                                        href="{{ url('login') }}">Ingresar</a>
                                 </li>
                             </ul>
                         </div>
@@ -210,15 +214,15 @@
                     Copyright &copy;<script>
                         document.write(new Date().getFullYear());
 
-                    </script> All rights reserved | This template is made with <i class="ti-heart"
-                        aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    </script> All rights reserved <span class="d-none">| This template is made with <i class="ti-heart"
+                        aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> </span>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
-                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
-                    <a href="#"><i class="ti-facebook"></i></a>
-                    <a href="#"> <i class="ti-twitter"></i> </a>
-                    <a href="#"><i class="ti-instagram"></i></a>
-                    <a href="#"><i class="ti-skype"></i></a>
+                <div class="col-lg-3 col-md-12 text-center text-lg-right footer-social">
+                    <a href="https://www.facebook.com/pctechnologygt/" target="blank"><i class="ti-facebook"></i></a>
+                    <a href="https://www.linkedin.com/company/pc-technology" target="blank"> <i class="ti-linkedin"></i> </a>
+                    <a href="https://api.whatsapp.com/send?phone=50254954454" target="blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:ventas@pctecbus.co" target="blank"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>

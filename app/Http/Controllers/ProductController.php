@@ -157,6 +157,14 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        $categories = Category::all();
+        $ratings = Rating::all();
+        $subcategories = Subcategory::all();
+        $suppliers = Supplier::all();
+        $status = Status::all();
+        $record=Product::find($product->id);
+        return view("products.edit", ["ratings" => $ratings, "record" => $record, "categories" => $categories, "status" => $status, 'suppliers'=>$suppliers, 'subcategories'=>$subcategories]);
+
     }
 
     /**
@@ -169,6 +177,87 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        request()->validate([
+            'url_image' => 'image',
+            'name' => 'required|max:255',
+            'url' => 'required|max:255',
+            'sku' => 'required|max:255',
+            'description' => 'required|max:255',
+            'information' => 'required',
+            'objective' => 'required',
+            'details' => 'required',
+            'url_video' => 'required',
+            'status_id' => 'required',
+            'price' => 'required',
+            'type_id' => 'required',
+        ]);
+    
+        DB::beginTransaction();
+        try {
+            $record = Product::findOrFail($product->id);
+            $record->status_id = $request->status_id;
+            $record->name = $request->name;
+            $record->url = trim( $request->url);
+            $record->url_video = $request->url_video;
+            $record->sku=trim($request->url);
+            $record->description = $request->description;
+            $record->information = $request->information;
+            $record->reference_link = $request->reference_link;
+            $record->price = $request->price;
+            $record->type_id = $request->type_id;
+            $record->objective = $request->objective;
+            $record->details = $request->details;
+            $record->specs = $request->details;
+            $record->supplier_id = $request->supplier_id;
+            $record->save();
+    
+    /*
+            for ($i=0; $i < sizeof($request->category_id); $i++) { 
+                $request->category_id[$i];
+                DB::table('category_product')->insert(
+                    ['category_id' => $request->category_id[$i], 'product_id' => $record->id]
+                );
+            }
+    
+            for ($i=0; $i < sizeof($request->subcategory_id); $i++) { 
+                //dd($request->category_id[$i]);
+                DB::table('product_subcategory')->insert(
+                    ['subcategory_id' => $request->subcategory_id[$i], 'product_id' => $record->id]
+                );
+            }
+    
+            for ($i=0; $i < sizeof($request->rating_id); $i++) { 
+                //dd($request->category_id[$i]);
+                DB::table('product_rating')->insert(
+                    ['rating_id' => $request->rating_id[$i], 'product_id' => $record->id]
+                );
+            }*/
+    
+            //******carga de imagen**********//
+            if ($request->hasFile('url_image')) {
+                $extension = $request->file('url_image')->getClientOriginalExtension();
+                $imageNameToStore = $record->sku . '.' . $extension;
+                // Upload Image //********nombre de carpeta para almacenar*****
+                $path = $request->file('url_image')->storeAs('public/products', $imageNameToStore);
+                //dd($path);
+    
+                $record->url_image = $imageNameToStore;
+                $record->save();
+            }
+            //******carga de imagen**********//
+    
+        } catch (\Illuminate\Database\QueryException $e) {
+            DB::rollback(); //si hay un error previo, desahe los cambios en DB y redirecciona a pagina de error
+            //$response['message'] = $e->errorInfo;
+            //dd($e->errorInfo[2]);
+            abort(500, $e->errorInfo[2]); //en la poscision 2 del array está el mensaje
+            return response()->json($response, 500);
+        }
+        DB::commit();
+        return redirect()->action( //regresa con el error
+            'ProductController@index')
+            ->with(['message' => 'Se actualizó el registro correctamente', 'alert' => 'warning']);
+    
     }
 
     /**
