@@ -11,8 +11,8 @@
                             <div class="feature-img">
                                 <div class="embed-responsive embed-responsive-16by9">
 
-                                    <iframe class="embed-responsive-item" src="{{ 'https://www.youtube.com/embed/' . $record->url_video }}"
-                                        frameborder="0"
+                                    <iframe class="embed-responsive-item"
+                                        src="{{ 'https://www.youtube.com/embed/' . $record->url_video }}" frameborder="0"
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen></iframe>
                                 </div>
@@ -84,24 +84,7 @@
                                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                             data-parent="#accordionExample">
                                             <div class="card-body">
-                                                {{$record->information}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingTwo">
-                                            <h2 class="mb-0">
-                                                <button class="btn btn-link btn-block text-left collapsed" type="button"
-                                                    data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-                                                    aria-controls="collapseTwo">
-                                                    Entregables
-                                                </button>
-                                            </h2>
-                                        </div>
-                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                            data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                {{$record->details}}
+                                                {{ $record->information }}
                                             </div>
                                         </div>
                                     </div>
@@ -118,7 +101,24 @@
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                             data-parent="#accordionExample">
                                             <div class="card-body">
-                                                {{$record->objective}}
+                                                {{ $record->objective }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingTwo">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                    data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                                    aria-controls="collapseTwo">
+                                                    Entregables
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                            data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                {{ $record->details }}
                                             </div>
                                         </div>
                                     </div>

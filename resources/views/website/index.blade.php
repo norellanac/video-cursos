@@ -60,7 +60,7 @@
                             Herramientas para trabajo remoto y
                             colaboración, como Microsoft Teams, el almacenamiento en la nube seguro, el correo
                             empresarial y aplicaciones Premium de Office en tus dispositivos. </p>
-                            <a href="#" class="btn_3">Learn More <i class="ti-arrow-right"></i></a>
+                            <a href="#" class="d-none btn_3">Learn More <i class="ti-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-4">
@@ -72,7 +72,7 @@
                             <h4>SAP partner</h4>
                             <p>Sabemos cómo implementar correctamente un sistema SAP y podemos validar si está
                                 aprovechando al máximo su sistema SAP. </p>
-                            <a href="#" class="btn_3 service_btn">Learn More <i class="ti-arrow-right"></i></a>
+                            <a href="#" class="d-none btn_3 service_btn">Learn More <i class="ti-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -168,7 +168,7 @@
                                 través de servicios profesionales de excelencia, logrando una relación de largo plazo con
                                 nuestros socios de negocio y colaboradores con el objetivo que superen sus desafíos
                                 empresariales.</p>
-                            <a href="#" class="btn_2">read more</a>
+                            <a href="OurServices" class="btn_2">Servicios</a>
                         </div>
                     </div>
                 </div>

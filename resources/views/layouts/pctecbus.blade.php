@@ -153,15 +153,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-2 col-sm-4 mb-4 mb-xl-0 single-footer-widget">
-                    <h4>Top Products</h4>
+                    <h4>Contacto</h4>
                     <ul>
-                        <li><a href="#">Managed Website</a></li>
-                        <li><a href="#">Manage Reputation</a></li>
-                        <li><a href="#">Power Tools</a></li>
-                        <li><a href="#">Marketing Service</a></li>
+                        <li><a href="https://www.facebook.com/pctechnologygt/" target="blank">Facebook</a></li>
+                        <li><a href="https://www.linkedin.com/company/pc-technology" target="blank">Linkedin</a></li>
+                        <li><a href="mailto:ventas@pctecbus.co" target="blank">ventas@pctecbus.co</a></li>
+                        <li><a href="tel:50224451422" target="blank">+502 2445-1422</a></li>
                     </ul>
                 </div>
-                <div class="col-xl-2 col-sm-4 mb-4 mb-xl-0 single-footer-widget">
+                <div class="d-none col-xl-2 col-sm-4 mb-4 mb-xl-0 single-footer-widget">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#">Jobs</a></li>
@@ -170,7 +170,7 @@
                         <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
-                <div class="col-xl-2 col-sm-4 mb-4 mb-xl-0 single-footer-widget">
+                <div class="d-none col-xl-2 col-sm-4 mb-4 mb-xl-0 single-footer-widget">
                     <h4>Features</h4>
                     <ul>
                         <li><a href="#">Jobs</a></li>
@@ -179,7 +179,7 @@
                         <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
-                <div class="col-xl-2 col-sm-4 mb-4 mb-xl-0 single-footer-widget">
+                <div class="d-none col-xl-2 col-sm-4 mb-4 mb-xl-0 single-footer-widget">
                     <h4>Resources</h4>
                     <ul>
                         <li><a href="#">Guides</a></li>
@@ -188,7 +188,7 @@
                         <li><a href="#">Agencies</a></li>
                     </ul>
                 </div>
-                <div class="col-xl-4 col-sm-8 col-md-8 mb-4 mb-xl-0 single-footer-widget">
+                <div class="d-none col-xl-4 col-sm-8 col-md-8 mb-4 mb-xl-0 single-footer-widget">
                     <h4>Newsletter</h4>
                     <p>You can trust us. we only send promo offers,</p>
                     <div class="form-wrap" id="mc_embed_signup">
@@ -211,7 +211,7 @@
         </div>
     </section>
     <footer class="copyright_part">
-        <div class="container">
+        <div class="container"> 
             <div class="row align-items-center">
                 <p class="footer-text m-0 col-lg-8 col-md-12">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
