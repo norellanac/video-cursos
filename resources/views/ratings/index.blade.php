@@ -9,6 +9,9 @@
         </button>
     </div>
     @endif
+    <div class="d-flex">
+        <p class="h1 text-dark text-center">Clasificacion</p>
+    </div>
     <div class="d-flex bd-highlight mb-3">
         <div class="p-2 bd-highlight d-none">Categorias</div>
         <div class="p-2 bd-highlight">
@@ -54,19 +57,19 @@
                     <td>{{$item->description}}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <a class="btn btn-sm btn-secondary" href="{{url('subcategories/'. $item->id)}}"
+                            <a class="btn btn-sm btn-secondary" href="{{url('ratings/'. $item->id)}}"
                                 title="Ver Detalles">
                                 <span class=""><i class="fas fa-eye"></i></span>
                             </a>
-                            <a class="btn btn-sm btn-primary" href="{{url('subcategories/'. $item->id . '/edit')}}"
+                            <a class="btn btn-sm btn-primary" href="{{url('ratings/'. $item->id . '/edit')}}"
                                 title="Editar">
                                 <span class=""><i class="fas fa-edit"></i></span>
                             </a>
-                            <a class="btn btn-sm btn-danger" title="eliminar" onclick="event.preventDefault();
+                            <a class="btn btn-sm btn-danger d-none" title="eliminar" onclick="event.preventDefault();
                                                      document.getElementById('formDel{{$item->id}}').submit();">
                                 <span class="text-light"><i class="fas fa-trash"></i></span>
                             </a>
-                            <form id="formDel{{$item->id}}" action="{{ url('subcategories/'. $item->id) }}" method="POST"
+                            <form id="formDel{{$item->id}}" action="{{ url('ratings/'. $item->id) }}" method="POST"
                                 style="display: none;">
                                 @csrf
                                 @method('DELETE')

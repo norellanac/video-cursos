@@ -9,6 +9,9 @@
         </button>
     </div>
     @endif
+    <div class="d-flex">
+        <p class="h1 text-dark text-center">Soluciones</p>
+    </div>
     <div class="d-flex bd-highlight mb-3">
         <div class="p-2 bd-highlight d-none">Categorias</div>
         <div class="p-2 bd-highlight">

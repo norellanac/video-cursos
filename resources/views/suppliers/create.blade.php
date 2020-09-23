@@ -4,7 +4,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center mt-2">
-            <p class="text-primary h2">Agregar</p>
+            <p class="text-primary h2">Agregar Proveedor</p>
         </div>
         <div class="mt-4">
             <form method="POST" action="{{ url('suppliers') }}" enctype="multipart/form-data"

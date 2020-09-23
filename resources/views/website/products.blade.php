@@ -161,7 +161,7 @@
                                                             src="{{ asset('/storage/products/' . $item->url_image) }}"
                                                             alt="imagen del producto"></p>
                                                     <h4 class="card-title">{{ $item->name }}</h4>
-                                                    <p class="card-text">{{ $item->name }}</p>
+                                                    <p class="card-text">{{ $item->description }}</p>
                                                     <a href="https://www.facebook.com/" class="btn btn-primary btn-sm"><i
                                                             class="fa fa-plus"></i></a>
                                                 </div>

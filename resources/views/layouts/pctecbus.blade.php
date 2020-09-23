@@ -107,9 +107,12 @@
                             id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item active">
-                                    <a class="d-none nav-link" href="contact.html">Contacto</a>
+                                    <a class="nav-link" href="{{ url('OurProducts') }}">Productos</a>
                                 </li>
-                                <li class="nav-item dropdown">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{ url('OurServices') }}">Servicios</a>
+                                </li>
+                                <li class="nav-item dropdown d-none">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         SAP ADD-ONS
@@ -124,7 +127,8 @@
 
                                 <li class="nav-item active">
                                     <a class="btn btn-warning nav-link text-light"
-                                        href="{{ url('login') }}">Ingresar</a>
+                                    target="_blank"
+                                        href="{{ url('https://pctecbus.sharepoint.com/sites/SAPBusinessONE') }}">Ingresar</a>
                                 </li>
                                 <li class="d-none nav-item active">
                                     <a class="btn btn-warning nav-link text-light"

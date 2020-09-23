@@ -4,7 +4,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center mt-2">
-            <p class="text-primary h2">Agregar</p>
+            <p class="text-primary h2">Agregar Solucion</p>
         </div>
         <div class="mt-4">
             <form method="POST" action="{{ url('subcategories') }}" enctype="multipart/form-data"
@@ -17,7 +17,7 @@
                                 <i class="text-primary fas fa-tags"></i>
                             </span>
                         </div>
-                        <input id="name" placeholder="Subcategoria" type="text"
+                        <input id="name" placeholder="Soluciones o subcategoria" type="text"
                             class="text-primary form-control @error('name') is-invalid @enderror" name="name"
                             value="{{ old('name') }}" required autocomplete="name" autofocus>
 

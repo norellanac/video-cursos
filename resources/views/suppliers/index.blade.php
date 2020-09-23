@@ -9,6 +9,9 @@
         </button>
     </div>
     @endif
+    <div class="d-flex">
+        <p class="h1 text-dark text-center">Proveedores</p>
+    </div>
     <div class="d-flex bd-highlight mb-3">
         <div class="p-2 bd-highlight d-none">Categorias</div>
         <div class="p-2 bd-highlight">
@@ -62,7 +65,7 @@
                                 title="Editar">
                                 <span class=""><i class="fas fa-edit"></i></span>
                             </a>
-                            <a class="btn btn-sm btn-danger" title="eliminar" onclick="event.preventDefault();
+                            <a class="d-none btn btn-sm btn-danger" title="eliminar" onclick="event.preventDefault();
                                                      document.getElementById('formDel{{$item->id}}').submit();">
                                 <span class="text-light"><i class="fas fa-trash"></i></span>
                             </a>

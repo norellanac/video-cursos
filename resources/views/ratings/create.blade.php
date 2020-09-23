@@ -14,7 +14,7 @@
                     <div class="col-12 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-tags"></i>
+                                <i title="Clasificacion" class="text-primary fas fa-tags"></i>
                             </span>
                         </div>
                         <input id="name" placeholder="Clasificacion o nivel de producto" type="text"
@@ -36,7 +36,7 @@
                     <div class="col-12 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-link"></i>
+                                <i title="link o url" class="text-primary fas fa-link"></i>
                             </span>
                         </div>
                         <input id="url" placeholder="link o url (debe ser unica por cada categoria)" type="text"
@@ -58,7 +58,7 @@
                     <div class="col-12 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-image"></i>
+                                <i title="selecionar imagen" class="text-primary fas fa-image"></i>
                             </span>
                         </div>
                         <div class="custom-file">
@@ -78,7 +78,7 @@
                     <div class="col-12 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-align-left"></i>
+                                <i title="Descripcion" class="text-primary fas fa-align-left"></i>
                             </span>
                         </div>
                         <textarea id="description" placeholder="Descripcion --opcional--" type="text"

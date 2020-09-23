@@ -193,7 +193,7 @@
                                 <i class="text-primary fab fa-youtube"></i>
                             </span>
                         </div>
-                        <input id="url_video" placeholder="link o url_video" type="text"
+                        <input id="url_video" placeholder="Pegue solo el codigo del video de youtube " type="text"
                             class="text-primary form-control @error('url_video') is-invalid @enderror" name="url_video"
                             value="{{ $record->url_video }}" required>
 
@@ -387,7 +387,7 @@
                         </div>
                         <select
                             class="js-example-basic-multiple js-states form-control @error('rating_id') is-invalid @enderror"
-                            name="rating_id[]" id="rating_id" multiple="multiple" required>
+                            name="rating_id[]" id="rating_id" multiple="multiple" >
                             <option disabled selected>Clasificacion</option>
                             @foreach ($ratings as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
