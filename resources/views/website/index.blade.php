@@ -121,8 +121,7 @@
                                     <blockquote class="blockquote mb-0">
                                         <h2>Soluciones para
                                             las diferentes Areas</h2>
-                                        <p>Male bring land. Dominion over can yielding his moveth under him is.
-                                            Multiply which firmament</p>
+                                        <p class="d-none">Sap Guatemala| Implementacion de sap en guatemala| consultores sap guatemala</p>
                                     </blockquote>
                                 </div>
                                 @foreach ($records as $item)

@@ -170,7 +170,7 @@
             <!-- Sidebar -->
             <div class="bg-theme-1 text-light border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading">
-                    <img class="d-inline-block align-top ml-1" src="{{ asset('pctecbus/img/pc-technology.png') }}"
+                    <img class="d-inline-block align-top ml-1" src="{{ asset('pctecbus/img/pc-technology-blanco.png') }}"
                         style="max-width: 200px" />
                     <span class="h3 text-light d-none"> {{ config('app.name', 'App Name') }} </span>
                 </div>

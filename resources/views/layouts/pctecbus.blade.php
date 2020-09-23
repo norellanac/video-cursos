@@ -5,6 +5,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Consultores en tecnologias, sap, guatemala, microsoft, software ">
+    <meta name="keywords" content="SAP,Guatemala,Partner,Consultores,Capacitacion,Desarrollo,Software,AddOn,Implementacion  ">
+    <meta name="author" content="Pc Technology">
+
     <title>{{ config('app.name', 'Laravel') }} | {{ substr(request()->getRequestUri(), 1) }}</title>
     <link rel="icon" href="img/favicon.png')}}">
     <!-- Bootstrap CSS -->
@@ -126,8 +130,7 @@
                                 </li>
 
                                 <li class="nav-item active">
-                                    <a class="btn btn-warning nav-link text-light"
-                                    target="_blank"
+                                    <a class="btn btn-warning nav-link text-light" target="_blank"
                                         href="{{ url('https://pctecbus.sharepoint.com/sites/SAPBusinessONE') }}">Ingresar</a>
                                 </li>
                                 <li class="d-none nav-item active">
@@ -156,7 +159,7 @@
                     <h4>Contacto</h4>
                     <ul>
                         <li><a href="https://www.facebook.com/pctechnologygt/" target="blank">Facebook</a></li>
-                        <li><a href="https://www.linkedin.com/company/pc-technology" target="blank">Linkedin</a></li>
+                        <li><a href="https://www.linkedin.com/company/pctechnology/" target="blank">Linkedin</a></li>
                         <li><a href="mailto:ventas@pctecbus.co" target="blank">ventas@pctecbus.co</a></li>
                         <li><a href="tel:50224451422" target="blank">+502 2445-1422</a></li>
                     </ul>
@@ -211,7 +214,7 @@
         </div>
     </section>
     <footer class="copyright_part">
-        <div class="container"> 
+        <div class="container">
             <div class="row align-items-center">
                 <p class="footer-text m-0 col-lg-8 col-md-12">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -219,13 +222,16 @@
                         document.write(new Date().getFullYear());
 
                     </script> All rights reserved <span class="d-none">| This template is made with <i class="ti-heart"
-                        aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> </span>
+                            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    </span>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
                 <div class="col-lg-3 col-md-12 text-center text-lg-right footer-social">
                     <a href="https://www.facebook.com/pctechnologygt/" target="blank"><i class="ti-facebook"></i></a>
-                    <a href="https://www.linkedin.com/company/pc-technology" target="blank"> <i class="ti-linkedin"></i> </a>
-                    <a href="https://api.whatsapp.com/send?phone=50254954454" target="blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/company/pctechnology/" target="blank"> <i class="ti-linkedin"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=50254954454" target="blank"><i
+                            class="fab fa-whatsapp"></i></a>
                     <a href="mailto:ventas@pctecbus.co" target="blank"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>

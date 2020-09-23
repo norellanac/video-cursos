@@ -88,7 +88,7 @@
             </li>
             <li class="align-self-end nav-item text-center">
                 <a class="nav-link"
-                    href="{{ url('https://api.whatsapp.com/send?phone=50233120413&text=' . $exception->getMessage()) }}">
+                    href="{{ url('https://api.whatsapp.com/send?phone=50254954454' . $exception->getMessage()) }}">
                     <span class="nav-app-icon text-light"><i class="fab fa-whatsapp"></i></span>
                     <p class="text-light" style="margin-top: -5px;"> {{ 'Ayuda' }}</p>
                 </a>
