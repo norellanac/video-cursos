@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Supplier;
 use DB;
 use Illuminate\Http\Request;
+use App\Mail\ContactSiteToAdmins;
+use Illuminate\Support\Facades\Mail;
 
 class SupplierController extends Controller
 {
@@ -86,6 +88,14 @@ class SupplierController extends Controller
     public function show(Supplier $supplier)
     {
         //
+         //************correo de notificacion**************
+         $request= new Request();
+         $request->message = "Puebas pctec";
+         $request->image = "http://pakal.site/img/icons/request.png";
+         Mail::to(['1005alexis@gmail.com'])
+             ->cc('norellanac@miumg.edu.gt') // enviar correo con copia
+             ->send(new ContactSiteToAdmins($request)); //envia la variables $request a la clase de MAIL
+
     }
 
     /**
