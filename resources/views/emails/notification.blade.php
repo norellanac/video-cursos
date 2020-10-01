@@ -3,446 +3,327 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>Notificación Pakal</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
-    <meta name="format-detection" content="telephone=no" />
-    <!--[if !mso]><!-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-    <!--<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Narrative Confirm Email</title>
     <style type="text/css">
-        body {
-            -webkit-text-size-adjust: 100% !important;
-            -ms-text-size-adjust: 100% !important;
-            -webkit-font-smoothing: antialiased !important;
-        }
+        /* Take care of image borders and formatting */
 
         img {
-            border: 0 !important;
-            outline: none !important;
+            max-width: 600px;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
         }
 
-        p {
-            Margin: 0px !important;
-            Padding: 0px !important;
+        a {
+            border: 0;
+            outline: none;
+        }
+
+        a img {
+            border: none;
+        }
+
+        /* General styling */
+
+        td,
+        h1,
+        h2,
+        h3 {
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: 400;
+        }
+
+        td {
+            font-size: 13px;
+            line-height: 150%;
+            text-align: left;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: none;
+            width: 100%;
+            height: 100%;
+            color: #37302d;
+            background: #ffffff;
         }
 
         table {
-            border-collapse: collapse;
-            mso-table-lspace: 0px;
-            mso-table-rspace: 0px;
+            border-collapse: collapse !important;
         }
 
-        td,
-        a,
-        span {
-            border-collapse: collapse;
-            mso-line-height-rule: exactly;
+
+        h1,
+        h2,
+        h3 {
+            padding: 0;
+            margin: 0;
+            color: #444444;
+            font-weight: 400;
+            line-height: 110%;
         }
 
-        .ExternalClass * {
-            line-height: 100%;
+        h1 {
+            font-size: 35px;
         }
 
-        span.MsoHyperlink {
-            mso-style-priority: 99;
-            color: inherit;
+        h2 {
+            font-size: 30px;
         }
 
-        span.MsoHyperlinkFollowed {
-            mso-style-priority: 99;
-            color: inherit;
+        h3 {
+            font-size: 24px;
         }
+
+        h4 {
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        .important-font {
+            color: #21BEB4;
+            font-weight: bold;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .force-full-width {
+            width: 100% !important;
+        }
+
     </style>
-    <style media="only screen and (min-width:481px) and (max-width:599px)" type="text/css">
-        @media only screen and (min-width:481px) and (max-width:599px) {
-            table[class=em_main_table] {
-                width: 100% !important;
-            }
 
-            table[class=em_wrapper] {
-                width: 100% !important;
-            }
+    <style type="text/css" media="screen">
+        @media screen {
+            @import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
 
-            td[class=em_hide],
-            br[class=em_hide] {
-                display: none !important;
-            }
-
-            td[class=em_align_cent] {
-                text-align: center !important;
-            }
-
-            td[class=em_aside] {
-                padding-left: 10px !important;
-                padding-right: 10px !important;
-            }
-
-            td[class=em_height] {
-                height: 20px !important;
-            }
-
-            td[class=em_font] {
-                font-size: 14px !important;
-            }
-
-            td[class=em_align_cent1] {
-                text-align: center !important;
-                padding-bottom: 10px !important;
+            /* Thanks Outlook 2013! */
+            td,
+            h1,
+            h2,
+            h3 {
+                font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif !important;
             }
         }
+
     </style>
-    <style media="only screen and (max-width:480px)" type="text/css">
-        @media only screen and (max-width:480px) {
-            table[class=em_main_table] {
-                width: 100% !important;
+
+    <style type="text/css" media="only screen and (max-width: 600px)">
+        /* Mobile styles */
+        @media only screen and (max-width: 600px) {
+
+            table[class="w320"] {
+                width: 320px !important;
             }
 
-            table[class=em_wrapper] {
-                width: 100% !important;
+            table[class="w300"] {
+                width: 300px !important;
             }
 
-            td[class=em_hide],
-            br[class=em_hide],
-            span[class=em_hide] {
-                display: none !important;
+            table[class="w290"] {
+                width: 290px !important;
             }
 
-            td[class=em_align_cent] {
-                text-align: center !important;
+            td[class="w320"] {
+                width: 320px !important;
             }
 
-            td[class=em_height] {
-                height: 20px !important;
+            td[class~="mobile-padding"] {
+                padding-left: 14px !important;
+                padding-right: 14px !important;
             }
 
-            td[class=em_aside] {
-                padding-left: 10px !important;
-                padding-right: 10px !important;
+            td[class*="mobile-padding-left"] {
+                padding-left: 14px !important;
             }
 
-            td[class=em_font] {
-                font-size: 14px !important;
-                line-height: 28px !important;
+            td[class*="mobile-padding-right"] {
+                padding-right: 14px !important;
             }
 
-            span[class=em_br] {
+            td[class*="mobile-block"] {
                 display: block !important;
+                width: 100% !important;
+                text-align: left !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                padding-bottom: 15px !important;
             }
 
-            td[class=em_align_cent1] {
+            td[class*="mobile-no-padding-bottom"] {
+                padding-bottom: 0 !important;
+            }
+
+            td[class~="mobile-center"] {
                 text-align: center !important;
-                padding-bottom: 10px !important;
+            }
+
+            table[class*="mobile-center-block"] {
+                float: none !important;
+                margin: 0 auto !important;
+            }
+
+            *[class*="mobile-hide"] {
+                display: none !important;
+                width: 0 !important;
+                height: 0 !important;
+                line-height: 0 !important;
+                font-size: 0 !important;
+            }
+
+            td[class*="mobile-border"] {
+                border: 0 !important;
             }
         }
+
     </style>
 </head>
 
-<body style="margin:0px; padding:0px;" bgcolor="#ffffff">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
-        <!-- === PRE HEADER SECTION=== -->
+<body class="body" style="padding:0; margin:0; display:block; background:#ffffff; -webkit-text-size-adjust:none"
+    bgcolor="#ffffff">
+    <table align="center" cellpadding="0" cellspacing="0" width="100%" height="100%">
         <tr>
-            <td align="center" valign="top" bgcolor="#00B6AD">
-                <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="em_main_table"
-                    style="table-layout:fixed;">
-                    <tr>
-                        <td style="line-height:0px; font-size:0px;" width="600" class="em_hide" bgcolor="#00B6AD"><img
-                                src="https://www.sendwithus.com/assets/img/emailmonks/images/spacer.gif" height="1"
-                                width="600"
-                                style="max-height:1px; min-height:1px; display:block; width:600px; min-width:600px;"
-                                border="0" alt="" /></td>
-                    </tr>
-                    <tr>
-                        <td valign="top">
-                            <table width="600" cellpadding="0" cellspacing="0" border="0" align="center"
-                                class="em_wrapper">
-                                <tr>
-                                    <td height="10" class="em_height" style="font-size:1px; line-height:1px;">&nbsp;
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td valign="top">
-                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td valign="top">
-                                                    <table width="150" border="0" cellspacing="0" cellpadding="0"
-                                                        align="right" class="em_wrapper">
-                                                        <tr>
-                                                            <td align="right" class="em_align_cent1"
-                                                                style="font-family:'Open Sans', Arial, sans-serif; font-size:12px; line-height:16px; color:#ffffff; text-decoration:underline;">
-                                                                <a href="http://pakal.site/" target="_blank"
-                                                                    style="text-decoration:underline; color:#ffffff;">
-                                                                    Pakal
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <table width="400" border="0" cellspacing="0" cellpadding="0"
-                                                        align="left" class="em_wrapper">
-                                                        <tr>
-                                                            <td align="left" class="em_align_cent"
-                                                                style="font-family:'Open Sans', Arial, sans-serif; font-size:12px; line-height:18px; color:#ffffff; text-decoration:none;">
-                                                                Notificación de Viaje
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="10" class="em_height" style="font-size:1px; line-height:1px;">&nbsp;
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <!-- === //PRE HEADER SECTION=== -->
-        <!-- === BODY === -->
-        <tr>
-            <td align="center" valign="top" bgcolor="#ffffff">
-                <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="em_main_table"
-                    style="table-layout:fixed;">
-                    <!-- === LOGO SECTION === -->
-                    <tr>
-                        <td height="40" class="em_height">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><a href="#" target="_blank" style="text-decoration:none;">
-                                <img src="http://pakal.site/img/Logo-Pakal-color.png" width="230" height="80"
-                                    style="display:block;font-family: Arial, sans-serif; font-size:15px; line-height:18px; color:#00B6AD;  font-weight:bold;"
-                                    border="0" alt="LoGo Here" /></a></td>
-                    </tr>
-                    <tr>
-                        <td height="30" class="em_height">&nbsp;</td>
-                    </tr>
-                    <!-- === //LOGO SECTION === -->
-                    <!-- === NEVIGATION SECTION === -->
-                    <tr>
-                        <td height="1" bgcolor="#fed69c" style="font-size:0px; line-height:0px;"><img
-                                src="https://www.sendwithus.com/assets/img/emailmonks/images/spacer.gif" width="1"
-                                height="1" style="display:block;" border="0" alt="" /></td>
-                    </tr>
-                    <tr>
-                        <td height="14" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                    </tr>
-                    {{--
-                        <tr>
-                        <td align="center"
-                            style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; line-height:18px; color:#00B6AD; text-transform:uppercase; font-weight:bold;"
-                            class="em_font">
-                            <a href="#" target="_blank" style="text-decoration:none; color:#00B6AD;">home</a>
-                            &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <a href="#" target="_blank"
-                                style="text-decoration:none; color:#00B6AD;">new product</a><span class="em_hide">
-                                &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="em_br"></span><a
-                                href="#" target="_blank" style="text-decoration:none; color:#00B6AD;">catalogue</a>
-                            &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <a href="#" target="_blank"
-                                style="text-decoration:none; color:#00B6AD;">contact us</a>
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td height="14" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                    </tr>
-                        --}}
+            <td align="center" valign="top" bgcolor="#ffffff" width="100%">
 
+                <table cellspacing="0" cellpadding="0" width="100%">
                     <tr>
-                        <td height="1" bgcolor="#fed69c" style="font-size:0px; line-height:0px;"><img
-                                src="https://www.sendwithus.com/assets/img/emailmonks/images/spacer.gif" width="1"
-                                height="1" style="display:block;" border="0" alt="" /></td>
-                    </tr>
-                    <!-- === //NEVIGATION SECTION === -->
-                    <!-- === IMG WITH TEXT AND CTA === -->
-                    <tr>
-                        <td valign="top" class="em_aside">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td height="25" class="em_height">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td valign="middle" align="center"><img src="{{$request->image}}" width="150"
-                                            height="149" alt=""
-                                            style="display:block; font-family:Arial, sans-serif; font-size:25px; line-height:149px; color:#c27cbb;"
-                                            border="0" /></td>
-                                </tr>
-                                <tr>
-                                    <td height="25" class="em_height">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center"
-                                        style="font-family:'Open Sans', Arial, sans-serif; font-size:38px; font-weight:bold; line-height:20px; color:#00B6AD;">
-                                        {{$request->tittle}}</td>
-                                </tr>
-                                <tr>
-                                    <td height="25" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td height="1" bgcolor="#d8e4f0" style="font-size:0px;line-height:0px;"><img
-                                            src="https://www.sendwithus.com/assets/img/emailmonks/images/spacer.gif"
-                                            width="1" height="1" alt="" style="display:block;" border="0" /></td>
-                                </tr>
-                                <tr>
-                                    <td height="34" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center"
-                                        style="font-family:'Open Sans', Arial, sans-serif; font-size:18px; font-weight:bold; line-height:20px; color:#00B6AD;">
-                                        {{$request->message}}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center"
-                                        style="font-family:'Open Sans', Arial, sans-serif; font-size:16px; line-height:20px; color:#00B6AD;">
-                                        Si tienes problemas con la aplicación
-                                        <a href="https://chat.whatsapp.com/Eh7djB0MtJkDyc70yviJW8" target="_blank"
-                                            style="text-decoration:underline; color:#00B6AD;">
-                                            envianos un whatsapp
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="15" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td valign="top" align="center">
-                                        <table width="210" border="0" cellspacing="0" cellpadding="0" align="center">
-                                            <tr>
-                                                <td valign="middle" align="center" height="45" bgcolor="#00B6AD"
-                                                    style="font-family:'Open Sans', Arial, sans-serif; font-size:17px; font-weight:bold; color:#ffffff; text-transform:uppercase;">
-                                                    <a href="{{url('reserve')}}" target="_blank"
-                                                        style="text-decoration:none; color:#ffffff; display:block; line-height:45px;">
-                                                        Ir a Viajes
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="34" class="em_height">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center"
-                                        style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; line-height:22px; color:#999999;">
-                                        Conoce nuevas personas que van en la misma dirección que tú. Compartiendo los
-                                        asientos vacios de tu vehículo.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="31" class="em_height">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <!-- === //IMG WITH TEXT AND CTA === -->
-                </table>
-            </td>
-        </tr>
-        <!-- === BODY === -->
-        <!-- === FOOTER SECTION === -->
-        <tr>
-            <td align="center" valign="top" bgcolor="#00B6AD" class="em_aside">
-                <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="em_main_table"
-                    style="table-layout:fixed;">
-                    <tr>
-                        <td height="35" class="em_height">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td valign="top" align="center">
-                            <table border="0" cellspacing="0" cellpadding="0" align="center">
-                                <tr>
-                                    <td valign="top"><a href="#" target="_blank" style="text-decoration:none;"><img
-                                                src="https://www.sendwithus.com/assets/img/emailmonks/images/fb.png"
-                                                width="26" height="26"
-                                                style="display:block;font-family: Arial, sans-serif; font-size:10px; line-height:18px; color:#00B6AD; "
-                                                border="0" alt="Fb" /></a></td>
-                                    <td width="7">&nbsp;</td>
-                                    <td valign="top"><a href="#" target="_blank" style="text-decoration:none;"><img
-                                                src="https://www.sendwithus.com/assets/img/emailmonks/images/tw.png"
-                                                width="26" height="26"
-                                                style="display:block;font-family: Arial, sans-serif; font-size:10px; line-height:18px; color:#00B6AD; "
-                                                border="0" alt="Tw" /></a></td>
-                                    <td width="7">&nbsp;</td>
-                                    <td valign="top"><a href="#" target="_blank" style="text-decoration:none;"><img
-                                                src="https://www.sendwithus.com/assets/img/emailmonks/images/pint.png"
-                                                width="26" height="26"
-                                                style="display:block;font-family: Arial, sans-serif; font-size:10px; line-height:18px; color:#00B6AD; "
-                                                border="0" alt="pint" /></a></td>
-                                    <td width="7">&nbsp;</td>
-                                    <td valign="top"><a href="#" target="_blank" style="text-decoration:none;"><img
-                                                src="https://www.sendwithus.com/assets/img/emailmonks/images/google.png"
-                                                width="26" height="26"
-                                                style="display:block;font-family: Arial, sans-serif; font-size:10px; line-height:18px; color:#00B6AD; "
-                                                border="0" alt="G+" /></a></td>
-                                    <td width="7">&nbsp;</td>
-                                    <td valign="top"><a href="#" target="_blank" style="text-decoration:none;"><img
-                                                src="https://www.sendwithus.com/assets/img/emailmonks/images/insta.png"
-                                                width="26" height="26"
-                                                style="display:block;font-family: Arial, sans-serif; font-size:10px; line-height:18px; color:#00B6AD; "
-                                                border="0" alt="Insta" /></a></td>
-                                    <td width="7">&nbsp;</td>
-                                    <td valign="top"><a href="#" target="_blank" style="text-decoration:none;"><img
-                                                src="https://www.sendwithus.com/assets/img/emailmonks/images/yt.png"
-                                                width="26" height="26"
-                                                style="display:block;font-family: Arial, sans-serif; font-size:10px; line-height:18px; color:#00B6AD; "
-                                                border="0" alt="Yt" /></a></td>
-                                </tr>
-                            </table>
+                        <td style="background:orange" width="100%">
+                            <center>
+                                <table cellspacing="0" cellpadding="0" width="600" class="w320">
+                                    <tr>
+                                        <td valign="top" class="mobile-block mobile-no-padding-bottom mobile-center"
+                                            width="270" style="background:orange;padding:10px 10px 10px 20px;">
+                                            <a href="#" style="text-decoration:none;">
+                                                <img src="http://pctecbus.co/pctecbus/img/pc-technology-blanco.png"
+                                                    height="40" alt="Logo" />
+                                            </a>
+                                        </td>
+                                        <td valign="top" class="mobile-block mobile-center" width="270"
+                                            style="background:orange;padding:10px 15px 10px 10px">
+                                            <table border="0" cellpadding="0" cellspacing="0"
+                                                class="mobile-center-block" align="right">
+                                                <tr>
+                                                    <td align="right">
+                                                        <a href="https://www.facebook.com/pctechnologygt/">
+                                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEU7WZj///8tUJO0vdQqTpLGzd4mS5H19vowU5VAXZrV2ucfR5D5+vs4V5c1VZYkSpHf4+yRn8Du8PWlsMuBkbiJmLx4irQaRI7d4evp7PKap8VKZJ7Dytxvgq+YpMSyutFbcqdgdqhQaaF9jbZofKxcc6ezvNMCPIvffFnIAAAEcElEQVR4nO3dbXuaMBiGYYgREQwovit9mV27//8Pp7Pd2mM74IYQwsPu6/sw57CKQEIQ/m5ZTsbSdPmHFXzwNirXWo0jrfN4e/wiXOz2sQlGldpvPwmXmfI9IAep+fFDuMxHtv/eM6q4CxfZOIFBkM3vwt0Y36L39OomPOx9j8Nh++Iq3MS+h+Ew9XgVqrH+Fd4y8zBY5r5H4bS0CErtexBOi5JgMm6hngaT8X5X3KJQfhTKj0L5USg/CuVHofwolB+F8qNQfhR6zZgsVvpLSqk4y4wJ4HO8gxVmSud6/rBdP03K6a2yLCdvT+vTavvy8Hw2sc6jKzir3dAghSbT6WVVLhdhRbPikEzWu1riAIWZ1i/lrAr3qWntyd7BCeP0W1m574QL43yzrGfJFWbppmjkEyY00Wuz/SdNaPKnxj5RQnU+1nskC6NdG58gYXpqBxQjTNctgVKE7YFChFHbt6gUoWr5ISNGaM4WQAlCk7f6HhQkjNocyUgSmmcroABh3vxgW5Yw3tgBhy9Mm/4elCa03oWDF9p9UwgQZt9tgUMX6nLkQqOtgQMX2n/ODF2op2MXRg3ObYsUmm/2wGELVfOf9osvzWazRf1EA4/CJn+GyXp3CXT6d/XzDDwK4WPS41ZHKqu/FvrvfH7SgMBVajW71Z8QPGRbXCwnvPgTxltIeLadWOdPqKDTwBvrwfkTQofdy9T+dbwJowTZhfaTPz0KD4DQfhd6FCK/75PI/nU8CoEv/HUHQ/P4LgWEL20PZD7lUQjc9vTcwRzsYQvPoxd2MY1+2MIu1usYtrCLJXModBeFFKJR6C4KKUSj0F0UUohGobsopBCNQndRKF5ockBYu2Yl8D/gVGjmFSnkbGLVBn5VT3S7D+sNlj3Wj1248MH3bHXnQuC0v3Ah8GErW1gAy+fKFiLXiGULkQWCZQuRq+CyhVvgZhTZwu/AdX7ZQmQMsoXIDUWihUdkNXnRQuiWKdFCaDV50cITMnLRQujeTNHCV+Q0jmjhHBmDZOECevSIZCH2cBXJwil0B7Fk4Rs010Sy8BG6kV+ysH5VSOnCy+iF2FQFwcIZ9iQuwULwWWOChfWTnKULn7BxCxauRi8Erqy5Fx6SigBE1T8/gBNq3Aqjin4AV7n3VRsA72LgvRjuopBCNArdRSGFaBS6i0IK0Sh0F4UUolHoLgopRKPQXRRSiEahuyikEI1Cd1FIIRqF7qKQQjQK3UUhhWgUuotCCtEodBeFFKJR6C4KKUSj0F0UUohGobsopBCNQndRSCEahe6ikEI0Ct1FIYVo/4fQ8vHsLetRCK7z0nV9CaMkANfq6bq+hHkRhPbPL29TT0JzDoNw6+WjpiehWl+Fx30HA25cT8J0dhX62Yn9CPUpvAlD4HEtndeLMLuEd2GhOnhMe8P6EGbB7F0YFufevxR7EOrLr9d4X5Brta99uFK3uRYalZ7uW/lYcqx4nKeR7i9kJay09daj9Hz6eIFPi6oVybS/ykW9sGy99aT4s5Wfi0JoFnIiovAAAAAASUVORK5CYII="
+                                                                width="30" height="30" alt="social icon" />
+                                                        </a>
+                                                    </td>
+                                                    <td align="right" style="padding-left:5px">
+                                                        <a href="https://www.linkedin.com/company/pctechnology">
+                                                            <img src="https://images.vexels.com/media/users/3/137382/isolated/preview/c59b2807ea44f0d70f41ca73c61d281d-icono-de-linkedin-logo-by-vexels.png"
+                                                                width="30" height="30" alt="social icon" />
+                                                        </a>
+                                                    </td>
+                                                    <td align="right" style="padding-left:5px">
+                                                        <a href="https://api.whatsapp.com/send?phone=50254954454">
+                                                            <img src="http://flash.com.gt/img/icons/social/WhatsApp.png"
+                                                                width="30" height="30" alt="social icon" />
+                                                        </a>
+                                                    </td>
+                                                    <td align="right" style="padding-left:5px">
+                                                        <a href="https://m.me/pctechnologygt">
+                                                            <img src="https://cdn.iconscout.com/icon/free/png-256/messenger-1856781-1576515.png"
+                                                                width="30" height="30" alt="social icon" />
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
                         </td>
                     </tr>
                     <tr>
-                        <td height="22" class="em_height">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="center"
-                            style="font-family:'Open Sans', Arial, sans-serif; font-size:12px; line-height:18px; color:#ffffff; text-transform:uppercase;">
-                            <span style="text-decoration:underline;"><a href="#" target="_blank"
-                                    style="text-decoration:underline; color:#ffffff;">PRIVACY STATEMENT</a></span>
-                            &nbsp;&nbsp;|&nbsp;&nbsp; <span style="text-decoration:underline;"><a href="#"
-                                    target="_blank" style="text-decoration:underline; color:#ffffff;">TERMS OF
-                                    SERVICE</a></span><span class="em_hide"> &nbsp;&nbsp;|&nbsp;&nbsp; </span><span
-                                class="em_br"></span><span style="text-decoration:underline;"><a href="#"
-                                    target="_blank" style="text-decoration:underline; color:#ffffff;">RETURNS</a></span>
+                        <td style="border-bottom:1px solid #e7e7e7;">
+                            <center>
+                                <table cellpadding="0" cellspacing="0" width="600" class="w320">
+                                    <tr>
+                                        <td align="left" class="mobile-padding" style="padding:20px">
+
+                                            <br class="mobile-hide" />
+
+                                            <h2>Gracias por contactarnos</h2><br>
+                                            Estimado usuario,<br>
+                                            Gracias por su interes en nuestros productos y servicios.<br>
+                                            Nuestro personal de serviico al cliente se comunicará con usted para resolver sus inquietudes
+                                            <br>
+
+                                            <table cellspacing="0" cellpadding="0" width="100%" bgcolor="#ffffff">
+                                                <tr>
+                                                    <td style="width:100px;background:#D84A38;">
+                                                        <div>
+                                                            <!--[if mso]>
+                          <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:33px;v-text-anchor:middle;width:100px;" stroke="f" fillcolor="#D84A38">
+                            <w:anchorlock/>
+                            <center>
+                          <![endif]-->
+                                                            <a href="tel:50224451422"
+                                                                style="background-color:orange;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:33px;text-align:center;text-decoration:none;width:100px;-webkit-text-size-adjust:none;">
+                                                                Llamar ahora</a>
+                                                            <!--[if mso]>
+                            </center>
+                          </v:rect>
+                          <![endif]-->
+                                                        </div>
+                                                    </td>
+                                                    <td width="281"
+                                                        style="background-color:#ffffff; font-size:0; line-height:0;">
+                                                        &nbsp;</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="mobile-hide"
+                                            style="padding-top:20px;padding-bottom:0; vertical-align:bottom;"
+                                            valign="bottom">
+                                            <table cellspacing="0" cellpadding="0" width="100%">
+                                                <tr>
+                                                    <td align="right" valign="bottom"
+                                                        style="padding-bottom:0; vertical-align:bottom;">
+                                                        <img style="vertical-align:bottom;"
+                                                            src="https://richardgarcia.net/wp-content/uploads/2019/02/ROBOT-PNG-Manychat.png"
+                                                            width="174" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
                         </td>
                     </tr>
                     <tr>
-                        <td height="10" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="center"
-                            style="font-family:'Open Sans', Arial, sans-serif; font-size:12px; line-height:18px; color:#ffffff;text-transform:uppercase;">
-                            &copy;2&zwnj;020 {{ env('APP_NAME') }}. All Rights Reserved.
+                        <td valign="top" style="background-color:#f8f8f8;border-bottom:1px solid #e7e7e7;">
+
                         </td>
                     </tr>
                     <tr>
-                        <td height="10" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="center"
-                            style="font-family:'Open Sans', Arial, sans-serif; font-size:12px; line-height:18px; color:#ffffff;text-transform:uppercase;">
-                            If you do not wish to receive any further emails from us, please <span
-                                style="text-decoration:underline;"><a href="#" target="_blank"
-                                    style="text-decoration:underline; color:#ffffff;">unsubscribe</a></span>
+                        <td style="background-color:#007bff;">
+                            <center>
+                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="w320"
+                                    style="height:100%;color:#ffffff" bgcolor="#007bff">
+                                    <tr>
+                                        <td align="right" valign="middle" class="mobile-padding"
+                                            style="font-size:12px;padding:20px; background-color:#007bff; color:#ffffff; text-align:left; ">
+                                            <a style="color:#ffffff;" href="https://www.facebook.com/pctechnologygt/">Facebook</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                            <a style="color:#ffffff;" href="https://www.linkedin.com/company/pctechnology">Linkedin</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                            <a style="color:#ffffff;" href="https://api.whatsapp.com/send?phone=50254954454">Chatea</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
                         </td>
-                    </tr>
-                    <tr>
-                        <td height="35" class="em_height">&nbsp;</td>
                     </tr>
                 </table>
+
             </td>
         </tr>
-        <!-- === //FOOTER SECTION === -->
     </table>
-    <div style="display:none; white-space:nowrap; font:20px courier; color:#ffffff; background-color:#ffffff;">&nbsp;
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        &nbsp; &nbsp; &nbsp; &nbsp;</div>
 </body>
 
 </html>

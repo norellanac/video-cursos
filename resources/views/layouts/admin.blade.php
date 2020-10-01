@@ -170,8 +170,8 @@
             <!-- Sidebar -->
             <div class="bg-theme-1 text-light border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading">
-                    <img class="d-inline-block align-top ml-1" src="{{ asset('pctecbus/img/pc-technology-blanco.png') }}"
-                        style="max-width: 200px" />
+                    <img class="d-inline-block align-top ml-1"
+                        src="{{ asset('pctecbus/img/pc-technology-blanco.png') }}" style="max-width: 200px" />
                     <span class="h3 text-light d-none"> {{ config('app.name', 'App Name') }} </span>
                 </div>
                 <div class="list-group list-group-flush">
@@ -247,11 +247,12 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{ url('adminPost') }}"> <span><i
-                                            class="fas fa-newspaper"></i></span> Publicaciones</a>
+                                <a class="nav-link" href="{{ url('adminPost') }}"> <span>
+                                        <i class="fas fa-newspaper"></i></span> Publicaciones</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
+                                <a class="nav-link" href="{{ url('/') }}">
+                                    <span><i class="fas fa-home"></i> Ver Sitio</span></a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

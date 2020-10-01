@@ -140,65 +140,68 @@
     </div>
 
     @if ($records)
-    <div>
-        @foreach ($suppliers as $supplier)
-            <!-- Team -->
-            <section id="team" class="pb-5">
-                <div class="container">
-                    <h5 class="section-title h1">
-                        <img src="{{ asset('/storage/suppliers/' . $supplier->url_image) }}" class="mx-auto d-inline"
-                            height="150px">
-                    </h5>
-                    <div class="row">
-                        @foreach ($records->where('supplier_id', $supplier->id) as $item)
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="image-flip">
-                                    <div class="mainflip flip-0">
-                                        <div class="frontside">
-                                            <div class="card">
-                                                <div class="card-body text-center">
-                                                    <p><img class=" img-fluid"
-                                                            src="{{ asset('/storage/products/' . $item->url_image) }}"
-                                                            alt="imagen del producto"></p>
-                                                    <h4 class="card-title">{{ $item->name }}</h4>
-                                                    <p class="card-text">{{ $item->description }}</p>
-                                                    <a href="#" class="btn btn-primary btn-sm"><i
-                                                            class="fa fa-plus"></i></a>
+        <div>
+            @foreach ($suppliers as $supplier)
+                @if ($records->where('supplier_id', $supplier->id)->first())
+                    <!-- Team -->
+                    <section id="team" class="pb-5">
+                        <div class="container">
+                            <h5 class="section-title h1">
+                                <img src="{{ asset('/storage/suppliers/' . $supplier->url_image) }}"
+                                    class="mx-auto d-inline" height="150px">
+                            </h5>
+                            <div class="row">
+                                @foreach ($records->where('supplier_id', $supplier->id) as $item)
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="image-flip">
+                                            <div class="mainflip flip-0">
+                                                <div class="frontside">
+                                                    <div class="card">
+                                                        <div class="card-body text-center">
+                                                            <p><img class=" img-fluid"
+                                                                    src="{{ asset('/storage/products/' . $item->url_image) }}"
+                                                                    alt="imagen del producto"></p>
+                                                            <h4 class="card-title">{{ $item->name }}</h4>
+                                                            <p class="card-text">{{ $item->description }}</p>
+                                                            <a href="#" class="btn btn-primary btn-sm"><i
+                                                                    class="fa fa-plus"></i></a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="backside">
-                                            <div class="card">
-                                                <div class="card-body text-center mt-4">
-                                                    <h4 class="card-title">{{ $item->name }}</h4>
-                                                    <p class="card-text">{{ substr($item->information, 0, 255) }}
-                                                    </p>
-                                                    @if ($type && $url)
-                                                        <a href="{{ url('productos/' . $item->url . '/' . $type . '/' . $url. '/' . $subcategory->url) }}"
-                                                            class="btn btn-primary btn-sm mt-3"> <i
-                                                                class="fa fa-info-circle text-light">
-                                                            </i> <span class="text-light">Más información</span></a>
-                                                    @else
-                                                        <a href="{{ url('productos/' . $item->url . '/na/na/na') }}"
-                                                            class="btn btn-primary btn-sm mt-3"> <i
-                                                                class="fa fa-info-circle text-light">
-                                                            </i> <span class="text-light">Más información</span></a>
-                                                    @endif
+                                                <div class="backside">
+                                                    <div class="card">
+                                                        <div class="card-body text-center mt-4">
+                                                            <h4 class="card-title">{{ $item->name }}</h4>
+                                                            <p class="card-text">{{ substr($item->information, 0, 255) }}
+                                                            </p>
+                                                            @if ($type && $url)
+                                                                <a href="{{ url('productos/' . $item->url . '/' . $type . '/' . $url . '/' . $subcategory->url) }}"
+                                                                    class="btn btn-primary btn-sm mt-3"> <i
+                                                                        class="fa fa-info-circle text-light">
+                                                                    </i> <span class="text-light">Más información</span></a>
+                                                            @else
+                                                                <a href="{{ url('productos/' . $item->url . '/na/na/na') }}"
+                                                                    class="btn btn-primary btn-sm mt-3"> <i
+                                                                        class="fa fa-info-circle text-light">
+                                                                    </i> <span class="text-light">Más información</span></a>
+                                                            @endif
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endforeach
+
                             </div>
-                        @endforeach
+                        </div>
+                    </section>
+                    <!-- Team -->
+                @endif
 
-                    </div>
-                </div>
-            </section>
-            <!-- Team -->
-        @endforeach
+            @endforeach
 
-    </div>
+        </div>
     @else
         <p>nada por aqui</p>
     @endif

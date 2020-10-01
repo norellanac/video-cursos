@@ -31,31 +31,127 @@
                             </div>
                         </div>
                         <div class="comment-form">
-                            <h4>Solicita Tu Cotizacion</h4>
+                            <h2 class="h1 text-warning">Solicita Tu Cotizacion</h2>
                             <form class="form-contact comment_form" action="#" id="commentForm">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <textarea class="form-control w-100" name="comment" id="comment" cols="30"
-                                                rows="3" placeholder="Dudas o comentarios"></textarea>
+                                <div class="row pt-4">
+
+                                    <div class="col-sm-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"
+                                                        title="Nombre"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Nombre" name="name"
+                                                aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input class="form-control" name="name" id="name" type="text"
-                                                placeholder="Name">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><i
+                                                        class="fas fa-mobile-alt" title="Celular"></i></span>
+                                            </div>
+                                            <input type="phone" class="form-control" placeholder="Celular" name="phone"
+                                                aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input class="form-control" name="email" id="email" type="email"
-                                                placeholder="Email">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-at"
+                                                        title=""></i></span>
+                                            </div>
+                                            <input type="email" class="form-control" placeholder="Correo" name="email"
+                                                aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <input class="form-control" name="website" id="website" type="text"
-                                                placeholder="Website">
+                                    @if ($type == 'clasificacion')
+                                        <div class="col-sm-6">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
+                                                            title="clasification"></i></span>
+                                                </div>
+                                                <select type="phone" class="form-control" placeholder="Celular" name="phone"
+                                                    aria-label="Username" aria-describedby="basic-addon1">
+                                                    <option value="">Industria</option>
+                                                    @foreach ($subcategories as $item)
+                                                        <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @if ($type == 'industria')
+                                        <div class="col-sm-6">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
+                                                            title="clasification"></i></span>
+                                                </div>
+                                                <select type="phone" class="form-control" placeholder="Celular" name="phone"
+                                                    aria-label="Username" aria-describedby="basic-addon1">
+                                                    <option value="">Puesto</option>
+                                                    @foreach ($ratings as $item)
+                                                        <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @if ($type == 'na')
+                                        <div class="col-sm-6">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
+                                                            title="clasification"></i></span>
+                                                </div>
+                                                <select type="phone" class="form-control" placeholder="Celular" name="phone"
+                                                    aria-label="Username" aria-describedby="basic-addon1">
+                                                    <option value="">Puesto</option>
+                                                    @foreach ($ratings as $item)
+                                                        <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
+                                                            title="clasification"></i></span>
+                                                </div>
+                                                <select type="phone" class="form-control" placeholder="Celular" name="phone"
+                                                    aria-label="Username" aria-describedby="basic-addon1">
+                                                    <option value="">Industria</option>
+                                                    @foreach ($categories as $item)
+                                                        <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
+                                                            title="clasification"></i></span>
+                                                </div>
+                                                <select type="phone" class="form-control" placeholder="Celular" name="phone"
+                                                    aria-label="Username" aria-describedby="basic-addon1">
+                                                    <option value="">Solucion</option>
+                                                    @foreach ($subcategories as $item)
+                                                        <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Comentarios</span>
+                                            </div>
+                                            <textarea class="form-control" aria-label="With textarea"></textarea>
                                         </div>
                                     </div>
                                 </div>

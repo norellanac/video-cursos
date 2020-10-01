@@ -274,7 +274,10 @@ class ProductController extends Controller
     public function products($products, $type, $url, $subcategory)
     {
         
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        $ratings = Rating::all();
         $record=Product::where('url', '=', $products)->firstOrFail();
-        return view('products.show', ['record'=>$record, 'type'=>$type, 'url'=>$url]);
+        return view('products.show', ['record'=>$record, 'type'=>$type, 'url'=>$url, 'subcategories'=>$subcategories, 'categories'=>$categories , 'ratings'=>$ratings]);
     }
 }

@@ -32,21 +32,7 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="{{ asset('pctecbus/css/style.css') }}">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111574681-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-
-
-        gtag('config', 'UA-111574681-1');
-
-    </script>
 </head>
 
 <style>
@@ -174,34 +160,25 @@
                     </ul>
                 </div>
                 <div class="d-none col-xl-2 col-sm-4 mb-4 mb-xl-0 single-footer-widget">
-                    <h4>Features</h4>
+                    <h4>Redes Sociales</h4>
                     <ul>
-                        <li><a href="#">Jobs</a></li>
-                        <li><a href="#">Brand Assets</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Linkedin</a></li>
                         <li><a href="#">Investor Relations</a></li>
                         <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
-                <div class="d-none col-xl-2 col-sm-4 mb-4 mb-xl-0 single-footer-widget">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Guides</a></li>
-                        <li><a href="#">Research</a></li>
-                        <li><a href="#">Experts</a></li>
-                        <li><a href="#">Agencies</a></li>
-                    </ul>
-                </div>
-                <div class="d-none col-xl-4 col-sm-8 col-md-8 mb-4 mb-xl-0 single-footer-widget">
-                    <h4>Newsletter</h4>
-                    <p>You can trust us. we only send promo offers,</p>
+                <div class="col-xl-4 col-sm-8 col-md-8 mb-4 mb-xl-0 single-footer-widget">
+                    <h4>Suscribete</h4>
+                    <p>¿Quieres recibir información de los productos y servicios? </p>
                     <div class="form-wrap" id="mc_embed_signup">
                         <form target="_blank"
                             action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
                             method="get" class="form-inline">
-                            <input class="form-control" name="EMAIL" placeholder="Your Email Address"
+                            <input class="form-control" name="EMAIL" placeholder="Ingresa tu correo"
                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
                                 required="" type="email">
-                            <button class="click-btn btn btn-default text-uppercase btn_2">subscribe</button>
+                            <button class="click-btn btn btn-default text-uppercase btn_2">Suscribete</button>
                             <div style="position: absolute; left: -5000px;">
                                 <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
                             </div>
@@ -210,6 +187,11 @@
                         </form>
                     </div>
                 </div>
+                <div class="col-xl-2 col-sm-4 mb-4 mb-xl-0 single-footer-widget">
+                    <h4>Como llegar</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.5490603006783!2d-90.51869548576825!3d14.62474548978708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a23ab88536ef%3A0x195a64415ba0d954!2sGran%20Centro%20Comercial%20zona%204!5e0!3m2!1ses-419!2sgt!4v1601502268875!5m2!1ses-419!2sgt" width="70%"  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+                
             </div>
         </div>
     </section>

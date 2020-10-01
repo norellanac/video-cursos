@@ -47,7 +47,7 @@
                         <th scope="col">Categoria</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">Estado</th>
-                        <th scope="col">Precio</th>
+                        <th scope="col">Tipo</th>
                         <th scope="col">Opciones</th>
                     </tr>
                 </thead>
@@ -60,7 +60,7 @@
                             <td>{{ $item->category->first()->name }}</td>
                             <td>{{ $item->subcategory->first()->name }}</td>
                             <td>{{ $item->status->name }}</td>
-                            <td>{{ $item->price }}</td>
+                            <td>{{ $item->type() }}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <a class="btn btn-sm btn-secondary" href="{{ url('products/' . $item->id) }}"

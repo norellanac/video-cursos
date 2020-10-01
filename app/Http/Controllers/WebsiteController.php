@@ -21,7 +21,9 @@ class WebsiteController extends Controller
     public function ourProducts()
     {
         $suppliers=Supplier::all();
-        $records = Product::with('status')->with('status')->get();
+        $records = Product::with('status')
+        ->where('type_id',1)
+        ->with('status')->get();
         return view('website.products', ['records'=>$records, 'suppliers'=>$suppliers, 'type'=>null, 'url'=>null]);
     }
 
