@@ -322,6 +322,7 @@
         });
 
     </script>
+    @yield('sectionJS')
 
 </body>
 

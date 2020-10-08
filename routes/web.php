@@ -17,6 +17,7 @@ Route::get('company', 'WebsiteController@index');
 Route::get('OurServices', 'WebsiteController@ourServices');
 Route::get('services', 'WebsiteController@services');
 Route::get('OurProducts', 'WebsiteController@ourProducts');
+Route::get('contactInfo', 'WebsiteController@contactInfo');
 Route::get('industrias/{url}', 'CategoryController@category');
 Route::get('productos/{products}/{type}/{url}/{subcategory}', 'ProductController@products');
 

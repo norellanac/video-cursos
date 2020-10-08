@@ -134,9 +134,9 @@
                                             </a>
                                             <p class="card-text">
                                                 <img src="https://logos-download.com/wp-content/uploads/2016/02/Microsoft_box.png"
-                                                    height="70px">
+                                                    height="40px">
                                                 <img src="https://1000marcas.net/wp-content/uploads/2020/03/Sap-logo.png"
-                                                    alt="" height="70px">
+                                                    alt="" height="40px">
                                             </p>
                                         </div>
                                     </div>

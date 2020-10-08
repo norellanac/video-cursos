@@ -278,6 +278,6 @@ class ProductController extends Controller
         $subcategories = Subcategory::all();
         $ratings = Rating::all();
         $record=Product::where('url', '=', $products)->firstOrFail();
-        return view('products.show', ['record'=>$record, 'type'=>$type, 'url'=>$url, 'subcategories'=>$subcategories, 'categories'=>$categories , 'ratings'=>$ratings]);
+        return view('products.show', ['record'=>$record, 'type'=>$type, 'url'=>$url, 'subcategories'=>$subcategories, 'categories'=>$categories , 'ratings'=>$ratings, 'subcategory'=>$subcategory]);
     }
 }

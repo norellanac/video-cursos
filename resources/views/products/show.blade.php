@@ -32,7 +32,10 @@
                         </div>
                         <div class="comment-form">
                             <h2 class="h1 text-warning">Solicita Tu Cotizacion</h2>
-                            <form class="form-contact comment_form" action="#" id="commentForm">
+                            <form class="form-contact comment_form" id="myForm$" action="{{ url('contactInfo') }}">
+                                @csrf
+                                @method('POST')
+                                <input type="hidden" name="product" value="{{ $record->name }}">
                                 <div class="row pt-4">
 
                                     <div class="col-sm-6">
@@ -42,7 +45,7 @@
                                                         title="Nombre"></i></span>
                                             </div>
                                             <input type="text" class="form-control" placeholder="Nombre" name="name"
-                                                aria-label="Username" aria-describedby="basic-addon1">
+                                                aria-label="Username" aria-describedby="basic-addon1" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -52,7 +55,7 @@
                                                         class="fas fa-mobile-alt" title="Celular"></i></span>
                                             </div>
                                             <input type="phone" class="form-control" placeholder="Celular" name="phone"
-                                                aria-label="Username" aria-describedby="basic-addon1">
+                                                aria-label="Username" aria-describedby="basic-addon1" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -62,38 +65,42 @@
                                                         title=""></i></span>
                                             </div>
                                             <input type="email" class="form-control" placeholder="Correo" name="email"
-                                                aria-label="Username" aria-describedby="basic-addon1">
+                                                aria-label="Username" aria-describedby="basic-addon1" required>
                                         </div>
                                     </div>
                                     @if ($type == 'clasificacion')
+                                        <input type="hidden" name="rating" value="{{ $url }}">
+                                        <input type="hidden" name="solution" value="{{ $subcategory }}">
                                         <div class="col-sm-6">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
                                                             title="clasification"></i></span>
                                                 </div>
-                                                <select type="phone" class="form-control" placeholder="Celular" name="phone"
+                                                <select type="phone" class="form-control" name="industry"
                                                     aria-label="Username" aria-describedby="basic-addon1">
-                                                    <option value="">Industria</option>
+                                                    <option value="" disabled>Industria</option>
                                                     @foreach ($subcategories as $item)
-                                                        <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                                        <option value="{{ $item->name }}"> {{ $item->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                     @endif
                                     @if ($type == 'industria')
+                                        <input type="hidden" name="industry" value="{{ $url }}">
+                                        <input type="hidden" name="solution" value="{{ $subcategory }}">
                                         <div class="col-sm-6">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
                                                             title="clasification"></i></span>
                                                 </div>
-                                                <select type="phone" class="form-control" placeholder="Celular" name="phone"
+                                                <select type="phone" class="form-control" name="rating"
                                                     aria-label="Username" aria-describedby="basic-addon1">
                                                     <option value="">Puesto</option>
                                                     @foreach ($ratings as $item)
-                                                        <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                                        <option value="{{ $item->name }}"> {{ $item->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -106,11 +113,11 @@
                                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
                                                             title="clasification"></i></span>
                                                 </div>
-                                                <select type="phone" class="form-control" placeholder="Celular" name="phone"
+                                                <select type="phone" class="form-control" name="rating"
                                                     aria-label="Username" aria-describedby="basic-addon1">
                                                     <option value="">Puesto</option>
                                                     @foreach ($ratings as $item)
-                                                        <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                                        <option value="{{ $item->name }}"> {{ $item->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -121,11 +128,11 @@
                                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
                                                             title="clasification"></i></span>
                                                 </div>
-                                                <select type="phone" class="form-control" placeholder="Celular" name="phone"
+                                                <select type="phone" class="form-control" name="industry"
                                                     aria-label="Username" aria-describedby="basic-addon1">
                                                     <option value="">Industria</option>
                                                     @foreach ($categories as $item)
-                                                        <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                                        <option value="{{ $item->name }}"> {{ $item->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -136,11 +143,11 @@
                                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
                                                             title="clasification"></i></span>
                                                 </div>
-                                                <select type="phone" class="form-control" placeholder="Celular" name="phone"
+                                                <select type="phone" class="form-control" name="solution"
                                                     aria-label="Username" aria-describedby="basic-addon1">
                                                     <option value="">Solucion</option>
                                                     @foreach ($subcategories as $item)
-                                                        <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                                        <option value="{{ $item->name }}"> {{ $item->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -252,5 +259,81 @@
             </div>
         </section>
         <!--================Blog Area end =================-->
+        <style>
+            .modal-susc {
+                background: #fceabb;
+                /* fallback for old browsers */
+                background: -webkit-linear-gradient(to bottom, #f8b500, #fceabb);
+                /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to bottom, #f8b500, #fceabb);
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+            }
+
+        </style>
+        <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content modal-susc">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-light">Modal title</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="{{ asset('pctecbus/img/elements/undraw_inbox_oppv.svg') }}" height="300px" alt="">
+                            </div>
+                            <div class="col-6">
+                                <p class="h2 text-light">Estimado usuario</p>
+                                <p class="h4" style="color: #FF7E5F">Nuestro equipo te contactará para más información de
+                                    nuestros productos y servicios</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+    @endsection
+    @section('sectionJS')
+        <script>
+            $('#myForm').on('submit', function(e) {
+                $('#myModal').modal('show');
+                e.preventDefault();
+                var form = document.querySelector('#myForm');
+                var data = new FormData(form);
+                //var req = new XMLHttpRequest();
+                //req.send(req);
+                for (var i = 0; i < form.elements.length; i++) {
+                    console.log(form.elements[i].value);
+                }
+                console.log('Form:', data);
+            });
+
+        </script>
+
+        <script>
+            // JSON Object
+            fetch("{{ url('suscribe') }}", {
+                method: 'POST',
+                body: JSON.stringify({
+                    {
+                        $record
+                    }
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            }).then(function(response) {
+                if (response.ok) {
+                    return response.json();
+                }
+                return Promise.reject(response);
+            }).then(function(data) {
+                console.log(data);
+            }).catch(function(error) {
+                console.warn('Something went wrong.', error);
+            });
+
+        </script>
     @endsection

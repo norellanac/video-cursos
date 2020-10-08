@@ -49,5 +49,12 @@ class WebsiteController extends Controller
     {
         return view('website.services');
     }
+
+
+    public function contactInfo(Request $request)
+    {
+        dd($request);
+        return view('website.services');
+    }
     
 }
