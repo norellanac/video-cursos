@@ -1,7 +1,6 @@
 @extends('layouts.pctecbus')
 @section('content')
-    <div class="container">
-
+    <div class="">
         <!--================Blog Area =================-->
         <section class="blog_area single-post-area section_padding">
             <div class="container">
@@ -19,12 +18,11 @@
                                 <img class="img-fluid" src="img/blog/single_blog_1.png" alt="">
                             </div>
                             <div class="blog_details">
-                                <h2>{{ $record->name }}
+                                <h2>
+                                    {{ $record->name }}
+                                    <img class="d-inline" src="{{ asset('/storage/products/' . $record->url_image) }}"
+                                        height="40px;">
                                 </h2>
-                                <ul class="blog-info-link mt-3 mb-4">
-                                    <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
-                                </ul>
                                 <p class="excert">
                                     {{ $record->information }}
                                 </p>
@@ -78,9 +76,9 @@
                                                             title="clasification"></i></span>
                                                 </div>
                                                 <select type="phone" class="form-control" name="industry"
-                                                    aria-label="Username" aria-describedby="basic-addon1">
-                                                    <option value="" disabled>Industria</option>
-                                                    @foreach ($subcategories as $item)
+                                                    aria-label="Username" required>
+                                                    <option selected disabled>Industria</option>
+                                                    @foreach ($categories as $item)
                                                         <option value="{{ $item->name }}"> {{ $item->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -96,9 +94,8 @@
                                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
                                                             title="clasification"></i></span>
                                                 </div>
-                                                <select type="phone" class="form-control" name="rating"
-                                                    aria-label="Username" aria-describedby="basic-addon1">
-                                                    <option value="">Puesto</option>
+                                                <select type="phone" class="form-control" name="rating" required>
+                                                    <option selected disabled>Puesto</option>
                                                     @foreach ($ratings as $item)
                                                         <option value="{{ $item->name }}"> {{ $item->name }}</option>
                                                     @endforeach
@@ -113,9 +110,8 @@
                                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
                                                             title="clasification"></i></span>
                                                 </div>
-                                                <select type="phone" class="form-control" name="rating"
-                                                    aria-label="Username" aria-describedby="basic-addon1">
-                                                    <option value="">Puesto</option>
+                                                <select type="phone" class="form-control" name="rating">
+                                                    <option selected disabled>Puesto</option>
                                                     @foreach ($ratings as $item)
                                                         <option value="{{ $item->name }}"> {{ $item->name }}</option>
                                                     @endforeach
@@ -128,9 +124,8 @@
                                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
                                                             title="clasification"></i></span>
                                                 </div>
-                                                <select type="phone" class="form-control" name="industry"
-                                                    aria-label="Username" aria-describedby="basic-addon1">
-                                                    <option value="">Industria</option>
+                                                <select type="phone" class="form-control" name="industry">
+                                                    <option selected disabled>Industria</option>
                                                     @foreach ($categories as $item)
                                                         <option value="{{ $item->name }}"> {{ $item->name }}</option>
                                                     @endforeach
@@ -143,9 +138,8 @@
                                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-tag"
                                                             title="clasification"></i></span>
                                                 </div>
-                                                <select type="phone" class="form-control" name="solution"
-                                                    aria-label="Username" aria-describedby="basic-addon1">
-                                                    <option value="">Solucion</option>
+                                                <select type="phone" class="form-control" name="solution">
+                                                    <option selected disabled>Solucion</option>
                                                     @foreach ($subcategories as $item)
                                                         <option value="{{ $item->name }}"> {{ $item->name }}</option>
                                                     @endforeach
@@ -158,7 +152,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Comentarios</span>
                                             </div>
-                                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                                            <textarea class="form-control" aria-label="With textarea" name="comments"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -275,7 +269,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content modal-susc">
                     <div class="modal-header">
-                        <h4 class="modal-title text-light">Modal title</h4>
+                        <h4 class="modal-title text-light">Gracias por escribir.</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
@@ -297,6 +291,9 @@
     @endsection
     @section('sectionJS')
         <script>
+            function showModalContact() {
+                $('#myModal').modal('show');
+            }
             $('#myForm').on('submit', function(e) {
                 $('#myModal').modal('show');
                 e.preventDefault();
@@ -310,6 +307,9 @@
                 console.log('Form:', data);
             });
 
+            @if ($errors->any())
+                showModalContact();
+            @endif
         </script>
 
         <script>

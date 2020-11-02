@@ -168,7 +168,7 @@
                         <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
-                <div class="col-xl-4 col-sm-8 col-md-8 mb-4 mb-xl-0 single-footer-widget">
+                <div class="d-none col-xl-4 col-sm-8 col-md-8 mb-4 mb-xl-0 single-footer-widget">
                     <h4>Suscribete</h4>
                     <p>¿Quieres recibir información de los productos y servicios? </p>
                     <div class="form-wrap" id="mc_embed_signup">

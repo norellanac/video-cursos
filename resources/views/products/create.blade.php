@@ -78,14 +78,12 @@
                         @enderror
                     </div>
                     <div class="col-12 input-group input-group-lg mb-3">
-                        <div class="input-group-prepend">
+                        <div class="input-group-prepend" >
                             <span class="input-group-text transparent" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-align-left"></i>
+                                <i class="text-primary fas fa-align-left" title="Description"></i>
                             </span>
                         </div>
-                        <input id="description" placeholder="Descripción" type="text"
-                            class="text-primary form-control @error('description') is-invalid @enderror" name="description"
-                            value="{{ old('description') }}" required>
+                        <input id="description" placeholder="Descripción" type="text" class="text-primary form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required>
 
                         @error('description')
                         <span class="invalid-feedback" role="alert">
@@ -151,10 +149,7 @@
                                 <i class="text-primary fas fa-align-left"></i>
                             </span>
                         </div>
-                        <textarea id="details" placeholder="Detalles del producto" type="text"
-                            class="text-primary form-control @error('details') is-invalid @enderror" name="details"
-                            value="{{ old('details') }}" required rows="2"></textarea>
-
+                        <textarea id="summernote#" placeholder="Detalles del producto" type="text" class="text-primary form-control @error('details') is-invalid @enderror" name="details" value="{{ old('details') }}" required rows="2"></textarea>
                         @error('details')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -256,7 +251,7 @@
                     <div class="col-12 col-md-6 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
+                                <i class="text-primary fas fa-user" title="Proveedor"></i>
                             </span>
                         </div>
                         <select name="supplier_id" id="supplier_id"
@@ -281,7 +276,7 @@
                     <div class="col-12 col-md-6 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
+                                <i class="text-primary fas fa-podcast"></i>
                             </span>
                         </div>
                         <select name="type_id" id="type_id" class="form-control @error('type_id') is-invalid @enderror"
@@ -330,7 +325,7 @@
                     <div class="col-12 col-md-6 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
+                                <i class="text-primary fas fa-tags"></i>
                             </span>
                         </div>
                         <select
@@ -356,7 +351,7 @@
                     <div class="col-12 col-md-6 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
+                                <i class="text-primary fas fa-podcast"></i>
                             </span>
                         </div>
                         <select
@@ -382,7 +377,7 @@
                     <div class="col-12 col-md-6 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-newspaper"></i> / <i class="text-primary fas fa-podcast"></i>
+                                <i class="text-primary fas fa-newspaper"></i>
                             </span>
                         </div>
                         <select
@@ -413,7 +408,8 @@
                                 <button type="submit" class="btn btn-lg btn-primary">
                                     <i class="fas fa-save"></i>
                                     {{ __('Guardar') }}
-                                </button> </div>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -434,6 +430,25 @@
 @section('js')
     <script>
         $('.js-example-basic-multiple').select2();
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        $('#summernote').summernote({
+            tabsize: 2,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
 
     </script>
 @endsection

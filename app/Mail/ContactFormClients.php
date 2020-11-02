@@ -8,13 +8,11 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Http\Request;
 use Illuminate\Queue\SerializesModels;
 
-class ContactSiteToAdmins extends Mailable
+class ContactFormClients extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $request; //funcion publica para que sea usada por toda la case
-
-
+    public $request;
     /**
      * Create a new message instance.
      *
@@ -34,7 +32,6 @@ class ContactSiteToAdmins extends Mailable
     public function build()
     {
         return $this->subject('Pc Tehcnology') // obtenemos el asunto de la variable $request
-        ->view('emails.notificationAdmin'); //adminGiftNotification
-
+        ->view('emails.contactForm'); //adminGiftNotification  
     }
 }

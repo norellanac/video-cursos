@@ -29,6 +29,9 @@
     <!-- menuadmin -->
     <link href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet">
 
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
     {{-- selec2 --}}
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <!-- Global site tag (gtag.js) - Google Analytics -->

@@ -7,7 +7,7 @@
             <p class="text-primary h2">Agregar</p>
         </div>
         <div class="mt-4">
-            <form method="POST" action="{{ url('products/'. $record->id) }}" enctype="multipart/form-data"
+            <form method="POST" action="{{ url('products/' . $record->id) }}" enctype="multipart/form-data"
                 onsubmit="return checkSubmit();">
                 @csrf
                 @method('PUT')
@@ -309,7 +309,7 @@
                             </span>
                         </div>
                         <select name="status_id" id="status_id"
-                            class="form-control @error('status_id') is-invalid @enderror" >
+                            class="form-control @error('status_id') is-invalid @enderror">
                             <option value="{{ $record->status_id }}" selected>{{ $record->status->name }}</option>
                             @foreach ($status as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -330,7 +330,7 @@
                     <div class="col-12 col-md-6 input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text text-primary" id="inputGroup-sizing-sm">
-                                <i class="text-primary fas fa-tag"></i>
+                                <i class="text-primary fas fa-tag" title="categoría Principal"></i>
                             </span>
                         </div>
                         <select
@@ -339,6 +339,9 @@
                             <option selected disabled>categoría Principal</option>
                             @foreach ($categories as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                            @foreach ($record->category as $item)
+                                <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
                             @endforeach
                         </select>
                         @error('category_id')
@@ -366,6 +369,9 @@
                             @foreach ($subcategories as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
+                            @foreach ($record->subcategory as $item)
+                                <option selected value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
                         </select>
                         @error('subcategory_id')
                         <span class="invalid-feedback" role="alert">
@@ -387,10 +393,13 @@
                         </div>
                         <select
                             class="js-example-basic-multiple js-states form-control @error('rating_id') is-invalid @enderror"
-                            name="rating_id[]" id="rating_id" multiple="multiple" >
+                            name="rating_id[]" id="rating_id" multiple="multiple">
                             <option disabled selected>Clasificacion</option>
                             @foreach ($ratings as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                            @foreach ($record->rating as $item)
+                                <option selected value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
                         </select>
                         @error('rating_id')
@@ -413,7 +422,8 @@
                                 <button type="submit" class="btn btn-lg btn-primary">
                                     <i class="fas fa-save"></i>
                                     {{ __('Actualizar producto') }}
-                                </button> </div>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
